@@ -440,11 +440,18 @@ local plugins = {
 
 	--------------------------------------
 	-- Move
+	-- {
+	-- 	"ggandor/leap.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("leap").add_default_mappings()
+	-- 	end,
+	-- },
 	{
-		"ggandor/leap.nvim",
-		event = "VimEnter",
+		"folke/flash.nvim",
+		event = "VeryLazy",
 		config = function()
-			require("leap").add_default_mappings()
+			require("rc/pluginconfig/flash")
 		end,
 	},
 
