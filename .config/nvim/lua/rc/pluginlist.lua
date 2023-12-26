@@ -685,6 +685,26 @@ local plugins = {
 		end,
 	},
 
+	--------------------------------
+	-- Debugger
+	{
+		"mfussenegger/nvim-dap",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/nvim-dap")
+		end,
+		dependencies = {
+			{
+				"rcarriga/nvim-dap-ui",
+				config = function()
+					require("rc/pluginconfig/nvim-dap-ui")
+				end,
+			},
+			{ "theHamsta/nvim-dap-virtual-text" },
+			{ "nvim-telescope/telescope-dap.nvim" },
+		},
+	},
+
 	----------------------------------
 	---- Snippet
 	{
