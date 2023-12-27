@@ -6,6 +6,16 @@ dap.adapters.rust = {
 	env = { LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES" },
 	name = "lldb",
 }
+
+-- dap.configurations.rust = {
+-- 	{
+-- 		name = "Launch",
+-- 		type = "rust",
+-- 		request = "launch",
+-- 		program = "",
+-- 	},
+-- }
+
 dap.configurations.lua = {
 	{
 		type = "nlua",
