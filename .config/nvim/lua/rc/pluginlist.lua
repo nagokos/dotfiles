@@ -656,15 +656,15 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
+	----------------------------
 	-- Git
-	{
-		"NeogitOrg/neogit",
-		event = "BufReadPre",
-		config = function()
-			require("rc/pluginconfig/neogit")
-		end,
-	},
+	-- {
+	-- 	"NeogitOrg/neogit",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/neogit")
+	-- 	end,
+	-- },
 	{
 		"akinsho/git-conflict.nvim",
 		event = "VeryLazy",
@@ -685,7 +685,7 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
+	------------------------------
 	-- Debugger
 	{
 		"mfussenegger/nvim-dap",
