@@ -721,9 +721,9 @@ local plugins = {
 
 	--------------------------------
 	-- Rust
-	{
-		"simrat39/rust-tools.nvim",
-	},
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- },
 }
 
 require("lazy").setup(plugins, {
