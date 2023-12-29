@@ -57,10 +57,10 @@ local plugins = {
 	--------------------------------
 	-- ColorScheme
 	{
-		"EdenEast/nightfox.nvim",
-		event = { "BufReadPre", "BufWinEnter" },
+		"rebelot/kanagawa.nvim",
+		event = "VimEnter",
 		config = function()
-			require("rc/pluginconfig/nightfox")
+			require("rc/pluginconfig//kanagawa")
 		end,
 	},
 	--------------------------------
