@@ -27,6 +27,7 @@ vim.keymap.set("n", "GG", "G", { noremap = true, silent = true })
 -- switch buffer
 vim.keymap.set("n", "H", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "L", "<Nop>", { noremap = true, silent = true })
+
 -- columnmove. use gJ
 vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "K", "<Nop>", { noremap = true, silent = true })
