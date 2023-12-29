@@ -2,12 +2,10 @@ require("Comment").setup({
 	---Add a space b/w comment and the line
 	---@type boolean
 	padding = true,
-
 	---Line which should be ignored while comment/uncomment
 	---Example: Use '^$' to ignore empty lines
 	---@type string Lua regex
 	ignore = nil,
-
 	---Whether to create basic (operator-pending) and extra mappings for NORMAL/VISUAL mode
 	---@type table
 	mappings = {
@@ -18,7 +16,6 @@ require("Comment").setup({
 		---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
 		extra = false,
 	},
-
 	---LHS of line and block comment toggle mapping in NORMAL/VISUAL mode
 	---@type table
 	toggler = {
@@ -27,7 +24,6 @@ require("Comment").setup({
 		---block-comment toggle
 		block = "gbc",
 	},
-
 	---LHS of line and block comment operator-mode mapping in NORMAL/VISUAL mode
 	---@type table
 	opleader = {
@@ -36,7 +32,6 @@ require("Comment").setup({
 		---block-comment opfunc mapping
 		block = "gb",
 	},
-
 	---Pre-hook, called before commenting the line
 	---@type function|nil
 	pre_hook = function()

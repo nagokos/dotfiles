@@ -221,7 +221,6 @@ local plugins = {
 			{ "yioneko/nvim-yati" },
 		},
 	},
-
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		event = "VeryLazy",
@@ -297,7 +296,7 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
+	------------------------------
 	-- Commandline
 	{
 		"folke/noice.nvim",
@@ -311,7 +310,7 @@ local plugins = {
 		event = "VimEnter",
 	},
 
-	----------------------------
+	----------------------
 	-- Comment
 	{
 		"numToStr/Comment.nvim",
@@ -549,16 +548,6 @@ local plugins = {
 	},
 
 	--------------------------------
-	-- Popup Info
-	{
-		"lewis6991/hover.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/hover")
-		end,
-	},
-
-	--------------------------------
 	-- Reading assistant
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -569,7 +558,7 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
+	------------------------------
 	-- Brackets
 	{
 		"windwp/nvim-autopairs",

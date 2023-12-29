@@ -20,9 +20,9 @@ vim.keymap.set("n", "m", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "m", "[_Make]", {})
 
 -- [_Git]
-vim.keymap.set("n", "G", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x" }, "G", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "G", "[_Git]", {})
-vim.keymap.set("n", "GG", "G", { noremap = true, silent = true })
+vim.keymap.set({ "n", "x" }, "GG", "G", { noremap = true, silent = true })
 
 -- switch buffer
 vim.keymap.set("n", "H", "<Nop>", { noremap = true, silent = true })
@@ -198,6 +198,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
 -- quit
 vim.keymap.set("n", "ZZ", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "ZQ", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "ZZ", "zz", { noremap = true, silent = true })
 
 -- <Esc>
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })

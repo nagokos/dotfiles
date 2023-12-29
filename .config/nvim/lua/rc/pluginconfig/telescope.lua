@@ -441,4 +441,3 @@ vim.api.nvim_set_keymap(
 	"<Cmd>lua require('telescope.builtin').git_branches()<CR>",
 	{ noremap = true, silent = true }
 )
-
