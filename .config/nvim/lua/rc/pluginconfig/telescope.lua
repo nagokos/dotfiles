@@ -150,16 +150,16 @@ local telescope_opts = {
 		dynamic_preview_title = true,
 		winblend = 0,
 		border = {},
-		borderchars = {
-			{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-			-- prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
-			-- results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
-			-- preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-			-- fzf-preview style
-			prompt = { "─", "│", " ", "│", "┌", "┬", "│", "│" },
-			results = { "─", "│", "─", "│", "├", "┤", "┴", "└" },
-			preview = { "─", "│", "─", " ", "─", "┐", "┘", "─" },
-		},
+		-- borderchars = {
+		-- 	{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		-- 	-- results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+		-- 	-- preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+		-- 	-- fzf-preview style
+		-- 	prompt = { "─", "│", " ", "│", "┌", "┬", "│", "│" },
+		-- 	results = { "─", "│", "─", "│", "├", "┤", "┴", "└" },
+		-- 	preview = { "─", "│", "─", " ", "─", "┐", "┘", "─" },
+		-- },
+		-- color_devicons = true,
 		color_devicons = true,
 		use_less = true,
 		scroll_strategy = "cycle",

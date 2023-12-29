@@ -1,4 +1,13 @@
-require("mason").setup({})
+require("mason").setup({
+	ui = {
+		border = "rounded",
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
 
 vim.api.nvim_create_user_command("MasonUpgrade", function()
 	local registry = require("mason-registry")
