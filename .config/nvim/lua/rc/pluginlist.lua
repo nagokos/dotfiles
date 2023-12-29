@@ -56,6 +56,20 @@ local plugins = {
 
 	--------------------------------
 	-- ColorScheme
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	event = { "BufReadPre", "BufWinEnter" },
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nightfox")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/tokyonight")
+	-- 	end,
+	-- },
 	{
 		"rebelot/kanagawa.nvim",
 		event = "VimEnter",
@@ -66,9 +80,7 @@ local plugins = {
 	--------------------------------
 
 	-- Font
-	{
-		"kyazdani42/nvim-web-devicons",
-	},
+	{ "kyazdani42/nvim-web-devicons" },
 
 	--------------------------------------------------------------
 	-- LSP & completion
@@ -115,7 +127,6 @@ local plugins = {
 			require("rc/pluginconfig/nvim-lspconfig")
 		end,
 	},
-
 	{
 		"williamboman/mason-lspconfig.nvim",
 		event = "BufReadPre",
@@ -123,12 +134,12 @@ local plugins = {
 			require("rc/pluginconfig/mason-lspconfig")
 		end,
 		dependencies = {
-			{
-				"folke/neodev.nvim",
-				config = function()
-					require("rc/pluginconfig/neodev")
-				end,
-			},
+			-- {
+			-- 	"folke/neodev.nvim",
+			-- 	config = function()
+			-- 		require("rc/pluginconfig/neodev")
+			-- 	end,
+			-- },
 		},
 	},
 	{
@@ -393,13 +404,6 @@ local plugins = {
 	--------------------------------
 	-- Yank
 	{
-		"hrsh7th/nvim-pasta",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-pasta")
-		end,
-	},
-	{
 		"AckslD/nvim-neoclip.lua",
 		event = "VeryLazy",
 		config = function()
@@ -507,18 +511,11 @@ local plugins = {
 		end,
 	},
 
-	------------------------------------
-	-- command
+	-- ------------------------------------
+	-- -- command
 	{
 		"sQVe/sort.nvim",
 		cmd = { "Sort" },
-	},
-	{
-		"smjonas/live-command.nvim",
-		event = "CmdlineEnter",
-		config = function()
-			require("rc/pluginconfig/live-command")
-		end,
 	},
 	{
 		"jghauser/mkdir.nvim",
@@ -596,15 +593,8 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
-	-- Test
-	{
-		"klen/nvim-test",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-test")
-		end,
-	},
+	-- --------------------------------
+	--- Test
 	{
 		"michaelb/sniprun",
 		enabled = function()
@@ -624,26 +614,8 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
-	-- Lint
-	-- {
-	--   "mfussenegger/nvim-lint",
-	--   event = "VimEnter",
-	--   config = function()
-	--     require("rc/pluginconfig/nvim-lint")
-	--   end,
-	-- },
-
-	--------------------------------
-	-- Format
-	-- {
-	--   "stevearc/conform.nvim",
-	--   event = "VimEnter",
-	--   config = function()
-	--     require("rc/pluginconfig/conform")
-	--   end,
-	-- },
-	--
+	-- --------------------------------
+	-- -- Lint Format
 	{
 		"nvimtools/none-ls.nvim",
 		event = "VimEnter",
@@ -652,26 +624,8 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
-	-- Project
-	-- {'ygm2/rooter.nvim', event = "VimEnter"}
-	{
-		"ahmedkhalf/project.nvim",
-		event = "BufWinEnter",
-		config = function()
-			require("rc/pluginconfig/project")
-		end,
-	},
-
 	----------------------------
 	-- Git
-	-- {
-	-- 	"NeogitOrg/neogit",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/neogit")
-	-- 	end,
-	-- },
 	{
 		"akinsho/git-conflict.nvim",
 		event = "VeryLazy",
@@ -727,10 +681,6 @@ local plugins = {
 	{ "rafamadriz/friendly-snippets" },
 
 	--------------------------------
-	-- Rust
-	-- {
-	-- 	"simrat39/rust-tools.nvim",
-	-- },
 }
 
 require("lazy").setup(plugins, {
