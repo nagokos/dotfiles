@@ -7,6 +7,8 @@ gui:
   showIcons: true
 keybinding:
   universal:
+    quit: "<Esc>"
+    return: "q"
     prevBlock-alt: "<C-k>" # goto the previous block / panel
     nextBlock-alt: "<C-j>" # goto the next block / panel
   commits:
