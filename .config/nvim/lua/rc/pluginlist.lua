@@ -72,7 +72,7 @@ local plugins = {
 	-- },
 	{
 		"rebelot/kanagawa.nvim",
-		event = "VimEnter",
+		lazy = false,
 		config = function()
 			require("rc/pluginconfig//kanagawa")
 		end,
@@ -569,8 +569,8 @@ local plugins = {
 	-- Reading assistant
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		lazy = false,
 		main = "ibl",
-		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/indent-blankline")
 		end,
