@@ -131,6 +131,13 @@ local plugins = {
 			},
 		},
 	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = { "BufRead", "BufNewFile" },
+		config = function()
+			require("rc/pluginconfig/lsp_signature")
+		end,
+	},
 
 	--------------------------------
 	-- LSP's UI
