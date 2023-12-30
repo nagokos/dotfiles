@@ -24,8 +24,8 @@ ls.filetype_extend("rust", { "rustdoc" })
 ls.filetype_extend("javascript", { "jsdoc" })
 
 require("luasnip.loaders.from_lua").load({
-  paths = "~/.config/nvim/luasnip-snippets",
-  exclude = { "javascript" }
+	paths = "~/.config/nvim/luasnip-snippets",
+	exclude = { "javascript" },
 })
 
 -- You can also use lazy loading so snippets are loaded on-demand, not all at once (may interfere with lazy-loading luasnip itself).

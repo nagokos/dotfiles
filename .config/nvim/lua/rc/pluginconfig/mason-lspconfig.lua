@@ -28,9 +28,15 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "[_Lsp]q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	vim.keymap.set("n", "[_Lsp]f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
-	-- require("lsp_signature").on_attach()
-	-- require("illuminate").on_attach(client)
-	-- require("nvim-navic").attach(client, bufnr)
+	require("lspconfig.ui.windows").default_options.border = "rounded"
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		silent = true,
+		border = "rounded",
+	})
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+		silent = true,
+		border = "rounded",
+	})
 end
 
 local group_name = "vimrc_mason_lspconfig"
@@ -55,15 +61,26 @@ local capabilities = vim.tbl_deep_extend(
 )
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
+		lspconfig[server_name].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 	end,
 	["rust_analyzer"] = function()
-		local has_rust_tools, rust_tools = pcall(require, "rust-tools")
-		if has_rust_tools then
-			rust_tools.setup({ server = { capabilities = capabilities, on_attach = on_attach } })
-		else
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities, on_attach = on_attach })
-		end
+		lspconfig.rust_analyzer.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				check = {
+					command = "clippy",
+				},
+				diagnostics = {
+					experimental = {
+						enable = true,
+					},
+				},
+			},
+		})
 	end,
 	["lua_ls"] = function()
 		lspconfig.lua_ls.setup({

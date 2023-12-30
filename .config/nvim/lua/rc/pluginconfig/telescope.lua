@@ -307,16 +307,16 @@ telescope_builtin.my_mru = function(opts)
 	local results = join_uniq(results_mru_cur, results_git)
 
 	pickers
-			.new(opts, {
-				prompt_title = "MRU",
-				finder = finders.new_table({
-					results = results,
-					entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
-				}),
-				sorter = conf.file_sorter(opts),
-				previewer = conf.file_previewer(opts),
-			})
-			:find()
+		.new(opts, {
+			prompt_title = "MRU",
+			finder = finders.new_table({
+				results = results,
+				entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),
+			}),
+			sorter = conf.file_sorter(opts),
+			previewer = conf.file_previewer(opts),
+		})
+		:find()
 end
 
 telescope_builtin.grep_prompt = function(opts)

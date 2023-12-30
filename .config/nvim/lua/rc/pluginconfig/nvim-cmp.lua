@@ -14,6 +14,12 @@ local t = function(str)
 end
 
 cmp.setup({
+	window = {
+		completion = {
+			border = "rounded",
+			scrollbar = "║",
+		},
+	},
 	formatting = {
 		-- fields = {'abbr', 'kind', 'menu'},
 		format = require("lspkind").cmp_format({
@@ -219,4 +225,3 @@ cmp.setup.cmdline(":", {
 	},
 	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { { name = "cmdline_history" } } }),
 })
-

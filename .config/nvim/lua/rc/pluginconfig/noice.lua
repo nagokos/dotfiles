@@ -6,9 +6,20 @@ require("noice").setup({
 	lsp = {
 		-- can not filter null-ls's data
 		-- j-hui/fidget.nvim
+		hover = {
+			enabled = false,
+		},
+		signature = {
+			enabled = false,
+		},
 		progress = {
 			enabled = false,
 		},
+	},
+	presets = {
+		lsp_doc_border = true,
+		bottom_search = false,
+		command_palette = false,
 	},
 	messages = {
 		-- Using kevinhwang91/nvim-hlslens because virtualtext is hard to read
@@ -19,4 +30,3 @@ require("noice").setup({
 vim.keymap.set("c", "<S-Enter>", function()
 	require("noice").redirect(vim.fn.getcmdline())
 end, { desc = "Redirect Cmdline" })
-
