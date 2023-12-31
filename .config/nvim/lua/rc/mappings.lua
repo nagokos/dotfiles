@@ -190,7 +190,7 @@ vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
 vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
 vim.keymap.set("c", "<Down>", "<C-n>", { noremap = true, silent = false })
-vim.o.cedit = "<C-c>" -- command window
+-- vim.o.cedit = "<C-c>" -- command window
 
 -- terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
