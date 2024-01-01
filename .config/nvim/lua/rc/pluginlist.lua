@@ -288,9 +288,9 @@ local plugins = {
 	{
 		"akinsho/bufferline.nvim",
 		event = "VimEnter",
-		enabled = function()
-			return not vim.g.vscode
-		end,
+		-- enabled = function()
+		-- 	return not vim.g.vscode
+		-- end,
 		config = function()
 			require("rc/pluginconfig/bufferline")
 		end,
