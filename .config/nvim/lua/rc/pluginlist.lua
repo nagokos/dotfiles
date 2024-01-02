@@ -564,7 +564,7 @@ local plugins = {
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()
-			require("nvim-autopairs").setup()
+			require("rc/pluginconfig/nvim-autopairs")
 		end,
 	},
 	{
