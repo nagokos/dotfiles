@@ -8,12 +8,12 @@ dap.adapters.rust = {
 }
 
 -- dap.configurations.rust = {
--- 	{
--- 		name = "Launch",
--- 		type = "rust",
--- 		request = "launch",
--- 		program = "",
--- 	},
+--   {
+--     name = "Launch",
+--     type = "rust",
+--     request = "launch",
+--     program = "",
+--   },
 -- }
 
 dap.configurations.lua = {
