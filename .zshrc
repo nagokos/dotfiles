@@ -61,8 +61,8 @@ zinit light zsh-users/zsh-completions
 # starship
 eval "$(starship init zsh)"
 
-# rtx
-eval "$(rtx activate zsh)"
+# mise
+eval "$(mise activate zsh)"
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
