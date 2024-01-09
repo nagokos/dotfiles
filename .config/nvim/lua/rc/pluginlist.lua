@@ -664,14 +664,14 @@ local plugins = {
 
 	--------------------------------
 	-- Memo
-	{
-		"renerocksai/telekasten.nvim",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/telekasten")
-		end,
-		dependencies = { "renerocksai/calendar-vim" },
-	},
+	-- {
+	-- 	"renerocksai/telekasten.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/telekasten")
+	-- 	end,
+	-- 	dependencies = { "renerocksai/calendar-vim" },
+	-- },
 }
 
 require("lazy").setup(plugins, {
