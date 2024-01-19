@@ -201,4 +201,4 @@ vim.keymap.set("n", "ZQ", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "ZZ", "zz", { noremap = true, silent = true })
 
 -- <Esc>
-vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+-- vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
