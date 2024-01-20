@@ -588,13 +588,13 @@ local plugins = {
 
 	--------------------------------
 	-- Task runner
-	{
-		"stevearc/overseer.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/overseer")
-		end,
-	},
+	-- {
+	-- 	"stevearc/overseer.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/overseer")
+	-- 	end,
+	-- },
 
 	-- --------------------------------
 	-- -- Lint Format
@@ -661,17 +661,6 @@ local plugins = {
 
 	----Snippet Pack
 	{ "rafamadriz/friendly-snippets" },
-
-	--------------------------------
-	-- Memo
-	-- {
-	-- 	"renerocksai/telekasten.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		require("rc/pluginconfig/telekasten")
-	-- 	end,
-	-- 	dependencies = { "renerocksai/calendar-vim" },
-	-- },
 }
 
 require("lazy").setup(plugins, {
