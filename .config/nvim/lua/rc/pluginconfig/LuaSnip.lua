@@ -16,22 +16,14 @@ ls.setup({
 	end,
 })
 
--- in a lua file: search lua-, then c-, then all-snippets.
 ls.filetype_extend("lua", { "c" })
--- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
 ls.filetype_set("cpp", { "c" })
 
-require("luasnip.loaders.from_lua").load({
-	paths = "~/.config/nvim/luasnip-snippets",
-	exclude = { "javascript" },
-})
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnip-snippets" })
 
--- You can also use lazy loading so snippets are loaded on-demand, not all at once (may interfere with lazy-loading luasnip itself).
--- require("luasnip.loaders.from_vscode").lazy_load() -- You can pass { paths = "./my-snippets/"} as well
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/vscode-snippets" } }) -- You can pass { paths = "./my-snippets/"} as well
 require("luasnip.loaders.from_vscode").lazy_load({
 	paths = { vim.fn.stdpath("data") .. "/lazy/friendly-snippets" },
-}) -- You can pass { paths = "./my-snippets/"} as well
+})
 
 ls.filetype_extend("all", { "_" })
 
