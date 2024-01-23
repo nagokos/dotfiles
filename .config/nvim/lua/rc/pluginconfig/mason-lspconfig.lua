@@ -37,6 +37,14 @@ local on_attach = function(client, bufnr)
 		silent = true,
 		border = "rounded",
 	})
+	vim.lsp.handlers["testDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		underline = true,
+		virtual_text = {
+			spacing = 5,
+			severity_limit = "Warning",
+		},
+		update_in_insert = true,
+	})
 end
 
 local group_name = "vimrc_mason_lspconfig"
@@ -80,6 +88,23 @@ require("mason-lspconfig").setup_handlers({
 					},
 				},
 			},
+		})
+	end,
+	["tsserver"] = function()
+		lspconfig.tsserver.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				completions = {
+					completeFunctionCalls = true,
+				},
+			},
+		})
+	end,
+	["clangd"] = function()
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 	["lua_ls"] = function()
