@@ -102,13 +102,13 @@ local plugins = {
 			{ "hrsh7th/cmp-emoji" },
 			{ "hrsh7th/cmp-calc" },
 			{ "f3fora/cmp-spell" },
+			{ "saadparwaiz1/cmp_luasnip" },
 			{
 				"uga-rosa/cmp-dictionary",
 				config = function()
 					require("rc/pluginconfig/cmp-dictionary")
 				end,
 			},
-			{ "rafamadriz/friendly-snippets" },
 			{ "ray-x/cmp-treesitter" },
 			{
 				"onsails/lspkind-nvim",
