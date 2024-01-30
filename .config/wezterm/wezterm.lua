@@ -63,7 +63,7 @@ local local_config = load_local_config("local")
 ---------------------------------------------------------------
 local config = {
 	font = wezterm.font("JetBrainsMono Nerd Font"),
-	font_size = 14.0,
+	font_size = 21.0,
 	check_for_updates = false,
 	use_ime = true,
 	ime_preedit_rendering = "Builtin",
