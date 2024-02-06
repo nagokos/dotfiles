@@ -1,3 +1,5 @@
+require("hlslens").setup()
+
 vim.keymap.set("n", "n", function()
 	pcall(vim.cmd, "normal! " .. vim.v.count1 .. "n")
 	require("hlslens").start()
