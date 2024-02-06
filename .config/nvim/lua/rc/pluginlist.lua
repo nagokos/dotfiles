@@ -354,14 +354,14 @@ local plugins = {
 
 	--------------------------------
 	-- Scrollbar
-	{
-		"petertriho/nvim-scrollbar",
-		event = "VimEnter",
-		config = function()
-			require("rc/pluginconfig/nvim-scrollbar")
-		end,
-		dependencies = { { "kevinhwang91/nvim-hlslens" } },
-	},
+	-- {
+	-- 	"petertriho/nvim-scrollbar",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-scrollbar")
+	-- 	end,
+	-- 	dependencies = { { "kevinhwang91/nvim-hlslens" } },
+	-- },
 
 	--------------------------------
 	-- Operator
