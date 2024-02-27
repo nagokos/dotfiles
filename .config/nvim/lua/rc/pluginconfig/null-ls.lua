@@ -121,15 +121,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 local sources = {
 	-- LuaFormatter off
-	null_ls.builtins.formatting.trim_whitespace.with({
-		disabled_filetypes = ignored_filetypes,
-		runtime_condition = function()
-			local count = tonumber(vim.api.nvim_exec("execute 'silent! %s/\\v\\s+$//gn'", true):match("%w+"))
-			if count then
-				return vim.fn.confirm("Whitespace found, delete it?", "&No\n&Yes", 1, "Question") == 2
-			end
-		end,
-	}),
+	-- null_ls.builtins.formatting.trim_whitespace.with({
+	-- 	disabled_filetypes = ignored_filetypes,
+	-- 	runtime_condition = function()
+	-- 		local count = tonumber(vim.api.nvim_exec("execute 'silent! %s/\\v\\s+$//gn'", true):match("%w+"))
+	-- 		if count then
+	-- 			return vim.fn.confirm("Whitespace found, delete it?", "&No\n&Yes", 1, "Question") == 2
+	-- 		end
+	-- 	end,
+	-- }),
 	null_ls.builtins.formatting.stylua.with({
 		condition = function()
 			return vim.fn.executable("stylua") > 0
@@ -152,29 +152,29 @@ local sources = {
 			return vim.fn.executable("prettier") > 0 or vim.fn.executable("./node_modules/.bin/prettier") > 0
 		end,
 	}),
-	null_ls.builtins.diagnostics.eslint.with({
-		condition = function()
-			vim.o.fixendofline = true -- Error: [prettier/prettier] Insert `⏎`
-			return vim.fn.executable("eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
-		end,
-	}),
+	-- null_ls.builtins.diagnostics.eslint.with({
+	-- 	condition = function()
+	-- 		vim.o.fixendofline = true -- Error: [prettier/prettier] Insert `⏎`
+	-- 		return vim.fn.executable("eslint") > 0 or vim.fn.executable("./node_modules/.bin/eslint") > 0
+	-- 	end,
+	-- }),
 	-- null_ls.builtins.formatting.shfmt.with({
 	-- 	condition = function()
 	-- 		return vim.fn.executable("shfmt") > 0
 	-- 	end,
 	-- }),
 	null_ls.builtins.diagnostics.zsh,
-	null_ls.builtins.formatting.beautysh.with({
-		extra_args = { "-t" },
-		condition = function()
-			return vim.fn.executable("beautysh") > 0
-		end,
-	}),
-	null_ls.builtins.diagnostics.shellcheck.with({
-		condition = function()
-			return vim.fn.executable("shellcheck") > 0
-		end,
-	}),
+	-- null_ls.builtins.formatting.beautysh.with({
+	-- 	extra_args = { "-t" },
+	-- 	condition = function()
+	-- 		return vim.fn.executable("beautysh") > 0
+	-- 	end,
+	-- }),
+	-- null_ls.builtins.diagnostics.shellcheck.with({
+	-- 	condition = function()
+	-- 		return vim.fn.executable("shellcheck") > 0
+	-- 	end,
+	-- }),
 	null_ls.builtins.diagnostics.editorconfig_checker.with({
 		condition = function()
 			return vim.fn.executable("ec") > 0
@@ -223,11 +223,11 @@ local sources = {
 	-- 		return vim.fn.executable("markdownlint") > 0
 	-- 	end,
 	-- }),
-	null_ls.builtins.formatting.markdown_toc.with({
-		condition = function()
-			return vim.fn.executable("markdown-toc") > 0
-		end,
-	}),
+	-- null_ls.builtins.formatting.markdown_toc.with({
+	-- 	condition = function()
+	-- 		return vim.fn.executable("markdown-toc") > 0
+	-- 	end,
+	-- }),
 	null_ls.builtins.code_actions.gitsigns,
 	-- LuaFormatter on
 }
