@@ -454,7 +454,7 @@ local plugins = {
 		"ggandor/leap.nvim",
 		event = "VimEnter",
 		config = function()
-			require("leap").add_default_mappings()
+			require("leap").create_default_mappings()
 		end,
 	},
 
