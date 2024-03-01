@@ -1,5 +1,4 @@
 require('lint').linters_by_ft = {
-  lua = { 'selene', },
   sh = { 'shellcheck', },
   bash = { 'shellcheck', },
   zsh = { 'shellcheck', },

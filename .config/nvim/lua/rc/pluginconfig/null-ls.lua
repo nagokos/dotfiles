@@ -163,7 +163,7 @@ local sources = {
 	-- 		return vim.fn.executable("shfmt") > 0
 	-- 	end,
 	-- }),
-	null_ls.builtins.diagnostics.zsh,
+	-- null_ls.builtins.diagnostics.zsh,
 	-- null_ls.builtins.formatting.beautysh.with({
 	-- 	extra_args = { "-t" },
 	-- 	condition = function()
@@ -178,7 +178,7 @@ local sources = {
 	null_ls.builtins.diagnostics.editorconfig_checker.with({
 		condition = function()
 			return vim.fn.executable("ec") > 0
-		end,
+      end,
 	}),
 	null_ls.builtins.diagnostics.cspell.with({
 		diagnostics_postprocess = function(diagnostic)
