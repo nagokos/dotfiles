@@ -1,10 +1,9 @@
 require('lint').linters_by_ft = {
-  sh = { 'shellcheck', },
-  bash = { 'shellcheck', },
-  zsh = { 'shellcheck', },
+  sh = { 'shellcheck' },
+  bash = { 'shellcheck' },
+  zsh = { 'shellcheck' },
   javascript = { 'eslint_d' },
   typescript = { 'eslint_d' },
-  rust = { 'clippy', }
 }
 require("lint").try_lint()
 
