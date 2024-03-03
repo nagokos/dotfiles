@@ -79,6 +79,9 @@ require("mason-lspconfig").setup_handlers({
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
+        cargo = {
+          features = "all",
+        },
         check = {
           command = "clippy",
         },
@@ -99,6 +102,19 @@ require("mason-lspconfig").setup_handlers({
           completeFunctionCalls = true,
         },
       },
+    })
+  end,
+  ["yamlls"] = function()
+    lspconfig.yamlls.setup({
+      settings = {
+        yaml = {
+          schemas = {
+            ['https://json.schemastore.org/github-workflow.json'] = "/.github/workflows/*",
+            ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] =
+            "*compose.y*ml"
+          }
+        }
+      }
     })
   end,
   ["clangd"] = function()

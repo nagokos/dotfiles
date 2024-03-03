@@ -55,20 +55,6 @@ local plugins = {
   },
   --------------------------------
   -- ColorScheme
-  -- {
-  -- 	"EdenEast/nightfox.nvim",
-  -- 	event = { "BufReadPre", "BufWinEnter" },
-  -- 	config = function()
-  -- 		require("rc/pluginconfig/nightfox")
-  -- 	end,
-  -- },
-  -- {
-  -- 	"folke/tokyonight.nvim",
-  -- 	lazy = false,
-  -- 	config = function()
-  -- 		require("rc/pluginconfig/tokyonight")
-  -- 	end,
-  -- },
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
@@ -83,7 +69,6 @@ local plugins = {
 
   --------------------------------------------------------------
   -- LSP & completion
-
   --------------------------------
   -- Auto Completion
   {
@@ -94,21 +79,12 @@ local plugins = {
     end,
     dependencies = {
       { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-nvim-lsp-document-symbol" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-nvim-lua" },
-      { "hrsh7th/cmp-emoji" },
-      { "hrsh7th/cmp-calc" },
+      { "hrsh7th/cmp-vsnip" },
+      { "hrsh7th/vim-vsnip" },
       { "f3fora/cmp-spell" },
       { "saadparwaiz1/cmp_luasnip" },
-      {
-        "uga-rosa/cmp-dictionary",
-        config = function()
-          require("rc/pluginconfig/cmp-dictionary")
-        end,
-      },
-      { "ray-x/cmp-treesitter" },
       {
         "onsails/lspkind-nvim",
         config = function()
@@ -132,14 +108,6 @@ local plugins = {
     config = function()
       require("rc/pluginconfig/mason-lspconfig")
     end,
-    dependencies = {
-      -- {
-      -- 	"folke/neodev.nvim",
-      -- 	config = function()
-      -- 		require("rc/pluginconfig/neodev")
-      -- 	end,
-      -- },
-    },
   },
   {
     "ray-x/lsp_signature.nvim",
@@ -189,12 +157,6 @@ local plugins = {
           require("telescope").load_extension("ui-select")
         end,
       },
-      {
-        "nvim-telescope/telescope-live-grep-args.nvim",
-        config = function()
-          require("telescope").load_extension("live_grep_args")
-        end,
-      },
     },
   },
   {
@@ -219,10 +181,6 @@ local plugins = {
       { "JoosepAlviste/nvim-ts-context-commentstring" },
       { "yioneko/nvim-yati" },
     },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
   },
   {
     "mizlan/iswap.nvim",
@@ -287,9 +245,6 @@ local plugins = {
   {
     "akinsho/bufferline.nvim",
     event = "VimEnter",
-    -- enabled = function()
-    -- 	return not vim.g.vscode
-    -- end,
     config = function()
       require("rc/pluginconfig/bufferline")
     end,
@@ -353,14 +308,14 @@ local plugins = {
 
   --------------------------------
   -- Scrollbar
-  -- {
-  -- 	"petertriho/nvim-scrollbar",
-  -- 	event = "VimEnter",
-  -- 	config = function()
-  -- 		require("rc/pluginconfig/nvim-scrollbar")
-  -- 	end,
-  -- 	dependencies = { { "kevinhwang91/nvim-hlslens" } },
-  -- },
+  {
+    "petertriho/nvim-scrollbar",
+    event = "VimEnter",
+    config = function()
+      require("rc/pluginconfig/nvim-scrollbar")
+    end,
+    dependencies = { { "kevinhwang91/nvim-hlslens" } },
+  },
 
   --------------------------------
   -- Operator
@@ -502,20 +457,6 @@ local plugins = {
     end,
   },
 
-  ------------------------------------
-  -- command
-  {
-    "sQVe/sort.nvim",
-    cmd = { "Sort" },
-  },
-  {
-    "jghauser/mkdir.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("mkdir")
-    end,
-  },
-
   --------------------------------
   -- Mark
   {
@@ -585,26 +526,6 @@ local plugins = {
     cmd = { "SnipRun" },
   },
 
-  --------------------------------
-  -- Task runner
-  -- {
-  -- 	"stevearc/overseer.nvim",
-  -- 	event = "VeryLazy",
-  -- 	config = function()
-  -- 		require("rc/pluginconfig/overseer")
-  -- 	end,
-  -- },
-
-  -- --------------------------------
-  -- -- Lint Format
-  -- {
-  -- 	"nvimtools/none-ls.nvim",
-  -- 	event = "VimEnter",
-  -- 	config = function()
-  -- 		require("rc/pluginconfig/null-ls")
-  -- 	end,
-  -- },
-
   ------------------------------------
   -- Format
   {
@@ -665,6 +586,18 @@ local plugins = {
       { "theHamsta/nvim-dap-virtual-text" },
       { "nvim-telescope/telescope-dap.nvim" },
     },
+  },
+
+  ---------------------------------------
+  -- Language
+
+  -- Rust
+  {
+    "saecki/crates.nvim",
+    tag = "stable",
+    config = function()
+      require("crates").setup({})
+    end
   },
 
   ----------------------------------

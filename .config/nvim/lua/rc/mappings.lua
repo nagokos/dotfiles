@@ -56,10 +56,10 @@ vim.keymap.set("n", "gk", "k", { noremap = true, silent = true })
 
 -- move cursor
 vim.keymap.set({ "n", "x" }, "j", function()
-	return vim.v.count > 0 and "j" or "gj"
+  return vim.v.count > 0 and "j" or "gj"
 end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
-	return vim.v.count > 0 and "k" or "gk"
+  return vim.v.count > 0 and "k" or "gk"
 end, { noremap = true, expr = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
@@ -69,22 +69,22 @@ vim.keymap.set("n", "<C-s>", "<C-w>p", { noremap = true, silent = true })
 
 -- Automatically indent with i and A made by ycino
 vim.keymap.set("n", "i", function()
-	return string.len(vim.api.nvim_get_current_line()) ~= 0 and "i" or '"_cc'
+  return string.len(vim.api.nvim_get_current_line()) ~= 0 and "i" or '"_cc'
 end, { noremap = true, expr = true, silent = true })
 vim.keymap.set("n", "A", function()
-	return string.len(vim.api.nvim_get_current_line()) ~= 0 and "A" or '"_cc'
+  return string.len(vim.api.nvim_get_current_line()) ~= 0 and "A" or '"_cc'
 end, { noremap = true, expr = true, silent = true })
 
 -- toggle 0, ^ made by ycino
 vim.keymap.set("n", "0", function()
-	return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
-		or "^"
+  return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
+      or "^"
 end, { noremap = true, expr = true, silent = true })
 
 -- Emacs style
 vim.keymap.set("c", "<C-a>", "<Home>", { noremap = true, silent = false })
 if not vim.g.vscode then
-	vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, silent = false })
+  vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, silent = false })
 end
 vim.keymap.set("c", "<C-f>", "<right>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-b>", "<left>", { noremap = true, silent = false })
@@ -110,19 +110,19 @@ vim.keymap.set("n", "gq", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true
 
 -- lambdalisue's yank for slack
 vim.keymap.set("x", "[_SubLeader]y", function()
-	vim.cmd.normal({ "y", bang = true })
-	local content = vim.fn.getreg(vim.v.register, 1, true)
-	local spaces = {}
-	for _, v in ipairs(content) do
-		table.insert(spaces, string.match(v, "%s*"):len())
-	end
-	table.sort(spaces)
-	local leading = spaces[1]
-	local content_new = {}
-	for _, v in ipairs(content) do
-		table.insert(content_new, string.sub(v, leading + 1))
-	end
-	vim.fn.setreg(vim.v.register, content_new, vim.fn.getregtype(vim.v.register))
+  vim.cmd.normal({ "y", bang = true })
+  local content = vim.fn.getreg(vim.v.register, 1, true)
+  local spaces = {}
+  for _, v in ipairs(content) do
+    table.insert(spaces, string.match(v, "%s*"):len())
+  end
+  table.sort(spaces)
+  local leading = spaces[1]
+  local content_new = {}
+  for _, v in ipairs(content) do
+    table.insert(content_new, string.sub(v, leading + 1))
+  end
+  vim.fn.setreg(vim.v.register, content_new, vim.fn.getregtype(vim.v.register))
 end, { noremap = true, silent = true })
 
 -- paste
@@ -185,7 +185,7 @@ vim.keymap.set("x", ">", ">gv", { noremap = true, silent = true })
 
 -- command mode
 vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p:h')<CR>/", { noremap = true, silent = false }) -- expand path
-vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false }) -- expand file (not ext)
+vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false })  -- expand file (not ext)
 vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
 vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
