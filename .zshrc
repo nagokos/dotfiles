@@ -16,7 +16,6 @@ alias vim="nvim"
 alias sed="gsed"
 alias lgit="lazygit"
 
-# Change Lazygit Default path
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # fzfのデフォルト設定
