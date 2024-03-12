@@ -284,11 +284,6 @@ local plugins = {
     end,
   },
   {
-    "norcalli/nvim-colorizer.lua",
-    event = "VeryLazy",
-    config = true,
-  },
-  {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     config = function()

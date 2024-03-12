@@ -15,10 +15,6 @@ vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "[_Lsp]", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", ";", "[_Lsp]", {})
 
--- [_Make]
-vim.keymap.set("n", "m", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "m", "[_Make]", {})
-
 -- [_Git]
 vim.keymap.set({ "n", "x" }, "G", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "G", "[_Git]", {})
