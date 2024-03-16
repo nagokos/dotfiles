@@ -55,15 +55,6 @@ local plugins = {
   },
   --------------------------------
   -- ColorScheme
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   priority = 1000,
-  --   event = "VimEnter",
-  --   config = function()
-  --     require("rc/pluginconfig/catppuccin")
-  --   end
-  -- },
   {
     "EdenEast/nightfox.nvim",
     event = "VimEnter",
@@ -71,15 +62,8 @@ local plugins = {
       require("rc/pluginconfig/nightfox")
     end
   },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("rc/pluginconfig//kanagawa")
-  --   end,
-  -- },
-  --------------------------------
 
+  --------------------------------
   -- Font
   { "kyazdani42/nvim-web-devicons" },
 
