@@ -5,6 +5,8 @@ HISTFILE=~/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=10000
 
+export EDITOR="nvim"
+
 alias dc="docker compose"
 alias cat="bat"
 alias ps="procs"
