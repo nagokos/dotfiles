@@ -55,13 +55,29 @@ local plugins = {
   },
   --------------------------------
   -- ColorScheme
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   priority = 1000,
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("rc/pluginconfig/catppuccin")
+  --   end
+  -- },
   {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
+    "EdenEast/nightfox.nvim",
+    event = "VimEnter",
     config = function()
-      require("rc/pluginconfig//kanagawa")
-    end,
+      require("rc/pluginconfig/nightfox")
+    end
   },
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require("rc/pluginconfig//kanagawa")
+  --   end,
+  -- },
   --------------------------------
 
   -- Font
@@ -110,6 +126,7 @@ local plugins = {
     end,
   },
   {
+
     "ray-x/lsp_signature.nvim",
     event = { "BufRead", "BufNewFile" },
     config = function()

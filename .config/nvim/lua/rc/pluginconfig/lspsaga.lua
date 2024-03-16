@@ -1,21 +1,22 @@
 local lspsaga = require("lspsaga")
 lspsaga.setup({ -- defaults ...
-	ui = {
-		code_action = "󰌶",
-		diagnostic = "",
-	},
-	lightbulb = {
-		virtual_text = false,
-	},
-	finder = {
-		scroll_down = "<C-f>",
-		scroll_up = "<C-b>", -- quit can be a table
-		quit = { "q", "<ESC>" },
-	},
-	symbol_in_winbar = {
-		enable = false,
-		show_file = false,
-	},
+  ui = {
+    -- kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+    code_action = "󰌶",
+    diagnostic = "",
+  },
+  lightbulb = {
+    virtual_text = false,
+  },
+  finder = {
+    scroll_down = "<C-f>",
+    scroll_up = "<C-b>", -- quit can be a table
+    quit = { "q", "<ESC>" },
+  },
+  symbol_in_winbar = {
+    enable = false,
+    show_file = false,
+  },
 })
 
 vim.keymap.set("n", "[_Lsp]r", "<cmd>Lspsaga rename ++project<cr>", { silent = true, noremap = true })
@@ -32,10 +33,10 @@ vim.keymap.set("n", "[_Lsp]b", "<cmd>Lspsaga show_buf_diagnostics<CR>", { silent
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "[E", function()
-	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true, noremap = true })
 vim.keymap.set("n", "]E", function()
-	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+  require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "[_Lsp]I", "<cmd>Lspsaga incoming_calls<CR>", { silent = true, noremap = true })
