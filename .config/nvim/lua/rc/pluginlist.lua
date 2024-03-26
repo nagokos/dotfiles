@@ -53,6 +53,7 @@ local plugins = {
       require("rc/pluginconfig/nvim-notify")
     end,
   },
+
   --------------------------------
   -- ColorScheme
   {
@@ -62,7 +63,13 @@ local plugins = {
       require("rc/pluginconfig/nightfox")
     end
   },
-
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   event = "VimEnter",
+  --   config = function()
+  --     require("rc/pluginconfig/kanagawa")
+  --   end
+  -- },
   --------------------------------
   -- Font
   { "kyazdani42/nvim-web-devicons" },
@@ -579,6 +586,7 @@ local plugins = {
           require("rc/pluginconfig/nvim-dap-ui")
         end,
       },
+      { "nvim-neotest/nvim-nio" },
       { "theHamsta/nvim-dap-virtual-text" },
       { "nvim-telescope/telescope-dap.nvim" },
     },
