@@ -14,7 +14,7 @@ local t = {}
 
 t["<C-u>"] = { "scroll", { "-vim.wo.scroll", "false", "150" } }
 t["<C-d>"] = { "scroll", { "vim.wo.scroll", "false", "150" } }
-t['<C-y>'] = { 'scroll', { '-0.10', 'true', '30' } }
-t['<C-e>'] = { 'scroll', { '0.10', 'true', '30' } }
+t['<C-y>'] = { 'scroll', { '-0.10', 'true', '70' } }
+t['<C-e>'] = { 'scroll', { '0.10', 'true', '70' } }
 
 require("neoscroll.config").set_mappings(t)
