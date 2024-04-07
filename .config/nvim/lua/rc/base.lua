@@ -1,5 +1,5 @@
 if vim.fn.has("mac") == 1 then
-	vim.env.LANG = "en_US.UTF-8"
+  vim.env.LANG = "en_US.UTF-8"
 end
 vim.cmd.language(vim.env.LANG)
 vim.o.langmenu = vim.env.LANG

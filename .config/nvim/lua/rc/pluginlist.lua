@@ -310,16 +310,6 @@ local plugins = {
   },
 
   --------------------------------
-
-  -- Scroll
-  {
-    "karb94/neoscroll.nvim",
-    event = "VimEnter",
-    config = function()
-      require("rc/pluginconfig/neoscroll")
-    end
-  },
-
   -- Scrollbar
   {
     "petertriho/nvim-scrollbar",

@@ -80,7 +80,7 @@ vim.o.modeline = false
 -- + reg: Ctrl-v nnamedplus
 -- * reg: middle click unnamed
 if vim.fn.has("clipboard") == 1 then
-	vim.o.clipboard = "unnamedplus,unnamed"
+  vim.o.clipboard = "unnamedplus,unnamed"
 end
 
 -- beep sound
