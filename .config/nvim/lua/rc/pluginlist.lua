@@ -253,6 +253,8 @@ local plugins = {
   {
     "akinsho/bufferline.nvim",
     event = "VimEnter",
+    -- https://github.com/akinsho/bufferline.nvim/issues/895
+    commit = "f6f00d9ac1a51483ac78418f9e63126119a70709",
     config = function()
       require("rc/pluginconfig/bufferline")
     end,
@@ -602,6 +604,9 @@ local plugins = {
     config = function()
       require("crates").setup({})
     end
+  },
+  {
+    "mrcjkb/rustaceanvim",
   },
 
   ----------------------------------
