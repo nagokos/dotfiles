@@ -1,15 +1,7 @@
+vim.cmd.highlight("TabLineSel guibg=#ddc7a1")
+
 require("bufferline").setup({
   options = {
-    -- hilights = require("catppuccin.groups.integrations.bufferline").get(),
-    -- custom = {
-    --   all = {
-    --     fill = { bg = "#000000" },,
-    --     latter = {
-    --       background = { fg = "#000000" },
-    --     }
-    --   }
-    -- },
-
     numbers = function(opts)
       return string.format("%s.%s", opts.ordinal, opts.lower(opts.id))
     end,
@@ -51,8 +43,5 @@ require("bufferline").setup({
     end,
   },
 })
-vim.keymap.set("n", "<Leader>b", "<Cmd>BufferLinePick<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "H", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "L", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "@", "<Cmd>BufferLineMovePrev<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "#", "<Cmd>BufferLineMoveNext<CR>", { noremap = true, silent = true })
