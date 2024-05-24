@@ -50,16 +50,17 @@ end
 local group_name = "vimrc_mason_lspconfig"
 vim.api.nvim_create_augroup(group_name, { clear = true })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local bufnr = args.buf
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.supports_method("textDocument/inlayHint") then
-      vim.lsp.inlay_hint.enable(bufnr, true)
-    end
-  end,
-  group = group_name,
-})
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     local bufnr = args.buf
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     if client.supports_method("textDocument/inlayHint") then
+--       vim.lsp.inlay_hint.enable(bufnr, true)
+--     end
+--   end,
+--   group = group_name,
+-- })
+--
 
 local lspconfig = require("lspconfig")
 local capabilities = vim.tbl_deep_extend(

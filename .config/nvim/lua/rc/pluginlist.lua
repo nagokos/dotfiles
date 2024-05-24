@@ -226,7 +226,7 @@ local plugins = {
     event = "VeryLazy",
     config = function()
       -- patch https://github.com/nvim-treesitter/nvim-treesitter/issues/1124
-      vim.cmd.edit({ bang = true })
+      -- vim.cmd.edit({ bang = true })
     end,
   },
   {
@@ -242,7 +242,7 @@ local plugins = {
   -- Statusline
   {
     "nvim-lualine/lualine.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     config = function()
       require("rc/pluginconfig/lualine")
     end,
@@ -254,7 +254,7 @@ local plugins = {
     "akinsho/bufferline.nvim",
     event = "VimEnter",
     -- https://github.com/akinsho/bufferline.nvim/issues/895
-    commit = "f6f00d9ac1a51483ac78418f9e63126119a70709",
+    -- commit = "f6f00d9ac1a51483ac78418f9e63126119a70709",
     config = function()
       require("rc/pluginconfig/bufferline")
     end,
