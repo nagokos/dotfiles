@@ -170,10 +170,8 @@ vim.keymap.set("n", "[_SubLeader]dm", "<Cmd>delmarks!<CR>", { noremap = true, si
 vim.keymap.set("n", "gf", "gF", { noremap = true, silent = true })
 
 -- split
-vim.keymap.set("n", "-", "<Cmd>split<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Bar>", "<Cmd>vsplit<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "--", "<Cmd>split<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Bar><Bar>", "<Cmd>vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-,>", "<Cmd>split<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-.>", "<Cmd>vsplit<CR>", { noremap = true, silent = true })
 
 -- indent
 vim.keymap.set("x", "<", "<gv", { noremap = true, silent = true })
