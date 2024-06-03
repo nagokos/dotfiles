@@ -436,13 +436,6 @@ local plugins = {
     end,
   },
   {
-    "gabrielpoca/replacer.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("rc/pluginconfig/replacer")
-    end,
-  },
-  {
     "stevearc/qf_helper.nvim",
     event = "VeryLazy",
     config = function()
