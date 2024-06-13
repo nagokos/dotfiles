@@ -76,3 +76,6 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+# 1password 
+source /Users/naohirokosuda/.op/plugins.sh
