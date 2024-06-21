@@ -199,9 +199,12 @@ local plugins = {
   },
   {
     "windwp/nvim-ts-autotag",
-    event = "VeryLazy",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
     config = function()
-      require("nvim-ts-autotag").setup()
+      require("nvim-ts-autotag").setup({})
     end,
   },
   {
@@ -564,6 +567,45 @@ local plugins = {
     config = function()
       require("rc/pluginconfig/diffview")
     end,
+  },
+
+  -----------------------------
+  -- Memo
+  {
+    "epwalsh/obsidian.nvim",
+    lazy = false,
+    ft = "markdown",
+    event = {
+      'BufReadPre ' .. vim.fn.expand('~') .. '/Library/Mobile Documents/iCloud~md~obsidian/Documents/nago/**.md',
+      'BufNewFile ' .. vim.fn.expand('~') .. '/Library/Mobile Documents/iCloud~md~obsidian/Documents/nago/**.md',
+    },
+    config = function()
+      require("rc/pluginconfig/obsidian")
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    cmd = {
+      "ObsidianBacklinks",
+      "ObsidianCheck",
+      "ObsidianFollowLink",
+      "ObsidianLink",
+      "ObsidianLinkNew",
+      "ObsidianNew",
+      "ObsidianOpen",
+      "ObsidianPasteImg",
+      "ObsidianQuickSwitch",
+      "ObsidianRename",
+      "ObsidianSearch",
+      "ObsidianTemplate",
+      "ObsidianToday",
+      "ObsidianTomorrow",
+      "ObsidianWorkspace",
+      "ObsidianYesterday",
+    }
   },
 
   ------------------------------
