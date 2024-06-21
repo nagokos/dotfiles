@@ -166,9 +166,6 @@ vim.keymap.set("n", "[_SubLeader]da", "<Cmd>BufferLineCloseOthers<CR>", { norema
 -- Delete all marks
 vim.keymap.set("n", "[_SubLeader]dm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true })
 
--- goto
-vim.keymap.set("n", "gf", "gF", { noremap = true, silent = true })
-
 -- split
 vim.keymap.set("n", "<C-,>", "<Cmd>split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-.>", "<Cmd>vsplit<CR>", { noremap = true, silent = true })
@@ -182,9 +179,6 @@ vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p:h')<CR>/", { noremap = true, sil
 vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false })  -- expand file (not ext)
 vim.keymap.set("c", "<C-p>", "<Up>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-n>", "<Down>", { noremap = true, silent = false })
-vim.keymap.set("c", "<Up>", "<C-p>", { noremap = true, silent = false })
-vim.keymap.set("c", "<Down>", "<C-n>", { noremap = true, silent = false })
--- vim.o.cedit = "<C-c>" -- command window
 
 -- terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
@@ -193,6 +187,3 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
 vim.keymap.set("n", "ZZ", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "ZQ", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "ZZ", "zz", { noremap = true, silent = true })
-
--- <Esc>
--- vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
