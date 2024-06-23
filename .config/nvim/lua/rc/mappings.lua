@@ -57,11 +57,6 @@ end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
 end, { noremap = true, expr = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-s>", "<C-w>p", { noremap = true, silent = true })
 
 -- Automatically indent with i and A made by ycino
 vim.keymap.set("n", "i", function()

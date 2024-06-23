@@ -67,6 +67,7 @@
   "qf_helper.nvim": { "branch": "master", "commit": "fa3c2f3f2706e2c9984409c9c14b5993302ddfa7" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "5c9660801ce345cd3835e1947c12b54290ab7e71" },
   "rustaceanvim": { "branch": "master", "commit": "14a5a4bdf23d1971d1a6386b73b89e57590a5e7d" },
+  "smart-splits.nvim": { "branch": "master", "commit": "ae8ffc9509f6f82b51e3b38f24c49fe47b793cb1" },
   "sniprun": { "branch": "master", "commit": "1420cff041a0582636f63960d7160f7832463c10" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
   "substitute.nvim": { "branch": "main", "commit": "8b93e792747520b6490237b5b32963e256fbde24" },

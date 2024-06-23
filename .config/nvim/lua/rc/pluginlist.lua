@@ -308,7 +308,6 @@ local plugins = {
   -- Startup screen
   {
     "goolord/alpha-nvim",
-    event = "BufEnter",
     config = function()
       require("rc/pluginconfig/alpha-nvim")
     end,
@@ -426,6 +425,15 @@ local plugins = {
     event = "VeryLazy",
     config = function()
       require("rc/pluginconfig/move")
+    end,
+  },
+
+  -- split pane
+  {
+    "mrjones2014/smart-splits.nvim",
+    event = "VimEnter",
+    config = function()
+      require("rc/pluginconfig/smart-splits")
     end,
   },
 
@@ -636,6 +644,7 @@ local plugins = {
   {
     "saecki/crates.nvim",
     tag = "stable",
+    event = { "BufRead Cargo.toml" },
     config = function()
       require("crates").setup({})
     end

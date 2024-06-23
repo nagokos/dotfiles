@@ -18,13 +18,17 @@ M.tmux_keybinds = {
     mods = "ALT|CTRL",
     action = act.Multiple({ act.CopyMode("ClearSelectionMode"), act.ActivateCopyMode, act.ClearSelection }),
   },
-  { key = ",", mods = "ALT",       action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
-  { key = ".", mods = "ALT",       action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
-  { key = "h", mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Left" }) },
-  { key = "l", mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Right" }) },
-  { key = "k", mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Up" }) },
-  { key = "j", mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Down" }) },
-  { key = "/", mods = "ALT",       action = act.Search("CurrentSelectionOrEmptyString") },
+  { key = ",",          mods = "ALT",       action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
+  { key = ".",          mods = "ALT",       action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
+  { key = "h",          mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Left" }) },
+  { key = "l",          mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Right" }) },
+  { key = "k",          mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Up" }) },
+  { key = "j",          mods = "ALT|SHIFT", action = act({ ActivatePaneDirection = "Down" }) },
+  { key = "/",          mods = "ALT",       action = act.Search("CurrentSelectionOrEmptyString") },
+  { key = "LeftArrow",  mods = "ALT",       action = act({ AdjustPaneSize = { "Left", 1 } }) },
+  { key = "RightArrow", mods = "ALT",       action = act({ AdjustPaneSize = { "Right", 1 } }) },
+  { key = "UpArrow",    mods = "ALT",       action = act({ AdjustPaneSize = { "Up", 1 } }) },
+  { key = "DownArrow",  mods = "ALT",       action = act({ AdjustPaneSize = { "Down", 1 } }) },
 }
 
 M.default_keybinds = {
@@ -38,18 +42,18 @@ M.default_keybinds = {
   { key = "d",      mods = "CTRL|SHIFT", action = act({ ScrollByPage = 0.2 }) },
   { key = "q",      mods = "ALT",        action = act({ CloseCurrentPane = { confirm = true } }) },
   { key = "x",      mods = "ALT",        action = act({ CloseCurrentPane = { confirm = true } }) },
-  {
-    key = "r",
-    mods = "ALT",
-    action = act({
-      ActivateKeyTable = {
-        name = "resize_pane",
-        one_shot = false,
-        timeout_milliseconds = 3000,
-        replace_current = false,
-      },
-    }),
-  },
+  -- {
+  --   key = "r",
+  --   mods = "ALT",
+  --   action = act({
+  --     ActivateKeyTable = {
+  --       name = "resize_pane",
+  --       one_shot = false,
+  --       timeout_milliseconds = 3000,
+  --       replace_current = false,
+  --     },
+  --   }),
+  -- },
 }
 
 function M.create_keybinds()
@@ -57,14 +61,14 @@ function M.create_keybinds()
 end
 
 M.key_tables = {
-  resize_pane = {
-    { key = "h",      action = act({ AdjustPaneSize = { "Left", 1 } }) },
-    { key = "l",      action = act({ AdjustPaneSize = { "Right", 1 } }) },
-    { key = "k",      action = act({ AdjustPaneSize = { "Up", 1 } }) },
-    { key = "j",      action = act({ AdjustPaneSize = { "Down", 1 } }) },
-    -- Cancel the mode by pressing escape
-    { key = "Escape", action = "PopKeyTable" },
-  },
+  -- resize_pane = {
+  --   { key = "h",      action = act({ AdjustPaneSize = { "Left", 1 } }) },
+  --   { key = "l",      action = act({ AdjustPaneSize = { "Right", 1 } }) },
+  --   { key = "k",      action = act({ AdjustPaneSize = { "Up", 1 } }) },
+  --   { key = "j",      action = act({ AdjustPaneSize = { "Down", 1 } }) },
+  --   -- Cancel the mode by pressing escape
+  --   { key = "Escape", action = "PopKeyTable" },
+  -- },
   copy_mode = {
     {
       key = "Escape",
