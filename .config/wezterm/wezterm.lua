@@ -62,8 +62,11 @@ local local_config = load_local_config("local")
 --- Config
 ---------------------------------------------------------------
 local config = {
-  font = wezterm.font("MonaspiceAr Nerd Font", { weight = "Light", stretch = "Normal", style = "Normal" }),
-  harfbuzz_features = { "ss02" },
+  font = wezterm.font_with_fallback({
+    { family = 'JetBrainsMono Nerd Font' },
+    { family = 'YuGothic' }
+  }),
+  -- harfbuzz_features = { "ss02" },
   font_size = 21.0,
   check_for_updates = false,
   use_ime = true,
