@@ -2,7 +2,7 @@ vim.opt.conceallevel = 1
 
 require("obsidian").setup({
   workspaces = {
-    { name = "nago", path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/nago" },
+    { name = "nago", path = "~/obsidian/valuts/nago" },
   },
 
   note_id_func = function(title)
@@ -35,6 +35,10 @@ require("obsidian").setup({
       path = spec.dir / spec.id
     end
     return path:with_suffix ".md"
+  end,
+  ---@return string
+  image_name_func = function()
+    return tostring(os.date "%Y%m%d-%H%M%S-")
   end,
 })
 
