@@ -58,10 +58,6 @@ require("nvim-treesitter.configs").setup({
     max_file_lines = 300,
     disable = { "cpp" }, -- please disable lua and bash for now
   },
-  autotag = {
-    enable = true,
-    enable_close_on_slash = true,
-  },
   pairs = {
     enable = true,
     disable = {},

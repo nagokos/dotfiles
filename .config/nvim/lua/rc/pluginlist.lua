@@ -308,6 +308,7 @@ local plugins = {
   -- Startup screen
   {
     "goolord/alpha-nvim",
+    event = "BufEnter",
     config = function()
       require("rc/pluginconfig/alpha-nvim")
     end,
@@ -583,10 +584,6 @@ local plugins = {
     "epwalsh/obsidian.nvim",
     lazy = false,
     ft = "markdown",
-    event = {
-      'BufReadPre ' .. vim.fn.expand('~') .. '/Library/Mobile Documents/iCloud~md~obsidian/Documents/nago/**.md',
-      'BufNewFile ' .. vim.fn.expand('~') .. '/Library/Mobile Documents/iCloud~md~obsidian/Documents/nago/**.md',
-    },
     config = function()
       require("rc/pluginconfig/obsidian")
     end,
@@ -599,7 +596,6 @@ local plugins = {
     cmd = {
       "ObsidianBacklinks",
       "ObsidianCheck",
-      "ObsidianFollowLink",
       "ObsidianLink",
       "ObsidianLinkNew",
       "ObsidianNew",
@@ -611,7 +607,6 @@ local plugins = {
       "ObsidianTemplate",
       "ObsidianToday",
       "ObsidianTomorrow",
-      "ObsidianWorkspace",
       "ObsidianYesterday",
     }
   },
