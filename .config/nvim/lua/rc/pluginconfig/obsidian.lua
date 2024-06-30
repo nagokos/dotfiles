@@ -45,3 +45,5 @@ require("obsidian").setup({
 vim.keymap.set("n", "<Leader>on", "<Cmd>ObsidianNew<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>os", "<Cmd>ObsidianSearch<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>oq", "<Cmd>ObsidianQuickSwitch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>ot", "<Cmd>ObsidianTags<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>od", "<Cmd>ObsidianToday<CR>", { noremap = true, silent = true })

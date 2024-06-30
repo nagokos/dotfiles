@@ -593,22 +593,6 @@ local plugins = {
       "nvim-telescope/telescope.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    cmd = {
-      "ObsidianBacklinks",
-      "ObsidianCheck",
-      "ObsidianLink",
-      "ObsidianLinkNew",
-      "ObsidianNew",
-      "ObsidianOpen",
-      "ObsidianPasteImg",
-      "ObsidianQuickSwitch",
-      "ObsidianRename",
-      "ObsidianSearch",
-      "ObsidianTemplate",
-      "ObsidianToday",
-      "ObsidianTomorrow",
-      "ObsidianYesterday",
-    }
   },
 
   ------------------------------
@@ -646,6 +630,12 @@ local plugins = {
   },
   {
     "mrcjkb/rustaceanvim",
+  },
+
+  -- markdown
+  {
+    "ixru/nvim-markdown",
+    event = "BufEnter",
   },
 
   ----------------------------------
