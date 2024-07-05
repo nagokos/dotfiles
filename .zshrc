@@ -1,12 +1,16 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+
+# starship
+eval "$(starship init zsh)"
+# mise
+eval "$(mise activate zsh)"
 # コマンド履歴の管理
-HISTFILE=~/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=10000
 
-export EDITOR="nvim"
+# 1password 
+source /Users/naohirokosuda/.op/plugins.sh
 
+# alias
 alias dc="docker compose"
 alias cat="bat"
 alias ps="procs"
@@ -21,8 +25,8 @@ alias bls="brew list"
 alias bin="brew install"
 alias bui="brew uninstall"
 alias bup="brew upgrade && brew upgrade --cask --greedy"
-
-export XDG_CONFIG_HOME="$HOME/.config"
+alias crun="cargo run --quiet"
+alias fg="change-git-directory-with-incremental-search"
 
 # fzfのデフォルト設定
 export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
@@ -35,8 +39,6 @@ function change-git-directory-with-incremental-search () {
   [ -z "$WORKDIR" ] && return
   cd $WORKDIR
 }
-
-alias fg="change-git-directory-with-incremental-search"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -60,19 +62,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 # 入力補完
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
-# コマンド履歴を検索
-# zinit light zdharma/history-search-multi-word
-
-# starship
-eval "$(starship init zsh)"
-
-# mise
-eval "$(mise activate zsh)"
-
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
-# 1password 
-source /Users/naohirokosuda/.op/plugins.sh
