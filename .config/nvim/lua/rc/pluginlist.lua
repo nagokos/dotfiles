@@ -12,7 +12,6 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 local plugins = {
-
   -------------------------------------------------------------
   -- Installer
   { "folke/lazy.nvim" },
@@ -63,13 +62,6 @@ local plugins = {
       require("rc/pluginconfig/nightfox")
     end
   },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   event = "VimEnter",
-  --   config = function()
-  --     require("rc/pluginconfig/kanagawa")
-  --   end
-  -- },
   --------------------------------
   -- Font
   { "kyazdani42/nvim-web-devicons" },
@@ -117,7 +109,6 @@ local plugins = {
     end,
   },
   {
-
     "ray-x/lsp_signature.nvim",
     event = { "BufRead", "BufNewFile" },
     config = function()
@@ -529,11 +520,8 @@ local plugins = {
   --- Test
   {
     "michaelb/sniprun",
-    enabled = function()
-      return vim.fn.executable("cargo")
-    end,
     build = "bash install.sh",
-    cmd = { "SnipRun" },
+    cmd = { "SnipRun" }
   },
 
   ------------------------------------
@@ -658,6 +646,7 @@ require("lazy").setup(plugins, {
     lazy = true,
   },
   ui = {
+    backdrop = 100,
     border = "rounded",
   },
 })
