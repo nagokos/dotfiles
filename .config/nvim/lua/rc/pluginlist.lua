@@ -28,7 +28,6 @@ local plugins = {
 
   --------------------------------
   -- Lua Library
-  { "nvim-lua/popup.nvim" },
   { "nvim-lua/plenary.nvim" },
   { "kkharji/sqlite.lua" },
   { "MunifTanjim/nui.nvim" },
@@ -182,13 +181,6 @@ local plugins = {
     },
   },
   {
-    "mizlan/iswap.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("rc/pluginconfig/iswap")
-    end,
-  },
-  {
     "windwp/nvim-ts-autotag",
     event = {
       "BufReadPre",
@@ -281,13 +273,6 @@ local plugins = {
   --------------------------------
   -- Highlight
   {
-    "xiyaowong/nvim-cursorword",
-    event = "VeryLazy",
-    config = function()
-      require("rc/pluginconfig/nvim-cursorword")
-    end,
-  },
-  {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     config = function()
@@ -303,17 +288,6 @@ local plugins = {
     config = function()
       require("rc/pluginconfig/alpha-nvim")
     end,
-  },
-
-  --------------------------------
-  -- Scrollbar
-  {
-    "petertriho/nvim-scrollbar",
-    event = "VimEnter",
-    config = function()
-      require("rc/pluginconfig/nvim-scrollbar")
-    end,
-    dependencies = { { "kevinhwang91/nvim-hlslens" } },
   },
 
   --------------------------------
@@ -459,20 +433,11 @@ local plugins = {
   },
 
   --------------------------------
-  -- Mark
-  {
-    "chentoast/marks.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("rc/pluginconfig/marks")
-    end,
-  },
-
-  --------------------------------
   -- Manual
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
+    version = "~2.0.0", -- バージョン上げるとバグるのでとりあえず
     config = function()
       require("rc/pluginconfig/which-key")
     end,
@@ -518,11 +483,11 @@ local plugins = {
 
   -- --------------------------------
   --- Test
-  {
-    "michaelb/sniprun",
-    build = "bash install.sh",
-    cmd = { "SnipRun" }
-  },
+  -- {
+  --   "michaelb/sniprun",
+  --   build = "bash install.sh",
+  --   cmd = { "SnipRun" }
+  -- },
 
   ------------------------------------
   -- Format
