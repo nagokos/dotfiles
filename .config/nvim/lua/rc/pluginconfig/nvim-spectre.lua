@@ -1,3 +1,3 @@
 require("spectre").setup()
 
-vim.cmd("command! SpectreOpen lua require('spectre').open()")
+vim.cmd("command! Grep lua require('spectre').open()")
