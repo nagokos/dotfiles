@@ -150,25 +150,10 @@ local telescope_opts = {
 		dynamic_preview_title = true,
 		winblend = 0,
 		border = {},
-		-- borderchars = {
-		-- 	{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-		-- 	-- results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
-		-- 	-- preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-		-- 	-- fzf-preview style
-		-- 	prompt = { "─", "│", " ", "│", "┌", "┬", "│", "│" },
-		-- 	results = { "─", "│", "─", "│", "├", "┤", "┴", "└" },
-		-- 	preview = { "─", "│", "─", " ", "─", "┐", "┘", "─" },
-		-- },
-		-- color_devicons = true,
 		color_devicons = true,
 		use_less = true,
 		scroll_strategy = "cycle",
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default { }, currently unsupported for shells like cmd.exe / powershell.exe
-		-- file_previewer = require'telescope.previewers'.cat.new, -- For buffer previewer use `require'telescope.previewers'.vim_buffer_cat.new`
-		-- grep_previewer = require'telescope.previewers'.vimgrep.new, -- For buffer previewer use `require'telescope.previewers'.vim_buffer_vimgrep.new`
-		-- qflist_previewer = require'telescope.previewers'.qflist.new, -- For buffer previewer use `require'telescope.previewers'.vim_buffer_qflist.new`
-
-		-- Developer configurations: Not meant for general override
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		mappings = {
 			n = {
@@ -178,16 +163,16 @@ local telescope_opts = {
 				["<CR>"] = use_normal_mapping("<CR>"),
 			},
 			i = {
+				["<C-k>"] = false,
+				["<C-f>"] = actions.preview_scrolling_right,
+				["<C-b>"] = actions.preview_scrolling_left,
 				["<C-t>"] = action_layout.toggle_preview,
 				["<C-x>"] = false,
-				-- ["<C-s>"] = actions.select_horizontal,
 				["<Tab>"] = actions.toggle_selection + actions.move_selection_next,
 				["<C-q>"] = actions.send_selected_to_qflist,
-				-- ["<CR>"] = actions.select_default + actions.center,
 				["<C-g>"] = custom_actions.multi_selection_open,
 				["<C-v>"] = custom_actions.multi_selection_open_vertical,
 				["<C-s>"] = custom_actions.multi_selection_open_horizontal,
-				-- ["<C-t>"] = custom_actions.multi_selection_open_tab,
 				["<CR>"] = custom_actions.multi_selection_open,
 			},
 		},
@@ -197,7 +182,6 @@ local telescope_opts = {
 		frecency = {
 			db_root = vim.fn.stdpath("state"),
 			ignore_patterns = { "*.git/*", "*/tmp/*", "*/node_modules/*", "term://*" },
-			db_safe_mode = false,
 		},
 	},
 }
@@ -265,6 +249,7 @@ telescope_builtin.my_mru = function(opts)
 			local f = require("frecency.klass")
 			local frecency = f.new(opts2)
 			local db_client = frecency.database
+
 			local files = db_client:get_entries(vim.uv.cwd())
 
 			local r = require("frecency.recency")

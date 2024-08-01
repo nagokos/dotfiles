@@ -562,7 +562,7 @@ local plugins = {
 		tag = "stable",
 		event = { "BufRead Cargo.toml" },
 		config = function()
-			require("crates").setup({})
+			require("rc/pluginconfig/crates")
 		end
 	},
 
