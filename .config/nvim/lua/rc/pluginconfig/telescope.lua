@@ -262,7 +262,7 @@ telescope_builtin.my_mru = function(opts)
 				return 0 ~= vim.fn.filereadable(val)
 			end, vim.v.oldfiles)
 		else
-			local f = require("frecency")
+			local f = require("frecency.klass")
 			local frecency = f.new(opts2)
 			local db_client = frecency.database
 			local files = db_client:get_entries(vim.uv.cwd())
