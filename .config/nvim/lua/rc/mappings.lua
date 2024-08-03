@@ -97,10 +97,6 @@ vim.keymap.set("n", "gL", "L", { noremap = true, silent = true })
 -- Clear highlighting
 vim.keymap.set("n", "gq", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true })
 
--- Increment / Decrement
-vim.keymap.set({ "n", "x" }, "+", "<C-a>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "x" }, "_", "<C-x>", { noremap = true, silent = true })
-
 -- switch quickfix/location list
 vim.keymap.set("n", "[_SubLeader]q", "<Cmd>copen<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "[_SubLeader]l", "<Cmd>lopen<CR>", { noremap = true, silent = true })
@@ -151,4 +147,3 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
 -- quit
 vim.keymap.set("n", "ZZ", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "ZQ", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "ZZ", "zz", { noremap = true, silent = true })

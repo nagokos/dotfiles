@@ -40,11 +40,6 @@ require("gitsigns").setup({
 			gs.blame_line({ full = true })
 		end)
 		map("n", "[_Git]tb", gs.toggle_current_line_blame)
-		-- diffview
-		-- map("n", "Ghd", gs.diffthis)
-		-- map("n", "GhD", function()
-		-- 	gs.diffthis("~")
-		-- end)
 		map("n", "[_Git]td", gs.toggle_deleted)
 
 		-- Text object

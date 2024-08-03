@@ -231,8 +231,6 @@ local plugins = {
 	{
 		"akinsho/bufferline.nvim",
 		event = "VimEnter",
-		-- https://github.com/akinsho/bufferline.nvim/issues/895
-		-- commit = "f6f00d9ac1a51483ac78418f9e63126119a70709",
 		config = function()
 			require("rc/pluginconfig/bufferline")
 		end,
@@ -316,16 +314,6 @@ local plugins = {
 		event = "VeryLazy",
 		config = function()
 			require("rc/pluginconfig/dial")
-		end,
-	},
-
-	--------------------------------
-	-- Yank
-	{
-		"AckslD/nvim-neoclip.lua",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-neoclip")
 		end,
 	},
 
@@ -507,13 +495,6 @@ local plugins = {
 			require("rc/pluginconfig/gitsigns")
 		end,
 	},
-	{
-		"sindrets/diffview.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/diffview")
-		end,
-	},
 
 	-----------------------------
 	-- Memo
@@ -534,24 +515,24 @@ local plugins = {
 
 	------------------------------
 	-- Debugger
-	{
-		"mfussenegger/nvim-dap",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-dap")
-		end,
-		dependencies = {
-			{
-				"rcarriga/nvim-dap-ui",
-				config = function()
-					require("rc/pluginconfig/nvim-dap-ui")
-				end,
-			},
-			{ "nvim-neotest/nvim-nio" },
-			{ "theHamsta/nvim-dap-virtual-text" },
-			{ "nvim-telescope/telescope-dap.nvim" },
-		},
-	},
+	-- {
+	-- 	"mfussenegger/nvim-dap",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rc/pluginconfig/nvim-dap")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		{
+	-- 			"rcarriga/nvim-dap-ui",
+	-- 			config = function()
+	-- 				require("rc/pluginconfig/nvim-dap-ui")
+	-- 			end,
+	-- 		},
+	-- 		{ "nvim-neotest/nvim-nio" },
+	-- 		{ "theHamsta/nvim-dap-virtual-text" },
+	-- 		{ "nvim-telescope/telescope-dap.nvim" },
+	-- 	},
+	-- },
 
 	---------------------------------------
 	-- Language
