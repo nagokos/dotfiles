@@ -71,6 +71,10 @@ vim.keymap.set("n", "0", function()
 			or "^"
 end, { noremap = true, expr = true, silent = true })
 
+for _, quote in ipairs({ '"', "'", "`" }) do
+	vim.keymap.set({ "x", "o" }, "a" .. quote, "2i" .. quote)
+end
+
 -- Emacs style
 vim.keymap.set("c", "<C-a>", "<Home>", { noremap = true, silent = false })
 if not vim.g.vscode then
