@@ -1,0 +1,46 @@
+## all ignore #
+/*
+/.**
+
+## config
+!/.config/
+!/.config/**
+
+/.config/raycast/**
+!/.config/raycast/Raycast.rayconfig
+
+/.config/gh/**
+!/.config/gh/config.yml
+
+## fig
+/.config/fish/
+
+## lazygit
+/.config/lazygit/state.yml
+
+## nvim
+/.config/nvim/.luarc.json
+**/startup.log
+
+## shell
+/.config/sheldon/**
+!/.config/sheldon/plugins.toml
+
+## zsh
+!/.zshenv
+!/.zshrc
+
+## lua
+!/.stylua.toml
+!/neovim.yml
+!/selene.toml
+
+## 1password
+/.config/op/
+
+## Brew
+!/.BrewFile
+
+## global
+!.gitignore
+**/.DS_Store
