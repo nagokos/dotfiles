@@ -29,6 +29,7 @@
 ## zsh
 !/.zshenv
 !/.zshrc
+!/.zprofile
 
 ## lua
 !/.stylua.toml
