@@ -173,7 +173,7 @@ fzf.setup({
 		color_icons    = true, -- colorize file|git icons
 		grep_opts      = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
 		rg_opts        = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
-		rg_glob        = false,   -- default to glob parsing?
+		rg_glob        = true,    -- default to glob parsing?
 		glob_flag      = "--iglob", -- for case sensitive globs use "--glob"
 		glob_separator = "%s%-%-", -- query separator pattern (lua): " --"
 		actions        = {

@@ -17,7 +17,7 @@ require("gitsigns").setup({
 				gs.next_hunk()
 			end)
 			return "<Ignore>"
-		end, { expr = true })
+		end, { expr = true, desc = "next hunk" })
 
 		map("n", "[g", function()
 			if vim.wo.diff then
@@ -27,7 +27,7 @@ require("gitsigns").setup({
 				gs.prev_hunk()
 			end)
 			return "<Ignore>"
-		end, { expr = true })
+		end, { expr = true, desc = "preview hunk" })
 
 		-- Actions
 		map({ "n", "v" }, "[_Git]hs", ":Gitsigns stage_hunk<CR>")

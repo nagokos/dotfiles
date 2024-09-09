@@ -3,6 +3,9 @@ vim.keymap.set({ "n", "x" }, "[_SubLeader]", "<Nop>", { noremap = true, silent =
 vim.api.nvim_set_keymap("n", ",", "[_SubLeader]", {})
 vim.api.nvim_set_keymap("x", ",", "[_SubLeader]", {})
 
+-- Leader
+vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
+
 -- [_FuzzyFinder]
 vim.keymap.set({ "n", "x" }, "f", "<Nop>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "f", "[_FuzzyFinder]", {})
@@ -118,7 +121,13 @@ vim.keymap.set("n", "[_SubLeader]db", "<Cmd>bdelete<CR>", { noremap = true, sile
 vim.keymap.set("n", "[_SubLeader]da", "<Cmd>BufferLineCloseOthers<CR>", { noremap = true, silent = true })
 
 -- Delete all marks
-vim.keymap.set("n", "[_SubLeader]dm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[_SubLeader]dmb", "<Cmd>delmarks!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[_SubLeader]dm", function()
+	if vim.fn.confirm("Delete all marks?", "&Yes\n&No", 2) == 1 then
+		vim.cmd("delmarks a-zA-Z0-9")
+		print("All marks deleted")
+	end
+end, { noremap = true, silent = true })
 
 -- split
 vim.keymap.set("n", "<C-,>", "<Cmd>split<CR>", { noremap = true, silent = true })

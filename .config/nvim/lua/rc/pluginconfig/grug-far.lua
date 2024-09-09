@@ -1,1 +1,3 @@
-require("grug-far").setup({})
+require("grug-far").setup({
+	windowCreationCommand = "tabnew"
+})
