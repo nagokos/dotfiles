@@ -23,29 +23,19 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', "[_Lsp]rn", '<cmd>lua vim.lsp.buf.rename()<CR>')
 	vim.keymap.set("n", "[_Lsp]rf", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	vim.keymap.set("n", "?", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-
-	require("lspconfig.ui.windows").default_options.border = "rounded"
-
-	vim.diagnostic.config {
-		float = { border = "rounded" },
-	}
 end
+
+require('lspconfig.ui.windows').default_options = {
+	border = "rounded"
+}
+vim.diagnostic.config {
+	float = {
+		border = "rounded",
+	},
+}
 
 local group_name = "vimrc_mason_lspconfig"
 vim.api.nvim_create_augroup(group_name, { clear = true })
-
--- vim.api.nvim_create_autocmd("LspAttach", {
---   callback = function(args)
---     local bufnr = args.buf
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---     if client.supports_method("textDocument/inlayHint") then
---       vim.lsp.inlay_hint.enable(bufnr, true)
---     end
---   end,
---   group = group_name,
--- })
---
-
 local lspconfig = require("lspconfig")
 local capabilities = vim.tbl_deep_extend(
 	"force",

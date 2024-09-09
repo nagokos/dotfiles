@@ -33,7 +33,7 @@ fzf.setup({
 		row        = 0.35, -- window row position (0=top, 1=bottom)
 		col        = 0.50, -- window col position (0=left, 1=right)
 		border     = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		backdrop   = 60,
+		backdrop   = 100,
 		fullscreen = false, -- start fullscreen?
 		preview    = {
 			border       = "border", -- border|noborder, applies only to

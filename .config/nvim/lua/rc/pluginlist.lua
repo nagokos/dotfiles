@@ -98,13 +98,6 @@ local plugins = {
 			require("rc/pluginconfig/mason-lspconfig")
 		end,
 	},
-	{
-		"ray-x/lsp_signature.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/lsp_signature")
-		end,
-	},
 
 	----------------------------------
 	-- Outline
@@ -116,17 +109,6 @@ local plugins = {
 		},
 		config = function()
 			require("rc/pluginconfig/outline")
-		end,
-	},
-
-	--------------------------------
-	-- LSP's UI
-	{
-		"j-hui/fidget.nvim",
-		tag = "legacy",
-		event = "BufEnter",
-		config = function()
-			require("rc/pluginconfig/fidget")
 		end,
 	},
 

@@ -2,22 +2,50 @@ require("noice").setup({
 	popupmenu = {
 		-- cmp-cmdline has more sources and can be extended
 		backend = "cmp", -- backend to use to show regular cmdline completions
+		win_options = {
+			winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+		},
+		border = {
+			padding = { 0, 1 },
+		},
 	},
 	lsp = {
-		-- can not filter null-ls's data
-		-- j-hui/fidget.nvim
-		-- hover = {
-		-- 	enabled = false,
-		-- },
+		hover = {
+			enabled = true,
+			opts = {
+				win_options = {
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+				}
+			}
+		},
 		signature = {
-			enabled = false,
+			enabled = true,
+			auto_open = {
+				enabled = true,
+				trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
+				luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
+				throttle = 50, -- Debounce lsp signature help request by 50ms
+			},
+			opts = {
+				win_options = {
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+				}
+			}
 		},
 		progress = {
-			enabled = false,
-			override = {
-				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-				["vim.lsp.util.stylize_markdown"] = true,
-				["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+			enabled = true,
+		},
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+			["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+		},
+		documentation = {
+			view = "hover",
+			opts = {
+				win_options = {
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+				}
 			},
 		},
 	},
@@ -32,7 +60,3 @@ require("noice").setup({
 		view_search = false,
 	},
 })
-
-vim.keymap.set("c", "<S-Enter>", function()
-	require("noice").redirect(vim.fn.getcmdline())
-end, { desc = "Redirect Cmdline" })
