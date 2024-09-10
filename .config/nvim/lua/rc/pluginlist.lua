@@ -80,6 +80,7 @@ local plugins = {
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "saadparwaiz1/cmp_luasnip" },
+			{ "onsails/lspkind.nvim" }
 		},
 	},
 
@@ -175,7 +176,7 @@ local plugins = {
 	-- Bufferline
 	{
 		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
+		event = "VimEnter",
 		config = function()
 			require("rc/pluginconfig/bufferline")
 		end,
@@ -196,6 +197,8 @@ local plugins = {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
+		-- https://github.com/folke/noice.nvim/issues/931
+		version = "4.4.7",
 		config = function()
 			require("rc/pluginconfig/noice")
 		end,
@@ -420,10 +423,20 @@ local plugins = {
 	-- Format
 	{
 		"stevearc/conform.nvim",
-		event = "VeryLazy",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		keys = {
+			{
+				"[_Lsp]f",
+				function()
+					require("conform").format({ async = true })
+				end,
+				desc = "Format buffer",
+			}
+		},
 		config = function()
 			require("rc/pluginconfig/conform")
-		end
+		end,
 	},
 
 	-------------------------------------
@@ -514,10 +527,10 @@ local plugins = {
 		config = function()
 			require("rc/pluginconfig/LuaSnip")
 		end,
+		dependencies = {
+			{ "rafamadriz/friendly-snippets" },
+		}
 	},
-
-	----Snippet Pack
-	{ "rafamadriz/friendly-snippets" },
 }
 
 require("lazy").setup(plugins, {

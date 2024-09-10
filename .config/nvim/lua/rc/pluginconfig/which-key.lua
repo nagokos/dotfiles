@@ -4,6 +4,7 @@ require("which-key").setup({
 		{ "g", mode = { "n", "v" } },
 		{ "[", mode = "n" },
 		{ "]", mode = "n" },
+		{ "z", mode = { "n", "v" } },
 	},
 	spec = {
 		{ "[_Git]",         group = "Git" },
