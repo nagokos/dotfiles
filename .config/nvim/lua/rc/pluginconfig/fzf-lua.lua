@@ -215,39 +215,21 @@ fzf.setup({
 })
 
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]f", "<Cmd>FzfLua files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]r", "<Cmd>FzfLua resume<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]o", "<Cmd>FzfLua oldfiles<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]ss", "<Cmd>FzfLua live_grep<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]sg", "<Cmd>FzfLua live_grep_glob<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]c", "<Cmd>FzfLua commands<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]q", "<Cmd>FzfLua quickfix<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]l", "<Cmd>FzfLua loclist<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[_FuzzyFinder]r", "<Cmd>FzfLua registers<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[_FuzzyFinder]*", "<Cmd>FzfLua grep_cword<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]'", "<Cmd>FzfLua marks<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]y", "<Cmd>FzfLua registers<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]w", "<Cmd>FzfLua grep_cword<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]d", "<Cmd>FzfLua diagnostics_workspace<CR>",
 	{ noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]t", "<Cmd>TodoFzfLua<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap(
-	"n",
-	"[_FuzzyFinder]gf",
-	"<Cmd>FzfLua git_files<CR>",
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"[_FuzzyFinder]gs",
-	"<Cmd>FzfLua git_status<CR>",
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"[_FuzzyFinder]gc",
-	"<Cmd>FzfLua git_commits<CR>",
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"[_FuzzyFinder]gb",
-	"<Cmd>FzfLua git_branches<CR>",
-	{ noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]gf", "<Cmd>FzfLua git_files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]gs", "<Cmd>FzfLua git_status<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]gc", "<Cmd>FzfLua git_commits<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]gb", "<Cmd>FzfLua git_branches<CR>", { noremap = true, silent = true })

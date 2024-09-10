@@ -260,23 +260,6 @@ local plugins = {
 	},
 
 	--------------------------------
-	-- Find
-	{
-		"kevinhwang91/nvim-hlslens",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/nvim-hlslens")
-		end,
-	},
-	{
-		"rapan931/lasterisk.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/lasterisk")
-		end,
-	},
-
-	--------------------------------
 	-- Grep tool
 	{
 		'MagicDuck/grug-far.nvim',
@@ -441,6 +424,7 @@ local plugins = {
 
 	----------------------------
 	-- Git
+	-- TODO:必要か精査する
 	{
 		"akinsho/git-conflict.nvim",
 		event = "VeryLazy",
@@ -452,6 +436,16 @@ local plugins = {
 		config = function()
 			require("rc/pluginconfig/gitsigns")
 		end,
+	},
+	{
+		"sindrets/diffview.nvim",
+		cmd = "DiffviewOpen",
+		keys = {
+			{ "[_Git]d", "<Cmd>DiffviewOpen<CR>", desc = "Diffview Open" }
+		},
+		config = function()
+			require("rc/pluginconfig/diffview")
+		end
 	},
 
 	-----------------------------

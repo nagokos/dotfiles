@@ -30,13 +30,9 @@ require("gitsigns").setup({
 		end, { expr = true, desc = "preview hunk" })
 
 		-- Actions
-		map({ "n", "v" }, "[_Git]hs", ":Gitsigns stage_hunk<CR>")
-		map({ "n", "v" }, "[_Git]hr", ":Gitsigns reset_hunk<CR>")
-		map("n", "[_Git]hS", gs.stage_buffer)
-		map("n", "[_Git]hu", gs.undo_stage_hunk)
-		map("n", "[_Git]hR", gs.reset_buffer)
-		map("n", "[_Git]hp", gs.preview_hunk)
-		map("n", "[_Git]tb", gs.toggle_current_line_blame)
-		map("n", "[_Git]td", gs.toggle_deleted)
+		map({ "n", "v" }, "[_Git]s", ":Gitsigns stage_hunk<CR>")
+		map({ "n", "v" }, "[_Git]r", ":Gitsigns reset_hunk<CR>")
+		map({ 'n', 'v' }, "[_Git]u", ':Gitsigns undo_stage_hunk<CR>')
+		map("n", "[_Git]p", gs.preview_hunk)
 	end,
 })

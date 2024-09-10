@@ -1,5 +1,5 @@
 require("which-key").setup({
-	delay = 400,
+	delay = 300,
 	triggers = {
 		{ "g", mode = { "n", "v" } },
 		{ "[", mode = "n" },
