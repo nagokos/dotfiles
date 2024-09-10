@@ -67,7 +67,7 @@ fzf.setup({
 			false,           -- do not inherit from defaults
 			["<C-c>"] = "hide", -- hide fzf-lua, `:FzfLua resume` to continue
 			["<F1>"]  = "toggle-help",
-			["<C-h>"] = "toggle-preview-wrap",
+			["<C-h>"] = "toggle-fullscreen",
 			["<C-d>"] = "preview-page-down",
 			["<C-u>"] = "preview-page-up",
 		},
@@ -81,13 +81,15 @@ fzf.setup({
 			["ctrl-e"] = "end-of-line",
 			["ctrl-f"] = "half-page-down",
 			["ctrl-b"] = "half-page-up",
-			["ctrl-h"] = "toggle-preview-wrap",
+			["ctrl-o"] = "toggle-all",
 		},
 	},
 	actions           = {
 		files = {
 			false, -- do not inherit from defaults
-			["enter"]  = actions.file_edit_or_qf,
+			["enter"]  = actions.file_edit,
+			["ctrl-s"] = actions.file_split,
+			["ctrl-v"] = actions.file_vsplit,
 			["ctrl-q"] = { fn = custom_file_sel_to_qf, reload = false },
 		},
 	},
@@ -173,7 +175,7 @@ fzf.setup({
 		color_icons    = true, -- colorize file|git icons
 		grep_opts      = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
 		rg_opts        = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
-		rg_glob        = true,    -- default to glob parsing?
+		rg_glob        = false,   -- default to glob parsing?
 		glob_flag      = "--iglob", -- for case sensitive globs use "--glob"
 		glob_separator = "%s%-%-", -- query separator pattern (lua): " --"
 		actions        = {
@@ -214,7 +216,8 @@ fzf.setup({
 
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]f", "<Cmd>FzfLua files<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]o", "<Cmd>FzfLua oldfiles<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "[_FuzzyFinder]s", "<Cmd>FzfLua live_grep<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]ss", "<Cmd>FzfLua live_grep<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[_FuzzyFinder]sg", "<Cmd>FzfLua live_grep_glob<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]c", "<Cmd>FzfLua commands<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]q", "<Cmd>FzfLua quickfix<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "[_FuzzyFinder]l", "<Cmd>FzfLua loclist<CR>", { noremap = true, silent = true })

@@ -182,16 +182,6 @@ local plugins = {
 		end,
 	},
 
-	--------------------------------
-	-- Scrollbar
-	{
-		"lewis6991/satellite.nvim",
-		event  = "VeryLazy",
-		config = function()
-			require("rc/pluginconfig/satellite-nvim")
-		end
-	},
-
 	------------------------------
 	-- Commandline
 	{
@@ -469,6 +459,7 @@ local plugins = {
 	{
 		"epwalsh/obsidian.nvim",
 		event = "VeryLazy",
+		ft = "markdown",
 		config = function()
 			require("rc/pluginconfig/obsidian")
 		end,

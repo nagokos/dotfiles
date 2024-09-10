@@ -1,4 +1,8 @@
 require("noice").setup({
+	cmdline = {
+		enabled = true,
+		view = "cmdline",
+	},
 	popupmenu = {
 		-- cmp-cmdline has more sources and can be extended
 		backend = "cmp", -- backend to use to show regular cmdline completions

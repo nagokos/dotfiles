@@ -1,1 +1,5 @@
-require("satellite").setup({})
+require("satellite").setup({
+	quickfix = {
+		enable = false,
+	}
+})
