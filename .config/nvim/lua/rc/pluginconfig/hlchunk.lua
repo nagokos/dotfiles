@@ -5,7 +5,16 @@ require('hlchunk').setup({
 			{ fg = "#AC5402" },
 			{ fg = '#c21f30' },
 		},
+		chars = {
+			horizontal_line = '─',
+			vertical_line = '│',
+			left_top = '╭',
+			left_bottom = '╰',
+			right_arrow = '─',
+		},
 		use_treesitter = true,
+		duration = 0,
+		delay = 0,
 	},
 	indent = {
 		enable = true,
