@@ -6,6 +6,9 @@ require('hlchunk').setup({
 			{ fg = '#c21f30' },
 		},
 		use_treesitter = true,
+		duration = 200,
+		delay = 200,
+
 	},
 	indent = {
 		enable = true,
