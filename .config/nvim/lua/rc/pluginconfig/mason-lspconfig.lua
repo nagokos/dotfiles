@@ -1,8 +1,5 @@
 require("mason-lspconfig").setup()
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
--- selene: allow(unused_variable)
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
@@ -83,4 +80,39 @@ require("mason-lspconfig").setup_handlers({
 			},
 		})
 	end,
+	["jsonls"] = function()
+		lspconfig.jsonls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				json = {
+					schemas = require('schemastore').json.schemas(),
+					validate = { enable = true },
+				},
+			}
+		})
+	end,
+	["yamlls"] = function()
+		lspconfig.yamlls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				yaml = {
+					schemaStore = {
+						enable = true,
+						url = "https://www.schemastore.org/api/json/catalog.json",
+					},
+					schemas = {
+						["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+						["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+						"*docker-compose*.{yml,yaml}",
+					},
+					format = { enabled = false },
+					validate = false,
+					completion = true,
+					hover = true,
+				},
+			}
+		})
+	end
 })

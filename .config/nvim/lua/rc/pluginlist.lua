@@ -55,7 +55,7 @@ local plugins = {
 	-- ColorScheme
 	{
 		"EdenEast/nightfox.nvim",
-		event = "VimEnter",
+		lazy = false,
 		config = function()
 			require("rc/pluginconfig/nightfox")
 		end
@@ -80,8 +80,7 @@ local plugins = {
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "saadparwaiz1/cmp_luasnip" },
-			{ "onsails/lspkind.nvim" }
-		},
+			{ "onsails/lspkind.nvim" } },
 	},
 
 	--------------------------------
@@ -161,6 +160,7 @@ local plugins = {
 			require("rc/pluginconfig/treesitter-unit")
 		end,
 	},
+
 
 	--------------------------------
 	-- Statusline
@@ -367,12 +367,11 @@ local plugins = {
 	--------------------------------
 	-- Reading assistant
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufRead", "BufNewFile" },
-		main = "ibl",
+		"shellRaining/hlchunk.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			require("rc/pluginconfig/indent-blankline")
-		end,
+			require("rc/pluginconfig/hlchunk")
+		end
 	},
 
 	------------------------------
@@ -502,6 +501,9 @@ local plugins = {
 		"OXY2DEV/markview.nvim",
 		ft = "markdown",
 	},
+
+	-- json yaml
+	{ "b0o/schemastore.nvim" },
 
 	----------------------------------
 	---- Snippet

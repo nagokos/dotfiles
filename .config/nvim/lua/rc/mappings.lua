@@ -29,23 +29,6 @@ vim.keymap.set("n", "L", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "K", "<Nop>", { noremap = true, silent = true })
 
--- <Nop>
-vim.keymap.set("n", "gh", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gj", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gk", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gl", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gn", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gm", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "go", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gq", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gr", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gw", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "g^", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "g?", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gQ", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gR", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("n", "gT", "<Nop>", { noremap = true, silent = true })
-
 -- remap
 vim.keymap.set("n", "gj", "j", { noremap = true, silent = true })
 vim.keymap.set("n", "gk", "k", { noremap = true, silent = true })
@@ -107,7 +90,6 @@ vim.keymap.set("x", "/", "<ESC>/\\%V", { noremap = true, silent = false })
 vim.keymap.set("x", "?", "<ESC>?\\%V", { noremap = true, silent = false })
 
 -- For replace
-vim.keymap.set("n", "gr", "gd[{V%::s/<C-R>///gc<left><left><left>", { noremap = true, silent = false })
 vim.keymap.set("n", "[_SubLeader]s", ":%s/\\<<C-r><C-w>\\>/", { noremap = true, silent = false })
 vim.keymap.set("x", "[_SubLeader]s", ":s/\\%V", { noremap = true, silent = false })
 
