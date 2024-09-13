@@ -1,4 +1,20 @@
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	---@type string[]
+	ensure_installed = {
+		"biome",
+		"clangd",
+		"denols",
+		"gopls",
+		"jsonls",
+		"lua_ls",
+		"marksman",
+		"nil_ls",
+		-- "nixpkgs-fmt",
+		"rust_analyzer",
+		"taplo",
+		"yamlls",
+	},
+})
 
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
@@ -112,6 +128,19 @@ require("mason-lspconfig").setup_handlers({
 					completion = true,
 					hover = true,
 				},
+			}
+		})
+	end,
+	["nil_ls"] = function()
+		lspconfig.nil_ls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				["nil"] = {
+					formatting = {
+						command = { "nixpkgs-fmt" }
+					}
+				}
 			}
 		})
 	end
