@@ -77,6 +77,8 @@ in
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
     plugins = with pkgs.vimPlugins; [
+      ####################
+      ## Lazy
       lz-n
 
       ####################
