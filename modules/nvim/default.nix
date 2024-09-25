@@ -213,7 +213,7 @@ in
       }
 
       #########################
-      ## 
+      ## Bufferline 
       {
         plugin = bufferline-nvim;
         type = "lua";
