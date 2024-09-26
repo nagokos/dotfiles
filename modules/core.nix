@@ -1,17 +1,19 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # Cli
+    #######################
+    ## Cli
     atuin # history
     bottom # top
     procs # ps
     fd # find
     ripgrep # grep
     zoxide # cd with jumping
-    bat # cat 
+    bat # cat
     fastfetch # system
     eza # ls
-    curl
+    curl # http
+    xh # http
 
     #json
     jc
@@ -21,15 +23,38 @@
     # Etc
     fzf
 
-    # gui
-    postman
+    #################
+    ## programming
+    docker
+
+    # C
+    gcc
+
+    # Go
+    go
+
+    # JS/TS
+    nodejs_20
+    pnpm
+
+    # Rust
+    (fenix.combine [
+      fenix.stable.toolchain
+      fenix.targets.wasm32-unknown-unknown.stable.rust-std
+      fenix.targets.wasm32-wasi.stable.rust-std
+    ])
+
+    ###########################
+    ## Fonts
+    (nerdfonts.override {
+      fonts = [ "JetBrainsMono" ];
+    })
+
+    ###################
+    ## gui
     obsidian
     slack
-    raycast
-    arc-browser
+    discord
+    zoom-us
   ];
-
-  programs.starship = {
-    enable = true;
-  };
 }

@@ -11,17 +11,15 @@
       lockfiles = false;
     };
     casks = [
+      "arc"
       "google-chrome"
       "1password"
       "1password-cli"
-      "docker"
-      "zoom"
       "deepl"
       "wezterm@nightly"
       "notion"
       "orbstack"
       "devtoys"
-      "font-jetbrains-mono-nerd-font"
     ];
   };
 }

@@ -1,1 +1,7 @@
-require("nvim-surround").setup({})
+require("lz.n").load({
+	"nvim-surround",
+	event = "DeferredUIEnter",
+	after = function()
+		require("nvim-surround").setup({})
+	end,
+})

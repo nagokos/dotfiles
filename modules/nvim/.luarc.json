@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "/Users/naohirokosuda/modules/nvim"
+    ],
+  },
+  "diagnostics": {
+    "globals": ["vim"]
+  }
+}

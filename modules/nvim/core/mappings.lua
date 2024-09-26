@@ -52,7 +52,7 @@ end, { noremap = true, expr = true, silent = true })
 -- toggle 0, ^ made by ycino
 vim.keymap.set("n", "0", function()
 	return string.match(vim.api.nvim_get_current_line():sub(0, vim.api.nvim_win_get_cursor(0)[2]), "^%s+$") and "0"
-			or "^"
+		or "^"
 end, { noremap = true, expr = true, silent = true })
 
 for _, quote in ipairs({ '"', "'", "`" }) do
@@ -114,6 +114,10 @@ end, { noremap = true, silent = true })
 -- split
 vim.keymap.set("n", "<C-,>", "<Cmd>split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-.>", "<Cmd>vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 
 -- indent
 vim.keymap.set("x", "<", "<gv", { noremap = true, silent = true })
@@ -121,7 +125,7 @@ vim.keymap.set("x", ">", ">gv", { noremap = true, silent = true })
 
 -- command mode
 vim.keymap.set("c", "<C-x>", "<C-r>=expand('%:p:h')<CR>/", { noremap = true, silent = false }) -- expand path
-vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false })  -- expand file (not ext)
+vim.keymap.set("c", "<C-z>", "<C-r>=expand('%:p:r')<CR>", { noremap = true, silent = false }) -- expand file (not ext)
 vim.keymap.set("c", "<Tab>", "<Down>", { noremap = true, silent = false })
 vim.keymap.set("c", "<S-Tab>", "<Up>", { noremap = true, silent = false })
 

@@ -14,7 +14,6 @@ require("lz.n").load({
 		{ "[_FuzzyFinder]y", "<Cmd>FzfLua registers<CR>", desc = "registers" },
 		{ "[_FuzzyFinder]w", "<Cmd>FzfLua grep_cword<CR>", desc = "grep cursor word" },
 		{ "[_FuzzyFinder]d", "<Cmd>FzfLua diagnostics_workspace<CR>", desc = "diagnostics workspace" },
-		{ "[_FuzzyFinder]t", "<Cmd>FzfLua TodoFzfLua<CR>", desc = "todos" },
 
 		{ "[_FuzzyFinder]gf", "<Cmd>FzfLua git_files<CR>", desc = "git files" },
 		{ "[_FuzzyFinder]gs", "<Cmd>FzfLua git_status<CR>", desc = "git status" },

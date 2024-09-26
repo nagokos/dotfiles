@@ -494,10 +494,6 @@ in
       # TOML
       taplo
 
-      # Rust
-      rust-analyzer
-      rustfmt
-
       # etc
       biome
       prettierd

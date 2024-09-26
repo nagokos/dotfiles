@@ -1,6 +1,6 @@
 require("lz.n").load({
 	"conform.nvim",
-	event = "BufWritePost",
+	event = "DeferredUIEnter",
 	keys = {
 		{
 			"[_Lsp]f",
