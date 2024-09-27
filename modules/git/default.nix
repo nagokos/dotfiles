@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let
+  mac_gitignore = lib.splitString "\n" (builtins.readFile ../mac/.gitignore_global);
+in
 {
   home.packages = with pkgs; [
     ghq
@@ -21,9 +24,6 @@
         };
       };
 
-      includes = [{ path = "~/.gitlocalconfig"; }];
-
-
       aliases = {
         ap = "add - p";
         ba = "branch -a";
@@ -40,6 +40,13 @@
         df = "diff";
         dfs = "diff --staged";
       };
+
+      ignores = lib.flatten [
+        "*.tmp"
+        "*.swp"
+        "*.log"
+        mac_gitignore
+      ];
 
       extraConfig = {
         init.defaultBranch = "main";
