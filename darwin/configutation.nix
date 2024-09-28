@@ -1,10 +1,13 @@
 {
+  system.stateVersion = 5;
   system.defaults = {
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = false;
     NSGlobalDomain = {
       InitialKeyRepeat = 10;
       KeyRepeat = 1;
       AppleInterfaceStyle = "Dark";
+      _HIHideMenuBar = true;
+      AppleKeyboardUIMode = 3;
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = false;
@@ -22,7 +25,7 @@
     enableKeyMapping = true;
     remapCapsLockToControl = true;
   };
-  system.stateVersion = 5;
+
   time.timeZone = "Asia/Tokyo";
   services.nix-daemon.enable = true;
 }
