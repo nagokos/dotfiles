@@ -1,6 +1,10 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 let
-  mac_gitignore = lib.splitString "\n" (builtins.readFile ../mac/.gitignore_global);
+  gitignore_global = if pkgs.stdenv.isDarwin then import ./gitignore_mac.nix else "";
 in
 {
   home.packages = with pkgs; [
@@ -45,7 +49,7 @@ in
         "*.tmp"
         "*.swp"
         "*.log"
-        mac_gitignore
+        gitignore_global
       ];
 
       extraConfig = {
