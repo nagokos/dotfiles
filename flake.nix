@@ -95,8 +95,8 @@
       darwinConfigurations."Naohiro" = darwin.lib.darwinSystem {
         pkgs = nixpkgs.legacyPackages."x86_64-darwin";
         modules = [
-          ./modules/mac/configutation.nix
-          ./modules/mac/homebrew.nix
+          ./darwin/homebrew.nix
+          ./darwin/configutation.nix
         ];
       };
       # formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.nixfmt-rfc-style;

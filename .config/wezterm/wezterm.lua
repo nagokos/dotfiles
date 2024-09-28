@@ -6,11 +6,11 @@ local config = {
 		{ family = "JetBrainsMono Nerd Font" },
 		{ family = "YuGothic" },
 	}),
-	font_size = 21.0,
+	font_size = 21,
 	color_scheme = "nordfox",
 
 	window_frame = {
-		font_size = 19,
+		font_size = 20,
 	},
 	window_decorations = "RESIZE",
 
