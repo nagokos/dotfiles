@@ -33,6 +33,9 @@
     # Go
     go
 
+    # Lua
+    lua
+
     # JS/TS
     nodejs_20
     pnpm

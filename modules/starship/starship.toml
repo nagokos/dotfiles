@@ -19,10 +19,10 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:color_blue bg:color_bg3)\
+$lua\
+$nix\
+[](fg:color_blue bg:color_bg1)\
 $docker_context\
-[](fg:color_bg3 bg:color_bg1)\
-$time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
@@ -137,6 +137,17 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[nix_shell]
+symbol = "󱄅"
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[lua]
+symbol = "󰢱"
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
 
 [docker_context]
 symbol = ""
