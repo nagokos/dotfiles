@@ -40,6 +40,8 @@ M.default_keybinds = {
 	{ key = "=", mods = "CTRL", action = "ResetFontSize" },
 	{ key = "+", mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
 	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
+
+	-- Scroll
 	{ key = "u", mods = "ALT|SHIFT", action = act({ ScrollByPage = -0.2 }) },
 	{ key = "d", mods = "ALT|SHIFT", action = act({ ScrollByPage = 0.2 }) },
 
