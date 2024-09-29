@@ -32,6 +32,7 @@
       nixpkgs,
       home-manager,
       darwin,
+      neovim-nightly-overlay,
       fenix,
       ...
     }@inputs:
@@ -50,7 +51,7 @@
             ];
 
           nixpkgs.overlays = [
-            inputs.neovim-nightly-overlay.overlays.default
+            neovim-nightly-overlay.overlays.default
             fenix.overlays.default
           ];
 
