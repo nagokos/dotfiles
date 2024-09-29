@@ -59,6 +59,7 @@
       find = "fd";
       ls = "eza --icons";
       sed = "gsed";
+      top = "btm";
       vi = "nvim";
       vim = "nvim";
       lgit = "lazygit";
