@@ -7,34 +7,37 @@ require("lz.n").load({
 		vim.cmd.packadd("SchemaStore.nvim")
 	end,
 	after = function()
-		local lspconfig = require("lspconfig")
-
-		require("lspconfig.ui.windows").default_options = {
-			border = "rounded",
-		}
 		vim.diagnostic.config({
-			virtual_text = {
-				prefix = "●",
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "󰅙",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.INFO] = "󰋼",
+					[vim.diagnostic.severity.HINT] = "󰌵",
+				},
 			},
 			float = {
 				border = "rounded",
 			},
 		})
 
-		local symbols = { Error = "󰅙", Info = "󰋼", Hint = "󰌵", Warn = "" }
+		local lspconfig = require("lspconfig")
 
-		for name, icon in pairs(symbols) do
-			local hl = "DiagnosticSign" .. name
-			vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-		end
+		require("lspconfig.ui.windows").default_options = {
+			border = "rounded",
+		}
 
 		local on_attach = function(_, bufnr)
 			-- vim.lsp.inlay_hint.enable(true)
 
 			-- Mappings.
 			local opts = { noremap = true, silent = true, buffer = bufnr }
-			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-			vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+			vim.keymap.set("n", "[d", function()
+				vim.diagnostic.jump({ count = -1, float = true })
+			end, opts)
+			vim.keymap.set("n", "]d", function()
+				vim.diagnostic.jump({ count = 1, float = true })
+			end, opts)
 			vim.keymap.set("n", "[_Lsp]a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 			vim.keymap.set("n", "[_Lsp]e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 			vim.keymap.set("n", "[_Lsp]q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
