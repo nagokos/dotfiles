@@ -37,6 +37,7 @@ require("lz.n").load({
 				map({ "n", "v" }, "[_Git]s", ":Gitsigns stage_hunk<CR>")
 				map({ "n", "v" }, "[_Git]r", ":Gitsigns reset_hunk<CR>")
 				map({ "n", "v" }, "[_Git]u", ":Gitsigns undo_stage_hunk<CR>")
+				map("n", "[_Git]d", ":Gitsigns toggle_deleted<CR>")
 				map("n", "[_Git]p", gs.preview_hunk)
 			end,
 		})

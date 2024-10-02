@@ -2,7 +2,7 @@ require("lz.n").load({
 	"diffview.nvim",
 	cmd = "DiffviewOpen",
 	keys = {
-		{ "[_Git]d", "<Cmd>DiffviewOpen<CR>", desc = "Diffview Open" },
+		{ "[_Git]D", "<Cmd>DiffviewOpen<CR>", desc = "Diffview Open" },
 	},
 	after = function()
 		require("diffview").setup({
