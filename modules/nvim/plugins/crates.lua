@@ -2,7 +2,8 @@ require("lz.n").load({
 	"crates.nvim",
 	event = { "BufRead Cargo.toml" },
 	after = function()
-		require("crates").setup({
+		local crates = require("crates")
+		crates.setup({
 			-- https://github.com/Saecki/crates.nvim/issues/89
 			completion = {
 				cmp = {
@@ -10,5 +11,7 @@ require("lz.n").load({
 				},
 			},
 		})
+
+		vim.keymap.set("n", "[_Lsp]cd", crates.open_documentation, { silent = true })
 	end,
 })

@@ -67,7 +67,7 @@
       bin = "brew install";
       bui = "brew uninstall";
       bup = "brew upgrade && brew upgrade --cask --greedy";
-      crun = "cargo run";
+      crun = "cargo run --quiet";
       fg = "change-git-directory-with-incremental-search";
     };
   };
