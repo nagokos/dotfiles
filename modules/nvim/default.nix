@@ -182,6 +182,7 @@ in
             markdown
             markdown_inline
             toml
+            regex
             nix
           ]
         );
