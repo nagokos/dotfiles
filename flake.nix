@@ -66,6 +66,7 @@
             ./modules/nvim
             ./modules/raycast
             ./modules/starship
+            ./modules/yazi
           ];
         };
       home-macbook = {

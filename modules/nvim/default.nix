@@ -167,6 +167,7 @@ in
       {
         plugin = nvim-treesitter.withPlugins (
           plugins: with plugins; [
+            asm
             typescript
             tsx
             go
