@@ -5,7 +5,7 @@ alias top = btm
 alias cat = bat
 alias ps = procs
 alias lss = eza --icons
-alias grep = ripgrep
+alias grep = rg
 
 alias dc  = docker-compose
 
