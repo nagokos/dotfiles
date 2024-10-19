@@ -63,6 +63,11 @@ let
       sha256 = "04g74ii2r610a8saqpynj5k0y99kfdh1xzlsinfza3dvwzh5vysy";
     };
   };
+
+  # nu
+  tree-sitter-nu = pkgs.callPackage ./plugins/nvim-treesitter-nu.nix {
+    inherit (pkgs.tree-sitter) buildGrammar;
+  };
 in
 {
   home.packages = with pkgs; [
@@ -185,6 +190,8 @@ in
             toml
             regex
             nix
+
+            tree-sitter-nu.grammar
           ]
         );
         type = "lua";
@@ -514,5 +521,10 @@ in
       ${builtins.readFile ./core/command.lua}
       ${builtins.readFile ./core/autocmd.lua}
     '';
+  };
+
+  xdg.configFile = {
+    "nvim/queries/nu/highlights.scm".text = tree-sitter-nu.highlights;
+    "nvim/queries/nu/injections.scm".text = tree-sitter-nu.injections;
   };
 }

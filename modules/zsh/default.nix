@@ -40,6 +40,7 @@
             --bind 'ctrl-/:change-preview-window(80%|hidden|)' \
             --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
 
+
             bindkey '^P' up-line-or-history
             bindkey '^N' down-line-or-history
             bindkey -e  # Emacsキーバインディングを有効化

@@ -30,7 +30,7 @@ end)
 
 wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
 	local tab_index = tab.tab_index + 1
-	local title = string.format("%d: %s", tab_index, wezterm.truncate_right(tab.active_pane.title, max_width - 4))
+	local title = string.format("%d: %s", tab_index, wezterm.truncate_right(tab.active_pane.title, max_width - 3))
 	title = " " .. title .. " "
 
 	return {

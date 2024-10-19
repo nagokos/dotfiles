@@ -1,12 +1,8 @@
 let dark_theme = {
-    # color for nushell primitives
     separator: white
     leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
     header: green_bold
     empty: blue
-    # Closures can be used to choose colors for specific values.
-    # The value (in this case, a bool) is piped into the closure.
-    # eg) {|| if $in { 'light_cyan' } else { 'light_gray' } }
     bool: light_cyan
     int: white
     filesize: cyan
@@ -83,7 +79,6 @@ let alias_completer = {|spans|
 
 $env.config = {
 		show_banner: false,
-		use_grid_icons: true
 		history: {
 			max_size: 100_000
 			sync_on_enter: true
@@ -116,7 +111,7 @@ $env.config = {
         {
 					name: completion_menu
 					only_buffer_difference: false
-					marker: "| "
+					marker: ""
 					type: {
 							layout: ide
 							min_completion_width: 0,
@@ -142,11 +137,12 @@ $env.config = {
         }
     ]
 		keybindings: [
+	    	# https://github.com/atuinsh/atuin/issues/1392
         {
             name: completion_menu
-            modifier: control
-            keycode: char_j
-            mode: [ vi_normal vi_insert]
+            modifier: none
+            keycode: tab
+            mode: [ emacs vi_normal vi_insert]
             event: {
                 until: [
                     { send: menu name: completion_menu }
@@ -156,11 +152,11 @@ $env.config = {
             }
         }
         {
-            name: history_menu
+            name: atuin
             modifier: control
             keycode: char_r
-            mode: [ vi_insert, vi_normal]
-            event: { send: menu name: history_menu }
+            mode: [ emacs vi_insert, vi_normal]
+            event: { send: menu name: atuin }
         }
         {
             name: help_menu
@@ -286,6 +282,75 @@ $env.config = {
             event: { edit: cutfromstart }
         }
         
+				# autopairs
+				 {
+						name: autoparen
+						modifier: none
+						keycode: 'char_('
+						mode: [emacs vi_normal vi_insert]
+						event: [ 
+								{ edit: InsertChar value: "(" }
+								{ edit: InsertChar value: ")" }
+								{ edit: MoveLeft }
+						]
+					}
+				 {
+						name: autoparen
+						modifier: none
+						keycode: 'char_{'
+						mode: [emacs vi_normal vi_insert]
+						event: [ 
+								{ edit: InsertChar value: "{" }
+								{ edit: InsertChar value: "}" }
+								{ edit: MoveLeft }
+						]
+					}
+				 {
+						name: autoparen
+						modifier: none
+						keycode: 'char_['
+						mode: [emacs vi_normal vi_insert]
+						event: [ 
+								{ edit: InsertChar value: "[" }
+								{ edit: InsertChar value: "]" }
+								{ edit: MoveLeft }
+						]
+					}
+				 {
+						name: autoparen
+						modifier: none
+						keycode: 'char_"'
+						mode: [emacs vi_normal vi_insert]
+						event: [ 
+								{ edit: InsertChar value: '"' }
+								{ edit: InsertChar value: '"' }
+								{ edit: MoveLeft }
+						]
+					}
+					{
+						name: autoparen
+						modifier: none
+						keycode: "char_'"
+						mode: [emacs vi_normal vi_insert]
+						event: [ 
+								{ edit: InsertChar value: "'" }
+								{ edit: InsertChar value: "'" }
+								{ edit: MoveLeft }
+						]
+					}
+
+					# yazi
+					{
+						name: yazi
+						modifier: control
+						keycode: char_y
+						mode: [emacs vi_normal vi_insert]
+						event: [
+							{ edit: Clear }
+							{ edit: InsertChar value: y }
+							{ send: Enter }
+						]
+					}
     ]
 }
 

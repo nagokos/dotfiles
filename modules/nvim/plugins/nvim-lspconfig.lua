@@ -84,6 +84,9 @@ require("lz.n").load({
 		-- shell
 		lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
 
+		-- nu
+		lspconfig.nushell.setup({ capabilities = capabilities, on_attach = on_attach })
+
 		-- biome
 		lspconfig.biome.setup({
 			capabilities = capabilities,
