@@ -43,13 +43,13 @@ let
   };
 
   # quickfix
-  qf-helper-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "qf-helper-nvim";
+  quicker-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "quicker.nvim";
     src = pkgs.fetchFromGitHub {
       owner = "stevearc";
-      repo = "qf_helper.nvim";
-      rev = "fa3c2f3f2706e2c9984409c9c14b5993302ddfa7";
-      sha256 = "06gm0bzrx4lkynm3gy7wr0gvah6b72mjb49p3567372r91j4k9mz";
+      repo = "quicker.nvim";
+      rev = "46e0ad6c6a1d998a294e13cbb8b7c398e140983a";
+      hash = "sha256-rlKI23VZ8TzGRvl7C6wu83VpSdkzdHliElUZD+8U0iE=";
     };
   };
 
@@ -346,9 +346,9 @@ in
         optional = true;
       }
       {
-        plugin = qf-helper-nvim;
+        plugin = quicker-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/qf_helper.lua;
+        config = builtins.readFile ./plugins/quicker-nvim.lua;
       }
 
       #########################
