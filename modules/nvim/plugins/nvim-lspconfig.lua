@@ -10,14 +10,20 @@ require("lz.n").load({
 		vim.diagnostic.config({
 			signs = {
 				text = {
-					[vim.diagnostic.severity.ERROR] = "󰅙",
-					[vim.diagnostic.severity.WARN] = "",
-					[vim.diagnostic.severity.INFO] = "󰋼",
-					[vim.diagnostic.severity.HINT] = "󰌵",
+					[vim.diagnostic.severity.ERROR] = "●",
+					[vim.diagnostic.severity.WARN] = "●",
+					[vim.diagnostic.severity.INFO] = "●",
+					[vim.diagnostic.severity.HINT] = "●",
 				},
 			},
 			float = {
 				border = "rounded",
+			},
+			virtual_text = {
+				prefix = " ●",
+				format = function(diagnostic)
+					return string.format("%s ", diagnostic.message)
+				end,
 			},
 		})
 
@@ -33,10 +39,10 @@ require("lz.n").load({
 			-- Mappings.
 			local opts = { noremap = true, silent = true, buffer = bufnr }
 			vim.keymap.set("n", "[d", function()
-				vim.diagnostic.jump({ count = -1, float = true })
+				vim.diagnostic.jump({ count = -1, float = false })
 			end, opts)
 			vim.keymap.set("n", "]d", function()
-				vim.diagnostic.jump({ count = 1, float = true })
+				vim.diagnostic.jump({ count = 1, float = false })
 			end, opts)
 			vim.keymap.set("n", "[_Lsp]a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 			vim.keymap.set("n", "[_Lsp]e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -82,10 +88,16 @@ require("lz.n").load({
 		})
 
 		-- shell
-		lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
+		lspconfig.bashls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- nu
-		lspconfig.nushell.setup({ capabilities = capabilities, on_attach = on_attach })
+		lspconfig.nushell.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- biome
 		lspconfig.biome.setup({
@@ -124,7 +136,10 @@ require("lz.n").load({
 		})
 
 		-- TOML
-		lspconfig.taplo.setup({ capabilities = capabilities, on_attach = on_attach })
+		lspconfig.taplo.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- nix
 		lspconfig.nil_ls.setup({

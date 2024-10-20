@@ -1,4 +1,11 @@
 require("quicker").setup({
+	type_icons = {
+		E = "● ",
+		W = "● ",
+		I = "● ",
+		N = "● ",
+		H = "● ",
+	},
 	keys = {
 		{
 			">",
