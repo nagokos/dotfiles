@@ -23,6 +23,8 @@
 
     # Etc
     fzf
+    zstd
+    imagemagick
 
     #################
     ## programming
@@ -47,6 +49,9 @@
       fenix.targets.wasm32-unknown-unknown.stable.rust-std
       fenix.targets.wasm32-wasi.stable.rust-std
     ])
+
+    # etc
+    typos
 
     ###########################
     ## Fonts
