@@ -14,6 +14,7 @@
     eza # ls
     curl # http
     xh # http
+    nurl # nix
 
     #json
     jc
