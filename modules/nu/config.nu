@@ -152,13 +152,6 @@ $env.config = {
             }
         }
         {
-            name: atuin
-            modifier: control
-            keycode: char_r
-            mode: [ emacs vi_insert, vi_normal]
-            event: { send: menu name: atuin }
-        }
-        {
             name: help_menu
             modifier: none
             keycode: f1

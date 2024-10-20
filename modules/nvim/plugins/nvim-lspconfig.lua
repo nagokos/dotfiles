@@ -41,9 +41,9 @@ require("lz.n").load({
 			vim.keymap.set("n", "[_Lsp]a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 			vim.keymap.set("n", "[_Lsp]e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 			vim.keymap.set("n", "[_Lsp]q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-			vim.keymap.set("n", "[_Lsp]rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+			vim.keymap.set("n", "[_Lsp]n", "<cmd>lua vim.lsp.buf.rename()<CR>")
 			vim.keymap.set("n", "[_Lsp]d", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-			vim.keymap.set("n", "[_Lsp]rf", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+			vim.keymap.set("n", "[_Lsp]r", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 			vim.keymap.set("n", "?", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 		end
 

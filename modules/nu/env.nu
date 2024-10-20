@@ -13,6 +13,7 @@ $env.ENV_CONVERSIONS = {
 		}
 }
 
+$env.SHELL = "nu"
 $env.STARSHIP_SHELL = "nu"
 $env.STARSHIP_CONFIG = ($nu.home-path | path join "modules" "starship" "starship.toml")
 

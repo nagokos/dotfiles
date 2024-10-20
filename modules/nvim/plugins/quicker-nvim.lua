@@ -17,12 +17,12 @@ require("quicker").setup({
 	},
 })
 
-vim.keymap.set("n", "[_Subleader]q", function()
+vim.keymap.set("n", "[_SubLeader]q", function()
 	require("quicker").toggle()
 end, {
 	desc = "Toggle quickfix",
 })
-vim.keymap.set("n", "[_Subleader]l", function()
+vim.keymap.set("n", "[_SubLeader]l", function()
 	require("quicker").toggle({ loclist = true })
 end, {
 	desc = "Toggle loclist",

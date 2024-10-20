@@ -17,12 +17,6 @@ keymap = [
 	{ on = "<C-b>", run = "arrow -50%", desc = "Move cursor up one page" },
 	{ on = "<C-f>", run = "arrow 50%", desc = "Move cursor down one page" },
 
-	{ on = [
-		"g",
-		"g",
-	], run = "arrow -99999999", desc = "Move cursor to the top" },
-	{ on = "G", run = "arrow 99999999", desc = "Move cursor to the bottom" },
-
 	# Navigation
 	{ on = "h", run = "leave", desc = "Go back to the parent directory" },
 	{ on = "l", run = "enter", desc = "Enter the child directory" },
@@ -131,6 +125,10 @@ keymap = [
 	# Goto
 	{ on = [
 		"g",
+		"<Space>",
+	], run = "cd --interactive", desc = "Go to a directory interactively" },
+	{ on = [
+		"g",
 		"h",
 	], run = "cd ~", desc = "Go to the home directory" },
 	{ on = [
@@ -139,13 +137,16 @@ keymap = [
 	], run = "cd ~/.config", desc = "Go to the config directory" },
 	{ on = [
 		"g",
-		"<Space>",
-	], run = "cd --interactive", desc = "Go to a directory interactively" },
+		"g",
+	], run = "cd ~/ghq/github.com/nagokos", desc = "Go to a clone git project" },
 	{ on = [
 		"g",
-		"p",
-	], run = "cd ~/ghq/github.com/nagokos/", desc = "Go to a clone git project" },
-
+		"n",
+	], run = "cd ~/modules/nvim", desc = "Go to a nvim directory" },
+	{ on = [
+		"g",
+		"s",
+	], run = "cd ~/modules/nu", desc = "Go to a nushell directory" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },

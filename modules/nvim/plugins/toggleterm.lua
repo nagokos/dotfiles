@@ -24,10 +24,6 @@ require("lz.n").load({
 			shell = vim.o.shell, -- change the default shell
 			-- This field is only relevant if direction is set to 'float'
 			float_opts = {
-				-- The border key is *almost* the same as 'nvim_win_open'
-				-- see :h nvim_win_open for details on borders however
-				-- the 'curved' border is a custom border type
-				-- not natively supported but implemented in this plugin.
 				border = "curved",
 				width = math.floor(vim.o.columns * 0.9),
 				height = math.floor(vim.o.lines * 0.9),
