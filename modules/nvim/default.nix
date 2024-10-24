@@ -53,17 +53,6 @@ let
     };
   };
 
-  # session
-  possession-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "possession-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "jedrzejboczar";
-      repo = "possession.nvim";
-      rev = "246050074fa9878ca414badc613e0645867308b5";
-      sha256 = "04g74ii2r610a8saqpynj5k0y99kfdh1xzlsinfza3dvwzh5vysy";
-    };
-  };
-
   # nu
   tree-sitter-nu = pkgs.callPackage ./plugins/nvim-treesitter-nu.nix {
     inherit (pkgs.tree-sitter) buildGrammar;
@@ -263,9 +252,9 @@ in
       #########################
       ## Startup screen
       {
-        plugin = alpha-nvim;
+        plugin = dashboard-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/alpha-nvim.lua;
+        config = builtins.readFile ./plugins/dashboard-nvim.lua;
         optional = true;
       }
 
@@ -349,14 +338,6 @@ in
         plugin = quicker-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/quicker-nvim.lua;
-      }
-
-      #########################
-      ## Session
-      {
-        plugin = possession-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/possession.lua;
       }
 
       #########################

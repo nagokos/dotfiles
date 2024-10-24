@@ -38,7 +38,16 @@ require("lz.n").load({
 			return result
 		end
 
-		dashboard.section.header.val = vim.fn.readfile(vim.fs.normalize("~/modules/nvim/files/neovim_logo_ascii.txt"))
+		local logo = [[
+       ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
+       ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
+       ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
+       ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+       ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
+       ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
+  ]]
+
+		dashboard.section.header.val = vim.split(logo, "\n")
 		dashboard.section.header.opts.hl = "Question"
 		dashboard.section.buttons.val = {
 			dashboard.button("s", " Open last session", ":PossessionLoadCurrent<CR>"),
