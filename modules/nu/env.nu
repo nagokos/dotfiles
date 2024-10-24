@@ -14,6 +14,8 @@ $env.ENV_CONVERSIONS = {
 }
 
 $env.SHELL = "nu"
+
+# starship
 $env.STARSHIP_SHELL = "nu"
 $env.STARSHIP_CONFIG = ($nu.home-path | path join "modules" "starship" "starship.toml")
 
@@ -37,14 +39,31 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
   '/nix/var/nix/profiles/default/bin'
 ])
 
-# $env.FZF_DEFAULT_OPTS = [
-#     "--height 50%"
-#     "--layout=reverse"
-#     "--border"
-#     "--preview-window 'right:50%'"
-#     "--bind 'ctrl-/:change-preview-window(80%|hidden|)'"
-#     "--bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
-# ] | str join " "
+$env.FZF_DEFAULT_OPTS = [
+		"--no-exact"
+    "--height 75%"
+    "--layout=reverse"
+    "--border"
+		"--cycle"
+    "--keep-right"
+	  "--tabstop=1"
+    "--select-1"
+    "--preview-window=right,30%,sharp"
+] | str join " "
+
+$env._ZO_FZF_OPTS = [
+		"--no-exact"
+		"--tiebreak=index"
+    "--height 75%"
+    "--layout=reverse"
+    "--border"
+		"--cycle"
+    "--keep-right"
+	  "--tabstop=1"
+    "--select-1"
+    "--preview='eza -a --icons --color=always {2}'"
+    "--preview-window=right,40%,sharp"
+] | str join " "
 
 mkdir ~/.cache/nushell
 zoxide init nushell | save -f ~/.cache/nushell/.zoxide.nu
