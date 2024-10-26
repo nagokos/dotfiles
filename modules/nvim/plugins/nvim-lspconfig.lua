@@ -53,7 +53,7 @@ require("lz.n").load({
 			vim.keymap.set("n", "?", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 		end
 
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Rust
 		lspconfig.rust_analyzer.setup({

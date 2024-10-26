@@ -53,6 +53,17 @@ let
     };
   };
 
+  # markdown
+  markdown-table-mode-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "markdown-table-mode.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "Kicamon";
+      repo = "markdown-table-mode.nvim";
+      rev = "870d0449c1c78c673faa9637a63036f9537b4caa";
+      hash = "sha256-msg0bZYyDfQKAb+a7TZUWj/HiFCFvHvZDXixzEXEu2o=";
+    };
+  };
+
   # nu
   tree-sitter-nu = pkgs.callPackage ./plugins/nvim-treesitter-nu.nix {
     inherit (pkgs.tree-sitter) buildGrammar;
@@ -117,17 +128,11 @@ in
       #####################
       ## Auto Completion
       {
-        plugin = nvim-cmp;
+        plugin = blink-cmp;
         type = "lua";
-        config = builtins.readFile ./plugins/nvim-cmp.lua;
+        config = builtins.readFile ./plugins/blink-cmp.lua;
       }
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
-      cmp_luasnip
-      luasnip
       friendly-snippets
-      lspkind-nvim
 
       ###########################
       ## Lsp
@@ -228,16 +233,6 @@ in
         type = "lua";
         config = builtins.readFile ./plugins/noice.lua;
         optional = true;
-      }
-      {
-        plugin = cmp-cmdline;
-        type = "lua";
-        config = ''
-          require("lz.n").load({
-          	"cmp-cmdline",
-          	event = "CmdlineEnter"
-          })
-        '';
       }
 
       #########################
@@ -445,6 +440,13 @@ in
         type = "lua";
         config = builtins.readFile ./plugins/markdown-nvim.lua;
         optional = true;
+      }
+      {
+        plugin = markdown-table-mode-nvim;
+        type = "lua";
+        config = ''
+          require("markdown-table-mode").setup({})
+        '';
       }
 
       ## json yaml

@@ -350,4 +350,5 @@ $env.config = {
 source ~/.cache/nushell/carapace.nu
 source ~/.cache/nushell/atuin.nu
 source ~/.cache/nushell/.zoxide.nu
+
 use ~/.cache/nushell/starship.nu
