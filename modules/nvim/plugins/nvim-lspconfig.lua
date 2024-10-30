@@ -3,7 +3,6 @@ require("lz.n").load({
 	event = { "BufReadPre", "BufNewFile" },
 	load = function(name)
 		vim.cmd.packadd(name)
-		vim.cmd.packadd("cmp-nvim-lsp")
 		vim.cmd.packadd("SchemaStore.nvim")
 	end,
 	after = function()

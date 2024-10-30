@@ -5,10 +5,13 @@ require("lz.n").load({
 		local crates = require("crates")
 		crates.setup({
 			-- https://github.com/Saecki/crates.nvim/issues/89
-			completion = {
-				cmp = {
-					enabled = true,
-				},
+			lsp = {
+				enabled = true,
+				name = "crates.nvim",
+				on_attach = function(client, bufnr) end,
+				actions = true,
+				completion = true,
+				hover = true,
 			},
 		})
 
