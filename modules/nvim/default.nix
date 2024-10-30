@@ -346,12 +346,12 @@ in
 
       #########################
       ## Terminal
-      {
-        plugin = toggleterm-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/toggleterm.lua;
-        optional = true;
-      }
+      # {
+      #   plugin = toggleterm-nvim;
+      #   type = "lua";
+      #   config = builtins.readFile ./plugins/toggleterm.lua;
+      #   optional = true;
+      # }
 
       #########################
       ## Git
