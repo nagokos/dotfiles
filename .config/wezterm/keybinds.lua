@@ -11,8 +11,8 @@ M.default_keybinds = {
 	{ key = "n", mods = "ALT", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "h", mods = "ALT", action = act({ ActivateTabRelative = -1 }) },
 	{ key = "l", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
-	{ key = "[", mods = "ALT", action = act({ MoveTabRelative = -1 }) },
-	{ key = "]", mods = "ALT", action = act({ MoveTabRelative = 1 }) },
+	{ key = "h", mods = "ALT|CTRL", action = act({ MoveTabRelative = -1 }) },
+	{ key = "l", mods = "ALT|CTRL", action = act({ MoveTabRelative = 1 }) },
 
 	-- Pane
 	{ key = ",", mods = "ALT", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },

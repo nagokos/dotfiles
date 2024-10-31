@@ -247,9 +247,9 @@ in
       #########################
       ## Startup screen
       {
-        plugin = dashboard-nvim;
+        plugin = alpha-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/dashboard-nvim.lua;
+        config = builtins.readFile ./plugins/alpha-nvim.lua;
         optional = true;
       }
 

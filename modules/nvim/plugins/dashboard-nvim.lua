@@ -16,9 +16,6 @@ require("lz.n").load({
 
 		require("dashboard").setup({
 			theme = "doom",
-			hide = {
-				statusline = false,
-			},
 			config = {
 				header = vim.split(logo, "\n"),
 				center = {
