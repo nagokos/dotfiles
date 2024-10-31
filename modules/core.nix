@@ -31,7 +31,8 @@
     docker
 
     # C
-    gcc
+    # Disabled on macOS due to Rust compilation linker conflicts / Required for Linux only
+    # gcc
 
     # Go
     go
