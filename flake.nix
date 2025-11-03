@@ -67,11 +67,12 @@
             ./modules/raycast
             ./modules/starship
             ./modules/yazi
+            ./modules/wezterm
           ];
         };
       home-macbook = {
-        home.username = "naohirokosuda";
-        home.homeDirectory = "/Users/naohirokosuda";
+        home.username = "kosudanaohiro";
+        home.homeDirectory = "/Users/kosudanaohiro";
         imports = [
           inputs.mac-app-util.homeManagerModules.default
         ];
@@ -82,7 +83,7 @@
     in
     {
       homeConfigurations = {
-        nagokos = home-manager.lib.homeManagerConfiguration {
+        x86_64-mac = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-darwin";
           extraSpecialArgs = {
             inherit inputs;
@@ -92,14 +93,32 @@
             home-common
           ];
         };
+        aarch64-mac = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            home-macbook
+            home-common
+          ];
+        };
       };
-      darwinConfigurations."Naohiro" = darwin.lib.darwinSystem {
-        pkgs = nixpkgs.legacyPackages."x86_64-darwin";
-        modules = [
-          ./darwin/homebrew.nix
-          ./darwin/configutation.nix
-        ];
+      darwinConfigurations = {
+        x86_64-apple-darwin = darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          modules = [
+            ./darwin/homebrew.nix
+            ./darwin/configutation.nix
+          ];
+        };
+        aarch64-darwin = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./darwin/homebrew.nix
+            ./darwin/configutation.nix
+          ];
+        };
       };
-      # formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.nixfmt-rfc-style;
     };
 }
