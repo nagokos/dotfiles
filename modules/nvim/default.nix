@@ -1,36 +1,5 @@
 { inputs, pkgs, ... }:
 let
-  # indent
-  hlchunk-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "hlchunk.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "shellRaining";
-      repo = "hlchunk.nvim";
-      rev = "6c25dbc174d6bdecee6cbeab1d7a783fd2c407ba";
-      sha256 = "0vwiq3337isca1p6qpg3gas21hlcsfhbs1i6386k05hmadvyijbz";
-    };
-  };
-
-  # Treesitter
-  nvim-treehopper = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-treehopper";
-    src = pkgs.fetchFromGitHub {
-      owner = "mfussenegger";
-      repo = "nvim-treehopper";
-      rev = "13559079e33665a310d9ccf0e43f4e9bb9f337e2";
-      sha256 = "0xs1fv1j4b4jnrddwcgbzm5d3gg3b47xm1kzrhsxj6366zrrvlpg";
-    };
-  };
-  treesitter-unit = pkgs.vimUtils.buildVimPlugin {
-    name = "treesitter-unit";
-    src = pkgs.fetchFromGitHub {
-      owner = "David-Kunz";
-      repo = "treesitter-unit";
-      rev = "89968a1f8c72427691088e6d09d26a52c2ddc6f4";
-      sha256 = "1jc2pcd0lg78a37yd2lcp4yghpcz28a4rmcm8qdi63mc9npil4ka";
-    };
-  };
-
   # move
   move-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "move.nvim";
@@ -64,10 +33,21 @@ let
     };
   };
 
-  # nu
-  tree-sitter-nu = pkgs.callPackage ./plugins/nvim-treesitter-nu.nix {
-    inherit (pkgs.tree-sitter) buildGrammar;
+  # fidget
+  fidget-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "fidget-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "j-hui";
+      repo = "fidget.nvim";
+      rev = "e32b672d8fd343f9d6a76944fedb8c61d7d8111a";
+      hash = "sha256-XXTeJweQRIsC/WFhFxFbepOETV8e5Wfmh513su2Wve0=";
+    };
   };
+
+  # nu
+  # tree-sitter-nu = pkgs.callPackage ./plugins/nvim-treesitter-nu.nix {
+  #   inherit (pkgs.tree-sitter) buildGrammar;
+  # };
 in
 {
   home.packages = with pkgs; [
@@ -77,7 +57,7 @@ in
   programs.neovim = {
     enable = true;
     viAlias = true;
-    vimAlias = true;
+    vimAlias = false;
     defaultEditor = true;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
@@ -103,7 +83,7 @@ in
       }
 
       ####################
-      ## Font 
+      ## Font
       nvim-web-devicons
 
       #####################
@@ -118,11 +98,16 @@ in
 
       #####################
       ## Notify
+      # {
+      #   plugin = nvim-notify;
+      #   type = "lua";
+      #   config = builtins.readFile ./plugins/nvim-notify.lua;
+      #   optional = true;
+      # }
       {
-        plugin = nvim-notify;
+        plugin = fidget-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/nvim-notify.lua;
-        optional = true;
+        config = builtins.readFile ./plugins/fidget-nvim.lua;
       }
 
       #####################
@@ -147,6 +132,15 @@ in
       ##  Outline
       {
         plugin = outline-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/outline.lua;
+        optional = true;
+      }
+
+      #######################
+      ## Indent
+      {
+        plugin = hlchunk-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/outline.lua;
         optional = true;
@@ -185,7 +179,7 @@ in
             regex
             nix
 
-            tree-sitter-nu.grammar
+            # tree-sitter-nu.grammar
           ]
         );
         type = "lua";
@@ -197,16 +191,6 @@ in
       #   config = builtins.readFile ./plugins/nvim-ts-autotag.lua;
       #   optional = true;
       # }
-      {
-        plugin = nvim-treehopper;
-        type = "lua";
-        config = builtins.readFile ./plugins/nvim-treehopper.lua;
-      }
-      {
-        plugin = treesitter-unit;
-        type = "lua";
-        config = builtins.readFile ./plugins/treesitter-unit.lua;
-      }
 
       ########################
       ## Statusline
@@ -218,7 +202,7 @@ in
       }
 
       #########################
-      ## Bufferline 
+      ## Bufferline
       {
         plugin = bufferline-nvim;
         type = "lua";
@@ -304,7 +288,7 @@ in
       }
 
       #########################
-      ## Grep 
+      ## Grep
       {
         plugin = grug-far-nvim;
         type = "lua";
@@ -506,8 +490,8 @@ in
     '';
   };
 
-  xdg.configFile = {
-    "nvim/queries/nu/highlights.scm".text = tree-sitter-nu.highlights;
-    "nvim/queries/nu/injections.scm".text = tree-sitter-nu.injections;
-  };
+  # xdg.configFile = {
+  #   "nvim/queries/nu/highlights.scm".text = tree-sitter-nu.highlights;
+  #   "nvim/queries/nu/injections.scm".text = tree-sitter-nu.injections;
+  # };
 }

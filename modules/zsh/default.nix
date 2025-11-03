@@ -7,7 +7,7 @@
 
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -65,7 +65,6 @@
       sed = "gsed";
       top = "btm";
       vi = "nvim";
-      vim = "nvim";
       lgit = "lazygit";
       bls = "brew list";
       bin = "brew install";

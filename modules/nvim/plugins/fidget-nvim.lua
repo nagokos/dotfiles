@@ -1,11 +1,11 @@
-require("lz-n").load({
+require("lz.n").load({
 	"fidget.nvim",
 	event = "BufEnter",
-	config = function()
+	after = function()
 		require("fidget").setup({
-			sources = { -- Sources to configure
-				["null-ls"] = { -- Name of source
-					ignore = true, -- Ignore notifications from this source
+			progress = {
+				display = {
+					progress_icon = { pattern = "meter", period = 1 },
 				},
 			},
 		})

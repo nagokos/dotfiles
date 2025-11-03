@@ -20,7 +20,7 @@ in
         };
 
         alias = {
-          ap = "add - p";
+          ap = "add -p";
           ba = "branch -a";
           s = "switch";
           sm = "switch -";
@@ -36,22 +36,12 @@ in
           dfs = "diff --staged";
         };
 
-        delta = {
-          enable = true;
-          options = {
-            features = "side-by-side line-numbers decorations";
-            # decorations = {
-            #   commit-decoration-style = "bold yellow box ul";
-            #   file-style = "bold yellow";
-            #   file-decoration-style = "none";
-            # };
-          };
-        };
-
         # extraConfig
+        credential = {
+          helper = "!gh auth git-credential";
+        };
         init.defaultBranch = "main";
-        merge.confilictstyle = "diff3";
-        credential.helper = "osxkeychain";
+        merge.conflictstyle = "diff3";
       };
 
       ignores = lib.flatten [
@@ -60,6 +50,18 @@ in
         "*.log"
         gitignore_global
       ];
+
+    };
+
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        diff-so-fancy = true;
+        line-numbers = true;
+        true-color = "always";
+        side-by-side = true;
+      };
     };
 
     gh = {

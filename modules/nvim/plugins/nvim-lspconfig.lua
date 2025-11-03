@@ -26,7 +26,7 @@ require("lz.n").load({
 			},
 		})
 
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 
 		require("lspconfig.ui.windows").default_options = {
 			border = "rounded",
@@ -52,22 +52,37 @@ require("lz.n").load({
 			vim.keymap.set("n", "?", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 		end
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Rust
-		lspconfig.rust_analyzer.setup({
-			capabilities = capabilities,
+		-- lspconfig.rust_analyzer.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		check = {
+		-- 			command = "clippy",
+		-- 		},
+		-- 	},
+		-- })
+		--
+
+		vim.lsp.config("rust_analyzer", {
 			on_attach = on_attach,
 			settings = {
-				check = {
-					command = "clippy",
+				["rust-analyzer"] = {
+					diagnostics = {
+						enable = true,
+					},
+					check = {
+						command = "clippy",
+					},
 				},
 			},
 		})
+		vim.lsp.enable("rust_analyzer")
 
 		-- Lua
-		lspconfig.lua_ls.setup({
-			capabilities = capabilities,
+		vim.lsp.config("lua_ls", {
 			on_attach = on_attach,
 			settings = {
 				Lua = {
@@ -85,72 +100,93 @@ require("lz.n").load({
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls")
+
+		-- lspconfig.lua_ls.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		Lua = {
+		-- 			diagnostics = {
+		-- 				globals = { "vim" },
+		-- 			},
+		-- 			-- hint = { enable = true },
+		-- 			format = {
+		-- 				enable = true,
+		-- 				defaultConfig = {
+		-- 					indent_style = "tab",
+		-- 					indent_size = "2",
+		-- 				},
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 
 		-- shell
-		lspconfig.bashls.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- nu
-		lspconfig.nushell.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- biome
-		lspconfig.biome.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- json
-		lspconfig.jsonls.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				json = {
-					schemas = require("schemastore").json.schemas(),
-					validate = { enable = true },
-				},
-			},
-		})
-
-		-- yaml
-		lspconfig.yamlls.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				yaml = {
-					schemaStore = {
-						-- You must disable built-in schemaStore support if you want to use
-						-- this plugin and its advanced options like `ignore`.
-						enable = false,
-						-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-						url = "",
-					},
-					schemas = require("schemastore").yaml.schemas(),
-				},
-			},
-		})
-
-		-- TOML
-		lspconfig.taplo.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- nix
-		lspconfig.nil_ls.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				["nil"] = {
-					formatting = {
-						command = { "nixfmt" },
-					},
-				},
-			},
-		})
+		-- lspconfig.bashls.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
+		--
+		-- -- nu
+		-- lspconfig.nushell.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
+		--
+		-- -- biome
+		-- lspconfig.biome.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
+		--
+		-- -- json
+		-- lspconfig.jsonls.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		json = {
+		-- 			schemas = require("schemastore").json.schemas(),
+		-- 			validate = { enable = true },
+		-- 		},
+		-- 	},
+		-- })
+		--
+		-- -- yaml
+		-- lspconfig.yamlls.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		yaml = {
+		-- 			schemaStore = {
+		-- 				-- You must disable built-in schemaStore support if you want to use
+		-- 				-- this plugin and its advanced options like `ignore`.
+		-- 				enable = false,
+		-- 				-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+		-- 				url = "",
+		-- 			},
+		-- 			schemas = require("schemastore").yaml.schemas(),
+		-- 		},
+		-- 	},
+		-- })
+		--
+		-- -- TOML
+		-- lspconfig.taplo.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
+		--
+		-- -- nix
+		-- lspconfig.nil_ls.setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		["nil"] = {
+		-- 			formatting = {
+		-- 				command = { "nixfmt" },
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 	end,
 })
