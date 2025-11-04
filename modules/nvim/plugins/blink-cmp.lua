@@ -5,10 +5,6 @@ require("blink.cmp").setup({
 	completion = {
 		list = {
 			selection = { preselect = false },
-			window = {
-				border = "rounded",
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-			},
 		},
 		documentation = {
 			auto_show = true,

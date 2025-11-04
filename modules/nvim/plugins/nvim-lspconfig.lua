@@ -55,17 +55,6 @@ require("lz.n").load({
 		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Rust
-		-- lspconfig.rust_analyzer.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		check = {
-		-- 			command = "clippy",
-		-- 		},
-		-- 	},
-		-- })
-		--
-
 		vim.lsp.config("rust_analyzer", {
 			on_attach = on_attach,
 			settings = {
@@ -102,25 +91,7 @@ require("lz.n").load({
 		})
 		vim.lsp.enable("lua_ls")
 
-		-- lspconfig.lua_ls.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		Lua = {
-		-- 			diagnostics = {
-		-- 				globals = { "vim" },
-		-- 			},
-		-- 			-- hint = { enable = true },
-		-- 			format = {
-		-- 				enable = true,
-		-- 				defaultConfig = {
-		-- 					indent_style = "tab",
-		-- 					indent_size = "2",
-		-- 				},
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
+		-- TODO: lsp settings
 
 		-- shell
 		-- lspconfig.bashls.setup({
@@ -177,16 +148,16 @@ require("lz.n").load({
 		-- })
 		--
 		-- -- nix
-		-- lspconfig.nil_ls.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		["nil"] = {
-		-- 			formatting = {
-		-- 				command = { "nixfmt" },
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
+		vim.lsp.config("nil_ls", {
+			on_attach = on_attach,
+			settings = {
+				Lua = {
+					formatting = {
+						command = { "nixfmt" },
+					},
+				},
+			},
+		})
+		vim.lsp.enable("nil_ls")
 	end,
 })

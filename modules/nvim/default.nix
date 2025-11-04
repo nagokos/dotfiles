@@ -11,17 +11,6 @@ let
     };
   };
 
-  # quickfix
-  quicker-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "quicker.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "stevearc";
-      repo = "quicker.nvim";
-      rev = "46e0ad6c6a1d998a294e13cbb8b7c398e140983a";
-      hash = "sha256-rlKI23VZ8TzGRvl7C6wu83VpSdkzdHliElUZD+8U0iE=";
-    };
-  };
-
   # markdown
   markdown-table-mode-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "markdown-table-mode.nvim";
@@ -132,15 +121,6 @@ in
       ##  Outline
       {
         plugin = outline-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/outline.lua;
-        optional = true;
-      }
-
-      #######################
-      ## Indent
-      {
-        plugin = hlchunk-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/outline.lua;
         optional = true;
@@ -317,6 +297,7 @@ in
         plugin = quicker-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/quicker-nvim.lua;
+        optional = true;
       }
 
       #########################
@@ -345,6 +326,7 @@ in
         config = builtins.readFile ./plugins/gitsigns.lua;
         optional = true;
       }
+      ## TODO: lz-n適用とoptional設定(実際にコンフリクト起きてからでいい)
       {
         plugin = git-conflict-nvim;
         type = "lua";
@@ -381,6 +363,7 @@ in
         plugin = hlchunk-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/hlchunk.lua;
+        optional = true;
       }
 
       #########################
@@ -394,6 +377,7 @@ in
 
       ############################
       ## Memo
+      ## TODO: 動かないので対応
       {
         plugin = obsidian-nvim;
         type = "lua";
