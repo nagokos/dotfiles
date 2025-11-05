@@ -22,7 +22,7 @@ require("lz.n").load({
 			},
 			indent = {
 				enable = true,
-				use_treesitter = true,
+				use_treesitter = false,
 			},
 			line_num = {
 				enable = false,

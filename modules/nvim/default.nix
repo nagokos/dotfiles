@@ -377,13 +377,12 @@ in
 
       ############################
       ## Memo
-      ## TODO: 動かないので対応
-      {
-        plugin = obsidian-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/obsidian.lua;
-        optional = true;
-      }
+      # {
+      #   plugin = obsidian-nvim;
+      #   type = "lua";
+      #   config = builtins.readFile ./plugins/obsidian.lua;
+      #   optional = true;
+      # }
 
       #################################
       ## Language

@@ -10,5 +10,5 @@ require("nvim-treesitter.configs").setup({
 			node_decremental = "<S-CR>",
 		},
 	},
-	indent = { enable = true },
+	-- indent = { enable = true },
 })
