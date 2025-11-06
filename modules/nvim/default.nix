@@ -22,17 +22,6 @@ let
     };
   };
 
-  # fidget
-  fidget-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "fidget-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "j-hui";
-      repo = "fidget.nvim";
-      rev = "e32b672d8fd343f9d6a76944fedb8c61d7d8111a";
-      hash = "sha256-XXTeJweQRIsC/WFhFxFbepOETV8e5Wfmh513su2Wve0=";
-    };
-  };
-
   # nu
   # tree-sitter-nu = pkgs.callPackage ./plugins/nvim-treesitter-nu.nix {
   #   inherit (pkgs.tree-sitter) buildGrammar;
@@ -97,6 +86,7 @@ in
         plugin = fidget-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/fidget-nvim.lua;
+        optional = true;
       }
 
       #####################
