@@ -1,17 +1,17 @@
 require("lz.n").load({
 	"fzf-lua",
 	keys = {
-		{ "[_FuzzyFinder]f", "<Cmd>FzfLua files<CR>", desc = "files" },
+		{ "[_FuzzyFinder]w", "<Cmd>FzfLua files<CR>", desc = "files" },
 		{ "[_FuzzyFinder]r", "<Cmd>FzfLua resume<CR>", desc = "resume" },
 		{ "[_FuzzyFinder]o", "<Cmd>FzfLua oldfiles<CR>", desc = "old files" },
 		{ "[_FuzzyFinder]ss", "<Cmd>FzfLua live_grep<CR>", desc = "live grep" },
 		{ "[_FuzzyFinder]sg", "<Cmd>FzfLua live_grep_glob<CR>", desc = "live grep glob" },
-		{ "[_FuzzyFinder]c", "<Cmd>FzfLua commands<CR>", desc = "commands" },
+		{ "[_FuzzyFinder]:", "<Cmd>FzfLua commands<CR>", desc = "commands" },
 		{ "[_FuzzyFinder]q", "<Cmd>FzfLua quickfix<CR>", desc = "quickfix" },
 		{ "[_FuzzyFinder]l", "<Cmd>FzfLua loclist<CR>", desc = "loclist" },
 		{ "[_FuzzyFinder]'", "<Cmd>FzfLua marks<CR>", desc = "marks" },
 		{ "[_FuzzyFinder]y", "<Cmd>FzfLua registers<CR>", desc = "registers" },
-		{ "[_FuzzyFinder]w", "<Cmd>FzfLua grep_cword<CR>", desc = "grep cursor word" },
+		{ "[_FuzzyFinder]c", "<Cmd>FzfLua grep_cword<CR>", desc = "grep cursor word" },
 		{ "[_FuzzyFinder]d", "<Cmd>FzfLua diagnostics_workspace<CR>", desc = "diagnostics workspace" },
 		{ "[_FuzzyFinder]t", "<Cmd>TodoFzfLua<CR>", desc = "todo" },
 
