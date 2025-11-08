@@ -1,6 +1,7 @@
 require("lz.n").load({
 	"neo-tree.nvim",
 	cmd = "Neotree",
+	lazy = false,
 	keys = {
 		{ "gx", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
 	},

@@ -1,5 +1,6 @@
 require("lz.n").load({
 	"fzf-lua",
+	cmd = { "FzfLua" },
 	keys = {
 		{ "[_FuzzyFinder]w", "<Cmd>FzfLua files<CR>", desc = "files" },
 		{ "[_FuzzyFinder]r", "<Cmd>FzfLua resume<CR>", desc = "resume" },

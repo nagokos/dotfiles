@@ -67,27 +67,15 @@ in
       #####################
       ## UI Library
       {
-        plugin = dressing-nvim;
+        plugin = snacks-nvim;
         type = "lua";
-        config = ''
-          require("dressing").setup({})
-        '';
+        config = builtins.readFile ./plugins/snacks-nvim.lua;
+        optional = true;
       }
 
       #####################
       ## Notify
-      # {
-      #   plugin = nvim-notify;
-      #   type = "lua";
-      #   config = builtins.readFile ./plugins/nvim-notify.lua;
-      #   optional = true;
-      # }
-      {
-        plugin = fidget-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/fidget-nvim.lua;
-        optional = true;
-      }
+      ## snacks-nvim
 
       #####################
       ## Auto Completion
@@ -104,6 +92,12 @@ in
         plugin = nvim-lspconfig;
         type = "lua";
         config = builtins.readFile ./plugins/nvim-lspconfig.lua;
+        optional = true;
+      }
+      {
+        plugin = fidget-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/fidget-nvim.lua;
         optional = true;
       }
 
@@ -301,12 +295,6 @@ in
 
       #########################
       ## Terminal
-      # {
-      #   plugin = toggleterm-nvim;
-      #   type = "lua";
-      #   config = builtins.readFile ./plugins/toggleterm.lua;
-      #   optional = true;
-      # }
 
       #########################
       ## Git
@@ -349,12 +337,7 @@ in
 
       ########################
       ## Reading assistant
-      {
-        plugin = hlchunk-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/hlchunk.lua;
-        optional = true;
-      }
+      ## snacks-nvim
 
       #########################
       ## Brackets

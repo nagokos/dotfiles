@@ -40,7 +40,6 @@ end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
 	return vim.v.count > 0 and "k" or "gk"
 end, { noremap = true, expr = true })
-
 vim.keymap.set("n", "f", "w", { noremap = true, silent = true })
 vim.keymap.set("n", "F", "W", { noremap = true, silent = true })
 
@@ -100,10 +99,9 @@ vim.keymap.set("x", "?", "<ESC>?\\%V", { noremap = true, silent = false })
 vim.keymap.set("n", "[_SubLeader]s", ":%s/\\<<C-r><C-w>\\>/", { noremap = true, silent = false })
 vim.keymap.set("x", "[_SubLeader]s", ":s/\\%V", { noremap = true, silent = false })
 
--- Undoable<C-w> <C-u>
--- TODO: ctrl + uで単語削除 ctrl + dで全て削除 (途中から削除の時はctrl + fしてから ctrl + uでいいと思う)
-vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-d>", "<C-g>u<C-u>", { noremap = true, silent = true })
+-- insert mode undo delete
+vim.keymap.set("i", "<C-u>", "<C-g>u<C-w>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-d>", "<C-o>cc", { noremap = true, silent = true })
 
 -- Delete buffer
 vim.keymap.set("n", "[_SubLeader]db", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
@@ -120,6 +118,7 @@ vim.keymap.set("n", "[_SubLeader]dma", function()
 end, { noremap = true, silent = true })
 
 -- split
+-- TODO: splitのサイズ調節するならコマンド入れる
 vim.keymap.set("n", "<C-,>", "<Cmd>split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-.>", "<Cmd>vsplit<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
