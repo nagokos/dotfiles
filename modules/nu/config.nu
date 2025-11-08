@@ -246,20 +246,21 @@ $env.config = {
 							]
 						}
 				 }
-         {
-            name: move_word_left
-            modifier: control
-            keycode: char_b
-            mode: [ vi_insert, vi_normal ]
-            event: { edit: movewordleft }
-        }
-				 {
-            name: move_word_right
-            modifier: control
-            keycode: char_f
-            mode: [ vi_insert, vi_normal]
-            event: { edit: movewordright }
-        }
+         # 必要なら際設定(単語で飛べる)
+				 #     {
+				 #        name: move_word_left
+				 #        modifier: control
+				 #        keycode: char_b
+				 #        mode: [ vi_insert, vi_normal ]
+				 #        event: { edit: movewordleft }
+				 #    }
+				 # {
+				 #        name: move_word_right
+				 #        modifier: control
+				 #        keycode: char_f
+				 #        mode: [ vi_insert, vi_normal]
+				 #        event: { edit: movewordright }
+				 #    }
         {
             name: delete_one_word_backward
             modifier: control
