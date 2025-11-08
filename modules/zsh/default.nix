@@ -22,46 +22,46 @@
       save = 10000;
     };
     initExtra = ''
-                                    # atuin
-                                    eval "$(atuin init zsh)"
+            # atuin
+            eval "$(atuin init zsh)"
 
-                                    #zoxide
-                                    eval "$(zoxide init zsh)"
+            #zoxide
+            eval "$(zoxide init zsh)"
 
-                                    # starship
-                                    eval "$(starship init zsh)"
+            # starship
+            eval "$(starship init zsh)"
 
-                                    # direnv
-                                    eval "$(direnv hook zsh)"
+            # direnv
+            eval "$(direnv hook zsh)"
 
-                                    # fzfのデフォルト設定
-                                    export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
-                                    --preview-window 'right:50%' \
-                                    --bind 'ctrl-/:change-preview-window(80%|hidden|)' \
-                                    --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
+            # fzfのデフォルト設定
+            export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border \
+            --preview-window 'right:50%' \
+            --bind 'ctrl-/:change-preview-window(80%|hidden|)' \
+            --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'"
 
+            # 過去のコマンド
+            bindkey '^P' up-line-or-history
+            bindkey '^N' down-line-or-history
 
-            												# 過去のコマンド
-                                    bindkey '^P' up-line-or-history
-                                    bindkey '^N' down-line-or-history
+            # 文字移動
+            bindkey "^H" backward-char
+            bindkey "^L" forward-char
 
-      															# 文字移動
-                        						bindkey "^H" backward-char
-                        						bindkey "^L" forward-char
+            bindkey "^Z" clear-screen
 
-                  									bindkey "^J" clear-screen
+            bindkey "^B" beginning-of-line
+            bindkey "^F" end-of-line
 
-                                    bindkey -e  # Emacsキーバインディングを有効化
-                                    bindkey "^B" beginning-of-line
-                                    bindkey "^F" end-of-line
+            bindkey "^U" backward-kill-word
 
-                              			bindkey -s '^Y' 'y\n'
+            bindkey '^Y' autosuggest-accept
 
-                                    function change-git-directory-with-incremental-search () {
-                                    	local WORKDIR=$(${pkgs.ghq}/bin/ghq list -p | ${pkgs.fzf}/bin/fzf --preview "${pkgs.onefetch}/bin/onefetch --show-logo never {}" --preview-window=right,50% --height 70%)
-                                    	[ -z "$WORKDIR" ] && return
-                                    	cd $WORKDIR
-                                    }
+            function change-git-directory-with-incremental-search () {
+      				local WORKDIR=$(${pkgs.ghq}/bin/ghq list -p | ${pkgs.fzf}/bin/fzf --preview "${pkgs.onefetch}/bin/onefetch --show-logo never {}" --preview-window=right,50% --height 70%)
+      				[ -z "$WORKDIR" ] && return
+      				cd $WORKDIR
+            }
     '';
     shellAliases = {
       dc = "docker compose";
@@ -81,6 +81,7 @@
       bup = "brew upgrade && brew upgrade --cask --greedy";
       crun = "cargo run --quiet";
       fg = "change-git-directory-with-incremental-search";
+      re = "exec $SHELL -l";
     };
   };
 }
