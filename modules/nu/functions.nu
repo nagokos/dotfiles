@@ -1,6 +1,6 @@
 use std
 
-def _create_bar [percentage: int] -> str {
+def _create_bar [percentage: int]: nothing -> string {
     let max_length = 20   # Length of the bar
     let filled_length = ($max_length * $percentage / 100) | into int
 
@@ -10,7 +10,7 @@ def _create_bar [percentage: int] -> str {
     $bar
 }
 
-def _into-filesize [in_half_kb] -> filesize {
+def _into-filesize [in_half_kb]: nothing -> filesize {
     let f_size = $in_half_kb * 512 |  into filesize 
     $f_size
 }

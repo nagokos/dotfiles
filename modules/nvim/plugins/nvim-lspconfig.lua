@@ -99,11 +99,11 @@ require("lz.n").load({
 		-- 	on_attach = on_attach,
 		-- })
 		--
-		-- -- nu
-		-- lspconfig.nushell.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- })
+		-- nu
+		vim.lsp.config("nushell", {
+			on_attach = on_attach,
+		})
+		vim.lsp.enable("nushell")
 		--
 		-- -- biome
 		-- lspconfig.biome.setup({

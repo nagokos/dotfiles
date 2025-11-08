@@ -22,10 +22,6 @@ let
     };
   };
 
-  # nu
-  # tree-sitter-nu = pkgs.callPackage ./plugins/nvim-treesitter-nu.nix {
-  #   inherit (pkgs.tree-sitter) buildGrammar;
-  # };
 in
 {
   home.packages = with pkgs; [
@@ -142,8 +138,7 @@ in
             toml
             regex
             nix
-
-            # tree-sitter-nu.grammar
+            nu
           ]
         );
         type = "lua";
@@ -445,9 +440,4 @@ in
       ${builtins.readFile ./core/autocmd.lua}
     '';
   };
-
-  # xdg.configFile = {
-  #   "nvim/queries/nu/highlights.scm".text = tree-sitter-nu.highlights;
-  #   "nvim/queries/nu/injections.scm".text = tree-sitter-nu.injections;
-  # };
 }

@@ -100,8 +100,8 @@ vim.keymap.set("n", "[_SubLeader]s", ":%s/\\<<C-r><C-w>\\>/", { noremap = true, 
 vim.keymap.set("x", "[_SubLeader]s", ":s/\\%V", { noremap = true, silent = false })
 
 -- insert mode undo delete
-vim.keymap.set("i", "<C-u>", "<C-g>u<C-w>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-d>", "<C-o>cc", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-d>", "<C-g>u<C-w>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-u>", "<C-o>cc", { noremap = true, silent = true })
 
 -- Delete buffer
 vim.keymap.set("n", "[_SubLeader]db", "<Cmd>bdelete<CR>", { noremap = true, silent = true })

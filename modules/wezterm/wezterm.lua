@@ -27,6 +27,8 @@ local config = {
 	show_new_tab_button_in_tab_bar = false,
 	show_close_tab_button_in_tabs = false,
 
+	default_prog = { "/Users/kosudanaohiro/.nix-profile/bin/nu" },
+
 	check_for_updates = false,
 	use_ime = true,
 	use_dead_keys = false,

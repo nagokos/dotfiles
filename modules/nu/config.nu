@@ -64,7 +64,7 @@ let dark_theme = {
 let alias_completer = {|spans| 
   let expanded_alias = scope aliases
       | where name == $spans.0
-      | get -i 0.expansion
+      | get -o 0.expansion
 
   let spans = if $expanded_alias != null {
     $spans
@@ -175,21 +175,21 @@ $env.config = {
         {
             name: clear_screen
             modifier: control
-            keycode: char_d
+            keycode: char_z
             mode: [ vi_insert, vi_normal]
             event: { send: clearscreen }
         }
         {
             name: move_to_line_start
             modifier: control
-            keycode: char_a
+            keycode: char_b
             mode: [ vi_insert, vi_normal]
             event: { edit: movetolinestart }
         }
          {
             name: move_to_line_end
             modifier: control
-            keycode: char_e
+            keycode: char_f
             mode: [emacs, vi_normal, vi_insert]
             event: { edit: movetolineend }
         }
@@ -263,7 +263,7 @@ $env.config = {
         {
             name: delete_one_word_backward
             modifier: control
-            keycode: char_w
+            keycode: char_d
             mode: [ vi_insert, vi_normal]
 						event: { edit: backspaceword }
         }
