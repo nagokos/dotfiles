@@ -52,8 +52,8 @@
                   									bindkey "^J" clear-screen
 
                                     bindkey -e  # Emacsキーバインディングを有効化
-                                    bindkey "^A" beginning-of-line
-                                    bindkey "^E" end-of-line
+                                    bindkey "^B" beginning-of-line
+                                    bindkey "^F" end-of-line
 
                               			bindkey -s '^Y' 'y\n'
 
