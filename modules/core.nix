@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     #######################
     ## Cli
-    atuin # history
     bottom # top
     procs # ps
     fd # find

@@ -1,5 +1,4 @@
 alias vi = nvim
-alias vim = nvim
 alias cd = z
 alias top = btm
 alias cat = bat
@@ -11,4 +10,5 @@ alias dc  = docker-compose
 
 alias bup = brew upgrade and brew upgrade --cask --greedy
 
-alias crun = cargo run
+alias crun = cargo run --quiet
+# TODO: change-git-directory-with-incremental-searchを作る

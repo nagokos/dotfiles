@@ -88,8 +88,8 @@ vim.keymap.set("n", "gL", "L", { noremap = true, silent = true })
 vim.keymap.set("n", "gq", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true })
 
 -- For search
-vim.keymap.set("n", "*", "g*N", { noremap = true, silent = true })
-vim.keymap.set("x", "*", 'y/<C-R>"<CR>N', { noremap = true, silent = true })
+-- vim.keymap.set("n", "*", "g*N", { noremap = true, silent = true })
+-- vim.keymap.set("x", "*", 'y/<C-R>"<CR>N', { noremap = true, silent = true })
 
 -- noremap # g#n
 vim.keymap.set("x", "/", "<ESC>/\\%V", { noremap = true, silent = false })

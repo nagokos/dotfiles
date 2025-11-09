@@ -142,7 +142,7 @@ $env.config = {
             name: completion_menu
             modifier: none
             keycode: tab
-            mode: [ emacs vi_normal vi_insert]
+            mode:  vi_insert
             event: {
                 until: [
                     { send: menu name: completion_menu }
@@ -166,16 +166,9 @@ $env.config = {
             event: { send: ctrlc }
         }
         {
-            name: quit_shell
-            modifier: control
-            keycode: char_q
-            mode: [ vi_insert, vi_normal]
-            event: { send: ctrld }
-        }
-        {
             name: clear_screen
             modifier: control
-            keycode: char_z
+            keycode: char_q
             mode: [ vi_insert, vi_normal]
             event: { send: clearscreen }
         }
@@ -275,13 +268,20 @@ $env.config = {
             mode: "vi_insert"
             event: { edit: cutfromstart }
         }
+        {
+          name: history_hint_accept
+          modifier: control
+          keycode: char_y
+          mode: vi_insert
+          event: { send: historyhintcomplete }
+        }
         
 				# autopairs
 				 {
 						name: autoparen
 						modifier: none
 						keycode: 'char_('
-						mode: [emacs vi_normal vi_insert]
+						mode:  vi_insert
 						event: [ 
 								{ edit: InsertChar value: "(" }
 								{ edit: InsertChar value: ")" }
@@ -292,7 +292,7 @@ $env.config = {
 						name: autoparen
 						modifier: none
 						keycode: 'char_{'
-						mode: [emacs vi_normal vi_insert]
+						mode:  vi_insert
 						event: [ 
 								{ edit: InsertChar value: "{" }
 								{ edit: InsertChar value: "}" }
@@ -303,7 +303,7 @@ $env.config = {
 						name: autoparen
 						modifier: none
 						keycode: 'char_['
-						mode: [emacs vi_normal vi_insert]
+						mode:  vi_insert
 						event: [ 
 								{ edit: InsertChar value: "[" }
 								{ edit: InsertChar value: "]" }
@@ -314,7 +314,7 @@ $env.config = {
 						name: autoparen
 						modifier: none
 						keycode: 'char_"'
-						mode: [emacs vi_normal vi_insert]
+						mode:  vi_insert
 						event: [ 
 								{ edit: InsertChar value: '"' }
 								{ edit: InsertChar value: '"' }
@@ -325,7 +325,7 @@ $env.config = {
 						name: autoparen
 						modifier: none
 						keycode: "char_'"
-						mode: [emacs vi_normal vi_insert]
+						mode:  vi_insert
 						event: [ 
 								{ edit: InsertChar value: "'" }
 								{ edit: InsertChar value: "'" }
@@ -337,7 +337,7 @@ $env.config = {
 					{
 						name: yazi
 						modifier: control
-						keycode: char_y
+						keycode: char_z
 						mode: [emacs vi_normal vi_insert]
 						event: [
 							{ edit: Clear }

@@ -66,7 +66,6 @@ in
         plugin = snacks-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/snacks-nvim.lua;
-        optional = true;
       }
 
       #####################
@@ -88,7 +87,6 @@ in
         plugin = nvim-lspconfig;
         type = "lua";
         config = builtins.readFile ./plugins/nvim-lspconfig.lua;
-        optional = true;
       }
       {
         plugin = fidget-nvim;
@@ -175,7 +173,6 @@ in
         plugin = noice-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/noice.lua;
-        optional = true;
       }
 
       #########################
@@ -252,6 +249,15 @@ in
         plugin = grug-far-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/grug-far.lua;
+        optional = true;
+      }
+
+      #########################
+      ## Search
+      {
+        plugin = nvim-hlslens;
+        type = "lua";
+        config = builtins.readFile ./plugins/nvim-hlslens.lua;
         optional = true;
       }
 

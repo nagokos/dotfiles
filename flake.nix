@@ -70,6 +70,7 @@
             ./modules/starship
             ./modules/yazi
             ./modules/wezterm
+            ./modules/atuin
           ];
         };
       home-macbook = {
