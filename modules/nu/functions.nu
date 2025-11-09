@@ -15,6 +15,11 @@ def _into-filesize [in_half_kb]: nothing -> filesize {
     $f_size
 }
 
+def --env fg [] {
+  let workdir = ghq list -p | fzf | decode utf-8 | str trim
+  cd $workdir
+}
+
 def df [] {
     ^df -Y | jc --df | from json |
     | update 512_blocks { |row| _into-filesize $row.512_blocks }

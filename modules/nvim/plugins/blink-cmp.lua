@@ -32,6 +32,8 @@ require("blink.cmp").setup({
 		["<C-p>"] = { "select_prev", "fallback_to_mappings" },
 		["<C-n>"] = { "select_next", "fallback_to_mappings" },
 
+		["<C-k>"] = { "hide", "fallback" },
+
 		["<Tab>"] = { "snippet_forward", "fallback" },
 		["<S-Tab>"] = { "snippet_backward", "fallback" },
 
@@ -53,6 +55,7 @@ require("blink.cmp").setup({
 			["<Down>"] = false,
 			-- ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
 			-- ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+			["<C-k>"] = { "cancel", "fallback" },
 
 			["<C-n>"] = { "show_and_insert_or_accept_single", "select_next" },
 			["<C-p>"] = { "show_and_insert_or_accept_single", "select_prev" },

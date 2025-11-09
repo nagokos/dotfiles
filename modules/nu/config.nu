@@ -92,7 +92,6 @@ $env.config = {
 			algorithm:  "prefix"
 			external: {
 				enable: true
-				max_results: 100
 				completer: $alias_completer
 			}
 			use_ls_colors: true
@@ -214,14 +213,14 @@ $env.config = {
             name: delete_one_character_backward
             modifier: none
             keycode: backspace
-            mode: [ vi_insert, vi_normal]
+            mode: vi_insert
             event: { edit: backspace }
         }
 				{
             name: move_char_left
             modifier: control
             keycode: char_h
-            mode: [ vi_insert, vi_normal ]
+            mode: vi_insert
 						event: {
 							until: [
 								{ send: left }
@@ -232,13 +231,10 @@ $env.config = {
             name: move_char_right
             modifier: control
             keycode: char_l
-            mode: [ vi_insert, vi_normal ]
-						event: {
-							until: [
-								{ send: right }
-							]
-						}
+            mode: vi_insert 
+						event: { send: right }
 				 }
+## f bで単語でとぶ
          # 必要なら際設定(単語で飛べる)
 				 #     {
 				 #        name: move_word_left
@@ -274,6 +270,16 @@ $env.config = {
           keycode: char_y
           mode: vi_insert
           event: { send: historyhintcomplete }
+        }
+        {
+          name: vi_switch_normal
+          modifier: control
+          keycode: "char_["
+          mode: vi_insert
+          event: {
+            send: vichangemode
+            mode: normal
+          }
         }
         
 				# autopairs
