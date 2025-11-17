@@ -7,9 +7,9 @@ vim.api.nvim_set_keymap("x", ",", "[_SubLeader]", {})
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 
 -- [_FuzzyFinder]
-vim.keymap.set({ "n", "x" }, "w", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "w", "[_FuzzyFinder]", {})
-vim.api.nvim_set_keymap("v", "w", "[_FuzzyFinder]", {})
+vim.keymap.set({ "n", "x" }, "f", "<Nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "f", "[_FuzzyFinder]", {})
+vim.api.nvim_set_keymap("v", "f", "[_FuzzyFinder]", {})
 
 -- [_Lsp]
 vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
@@ -40,8 +40,6 @@ end, { noremap = true, expr = true })
 vim.keymap.set({ "n", "x" }, "k", function()
 	return vim.v.count > 0 and "k" or "gk"
 end, { noremap = true, expr = true })
-vim.keymap.set("n", "f", "w", { noremap = true, silent = true })
-vim.keymap.set("n", "F", "W", { noremap = true, silent = true })
 
 -- Automatically indent with i and A made by ycino
 vim.keymap.set("n", "i", function()
@@ -63,19 +61,17 @@ end
 
 vim.keymap.set("c", "<C-b>", "<Home>", { noremap = true, silent = false })
 if not vim.g.vscode then
-	vim.keymap.set("c", "<C-f>", "<End>", { noremap = true, silent = false })
+	vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, silent = false })
 end
 vim.keymap.set("c", "<C-l>", "<right>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-h>", "<left>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-b>", "<Home>", { noremap = true, silent = false })
-vim.keymap.set("i", "<C-f>", "<End>", { noremap = true, silent = false })
+vim.keymap.set("i", "<C-e>", "<End>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-h>", "<left>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-l>", "<right>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-k>", "<up>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-j>", "<down>", { noremap = true, silent = false })
 
-vim.keymap.set("c", "<C-e>", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-e>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("c", "<C-a>", "<Nop>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-a>", "<Nop>", { noremap = true, silent = true })
 
@@ -100,8 +96,7 @@ vim.keymap.set("n", "[_SubLeader]s", ":%s/\\<<C-r><C-w>\\>/", { noremap = true, 
 vim.keymap.set("x", "[_SubLeader]s", ":s/\\%V", { noremap = true, silent = false })
 
 -- insert mode undo delete
-vim.keymap.set("i", "<C-d>", "<C-g>u<C-w>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-u>", "<C-o>cc", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>", { noremap = true, silent = true })
 
 -- Delete buffer
 vim.keymap.set("n", "[_SubLeader]db", "<Cmd>bdelete<CR>", { noremap = true, silent = true })

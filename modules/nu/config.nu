@@ -171,18 +171,11 @@ $env.config = {
             mode: [ vi_insert, vi_normal]
             event: { send: clearscreen }
         }
-        {
-            name: move_to_line_start
-            modifier: control
-            keycode: char_b
-            mode: [ vi_insert, vi_normal]
-            event: { edit: movetolinestart }
-        }
          {
             name: move_to_line_end
             modifier: control
-            keycode: char_f
-            mode: [emacs, vi_normal, vi_insert]
+            keycode: char_e
+            mode:  vi_insert
             event: { edit: movetolineend }
         }
         {
@@ -234,35 +227,12 @@ $env.config = {
             mode: vi_insert 
 						event: { send: right }
 				 }
-## f bで単語でとぶ
-         # 必要なら際設定(単語で飛べる)
-				 #     {
-				 #        name: move_word_left
-				 #        modifier: control
-				 #        keycode: char_b
-				 #        mode: [ vi_insert, vi_normal ]
-				 #        event: { edit: movewordleft }
-				 #    }
-				 # {
-				 #        name: move_word_right
-				 #        modifier: control
-				 #        keycode: char_f
-				 #        mode: [ vi_insert, vi_normal]
-				 #        event: { edit: movewordright }
-				 #    }
         {
             name: delete_one_word_backward
             modifier: control
             keycode: char_d
             mode: [ vi_insert, vi_normal]
 						event: { edit: backspaceword }
-        }
-        {
-            name: cut_line_from_start
-            modifier: control
-            keycode: char_u
-            mode: "vi_insert"
-            event: { edit: cutfromstart }
         }
         {
           name: history_hint_accept
@@ -281,7 +251,6 @@ $env.config = {
             mode: normal
           }
         }
-        
 				# autopairs
 				 {
 						name: autoparen
