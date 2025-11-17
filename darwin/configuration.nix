@@ -1,4 +1,12 @@
 {
+  nix = {
+    optimise.automatic = true;
+    settings = {
+      experimental-features = "nix-command flakes";
+      max-jobs = 8;
+    };
+  };
+
   system = {
     primaryUser = "kosudanaohiro";
     stateVersion = 5;
