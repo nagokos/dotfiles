@@ -8,15 +8,15 @@
     };
 
     # Mac
-    darwin = {
+    nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ## BUG: https://github.com/hraban/mac-app-util/issues/39
     mac-app-util = {
       url = "github:hraban/mac-app-util";
-      inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
     };
 
     # Neovim
@@ -33,7 +33,7 @@
     {
       nixpkgs,
       home-manager,
-      darwin,
+      nix-darwin,
       neovim-nightly-overlay,
       fenix,
       ...
@@ -79,9 +79,6 @@
         imports = [
           inputs.mac-app-util.homeManagerModules.default
         ];
-        xdg.configFile."nix/nix.conf".text = ''
-          experimental-features = nix-command flakes
-        '';
       };
     in
     {
@@ -108,18 +105,18 @@
         };
       };
       darwinConfigurations = {
-        x86_64-apple-darwin = darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
+        x86_64-darwin = nix-darwin.lib.darwinSystem {
+          nixpkgs.hostPlatform = "x86_64-darwin";
           modules = [
             ./darwin/homebrew.nix
-            ./darwin/configutation.nix
+            ./darwin/configuration.nix
           ];
         };
-        aarch64-darwin = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
+        aarch64-darwin = nix-darwin.lib.darwinSystem {
+          nixpkgs.hostPlatform = "aarch64-darwin";
           modules = [
             ./darwin/homebrew.nix
-            ./darwin/configutation.nix
+            ./darwin/configuration.nix
           ];
         };
       };
