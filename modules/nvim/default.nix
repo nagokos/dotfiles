@@ -22,6 +22,15 @@ let
     };
   };
 
+  # treesitter-uu = pkgs.vimUtils.buildVimPlugin {
+  #   name = "treesitter-uu";
+  #   src = builtins.path {
+  #     name = "treesitter-uu";
+  #     path = "/Users/kosudanaohiro/ghq/github.com/nagokos/treesitter-uu";
+  #   };
+  #   checkRequire = false;
+  # };
+
 in
 {
   home.packages = with pkgs; [
@@ -44,6 +53,14 @@ in
       ## Lua Library
       nui-nvim
       plenary-nvim
+
+      # {
+      #   plugin = treesitter-uu;
+      #   type = "lua";
+      #   config = ''
+      #     	require("treesitter-uu").setup()
+      #     	'';
+      # }
 
       ####################
       ## ColorScheme
@@ -444,6 +461,7 @@ in
       ${builtins.readFile ./core/mappings.lua}
       ${builtins.readFile ./core/command.lua}
       ${builtins.readFile ./core/autocmd.lua}
+
     '';
   };
 }
