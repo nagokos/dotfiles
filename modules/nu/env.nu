@@ -37,6 +37,7 @@ $env.PROMPT_MULTILINE_INDICATOR = ""
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
   '~/.nix-profile/bin'
   '/nix/var/nix/profiles/default/bin'
+  '/run/current-system/sw/bin'
 ])
 
 $env.FZF_DEFAULT_OPTS = [
