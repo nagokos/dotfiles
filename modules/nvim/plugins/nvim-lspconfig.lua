@@ -151,7 +151,7 @@ require("lz.n").load({
 		vim.lsp.config("nil_ls", {
 			on_attach = on_attach,
 			settings = {
-				Lua = {
+				["nil"] = {
 					formatting = {
 						command = { "nixfmt" },
 					},
