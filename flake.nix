@@ -1,7 +1,8 @@
 {
   description = "A very basic flake";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
@@ -20,11 +21,19 @@
     };
 
     # Neovim
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Rust toolchain
     fenix = {
       url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -36,6 +45,7 @@
       nix-darwin,
       neovim-nightly-overlay,
       fenix,
+      mac-app-util,
       ...
     }@inputs:
     let
@@ -62,7 +72,7 @@
           imports = [
             ./modules/core.nix
             ./modules/git
-            ./modules/direnv
+            # ./modules/direnv
             ./modules/nu
             ./modules/zsh
             ./modules/nvim
