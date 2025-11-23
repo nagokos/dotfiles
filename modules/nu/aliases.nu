@@ -2,7 +2,7 @@ alias vi = nvim
 alias cd = z
 alias top = btm
 alias cat = bat
-alias ps = procs
+# alias ps = procs
 alias lss = eza --icons
 alias grep = rg
 

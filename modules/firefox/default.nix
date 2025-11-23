@@ -1,14 +1,18 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   programs.firefox = {
     enable = true;
     profiles = {
       default = {
         name = "main";
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
-          ublock-origin
-          tree-style-tab
-        ];
+        extensions = {
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            vimium
+            onepassword-password-manager
+            multi-account-containers
+          ];
+        };
       };
     };
   };

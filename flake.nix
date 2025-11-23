@@ -7,6 +7,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Mac
     nix-darwin = {
@@ -31,11 +35,6 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -46,6 +45,7 @@
       neovim-nightly-overlay,
       fenix,
       mac-app-util,
+      nur,
       ...
     }@inputs:
     let
@@ -57,14 +57,15 @@
             builtins.elem (lib.getName pkg) [
               "slack"
               "obsidian"
-              "raycast"
               "discord"
               "zoom"
+              "onepassword-password-manager"
             ];
 
           nixpkgs.overlays = [
             neovim-nightly-overlay.overlays.default
             fenix.overlays.default
+            nur.overlays.default
           ];
 
           programs.home-manager.enable = true;
@@ -72,15 +73,15 @@
           imports = [
             ./modules/core.nix
             ./modules/git
-            # ./modules/direnv
+            ./modules/direnv
             ./modules/nu
             ./modules/zsh
             ./modules/nvim
-            ./modules/raycast
             ./modules/starship
             ./modules/yazi
             ./modules/wezterm
             ./modules/atuin
+            ./modules/firefox
           ];
         };
       home-macbook = {
@@ -116,14 +117,14 @@
       };
       darwinConfigurations = {
         x86_64-darwin = nix-darwin.lib.darwinSystem {
-          nixpkgs.hostPlatform = "x86_64-darwin";
+          system = "x86_64-darwin";
           modules = [
             ./darwin/homebrew.nix
             ./darwin/configuration.nix
           ];
         };
         aarch64-darwin = nix-darwin.lib.darwinSystem {
-          nixpkgs.hostPlatform = "aarch64-darwin";
+          system = "aarch64-darwin";
           modules = [
             ./darwin/homebrew.nix
             ./darwin/configuration.nix

@@ -59,21 +59,18 @@ for _, quote in ipairs({ '"', "'", "`" }) do
 	vim.keymap.set({ "x", "o" }, "a" .. quote, "2i" .. quote)
 end
 
-vim.keymap.set("c", "<C-b>", "<Home>", { noremap = true, silent = false })
+vim.keymap.set("c", "<C-a>", "<Home>", { noremap = true, silent = false })
 if not vim.g.vscode then
 	vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, silent = false })
 end
 vim.keymap.set("c", "<C-l>", "<right>", { noremap = true, silent = false })
 vim.keymap.set("c", "<C-h>", "<left>", { noremap = true, silent = false })
-vim.keymap.set("i", "<C-b>", "<Home>", { noremap = true, silent = false })
+vim.keymap.set("i", "<C-a>", "<Home>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-e>", "<End>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-h>", "<left>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-l>", "<right>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-k>", "<up>", { noremap = true, silent = false })
 vim.keymap.set("i", "<C-j>", "<down>", { noremap = true, silent = false })
-
-vim.keymap.set("c", "<C-a>", "<Nop>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-a>", "<Nop>", { noremap = true, silent = true })
 
 -- remap H M L
 vim.keymap.set("n", "gH", "H", { noremap = true, silent = true })

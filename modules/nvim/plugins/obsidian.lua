@@ -1,5 +1,6 @@
 require("lz.n").load({
 	"obsidian.nvim",
+	cmd = "Obsidian",
 	ft = "markdown",
 	keys = {
 		{ "[_FuzzyFinder]mn", "<Cmd>Obsidian new<CR>", desc = "obsidian open" },
@@ -7,6 +8,8 @@ require("lz.n").load({
 		{ "[_FuzzyFinder]mq", "<Cmd>Obsidian quick_switch<CR>", desc = "obsidian quick switch" },
 		{ "[_FuzzyFinder]mt", "<Cmd>Obsidian tags<CR>", desc = "obsidian tags" },
 		{ "[_FuzzyFinder]mw", "<Cmd>Obsidian workspace<CR>", desc = "obsidian switch workspace" },
+		{ "[_FuzzyFinder]m1", "<Cmd>Obsidian today<CR>", desc = "obsidian switch workspace" },
+		{ "[_FuzzyFinder]m2", "<Cmd>Obsidian tomorrow<CR>", desc = "obsidian switch workspace" },
 	},
 	after = function()
 		require("lz.n").trigger_load("fzf-lua")
@@ -17,12 +20,8 @@ require("lz.n").load({
 			legacy_commands = false,
 			workspaces = {
 				{
-					name = "personal",
-					path = "~/vaults/personal",
-				},
-				{
-					name = "work",
-					path = "~/vaults/work",
+					name = "memo",
+					path = "/Users/kosudanaohiro/memo",
 				},
 			},
 

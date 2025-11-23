@@ -3,7 +3,7 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
-      cleanup = "zap";
+      cleanup = "uninstall";
       upgrade = true;
     };
     global = {
@@ -11,7 +11,7 @@
       lockfiles = false;
     };
     casks = [
-      "arc"
+      "raycast"
       "google-chrome"
       "1password"
       "1password-cli"
