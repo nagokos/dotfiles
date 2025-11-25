@@ -22,18 +22,19 @@ in
         alias = {
           ap = "add -p";
           ba = "branch -a";
-          s = "switch";
-          sm = "switch -";
-          sc = "switch -c";
+          sw = "switch";
+          swm = "switch -";
+          swc = "switch -c";
           cm = "commit -m";
           fixit = "commit --amend --no-edit";
-          st = "status";
+          s = "status";
+          rs = "restore --staged";
           f = "fetch";
-          r = "rebase";
+          re = "rebase";
           lo = "log --oneline";
           po = "push origin HEAD";
-          df = "diff";
-          dfs = "diff --staged";
+          d = "diff";
+          ds = "diff --staged";
         };
 
         # extraConfig
