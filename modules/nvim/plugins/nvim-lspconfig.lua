@@ -94,11 +94,11 @@ require("lz.n").load({
 		-- TODO: lsp settings
 
 		-- shell
-		-- lspconfig.bashls.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- })
-		--
+		vim.lsp.config("bashls", {
+			on_attach = on_attach,
+		})
+		vim.lsp.enable("bashls")
+
 		-- nu
 		vim.lsp.config("nushell", {
 			on_attach = on_attach,
@@ -148,16 +148,16 @@ require("lz.n").load({
 		-- })
 		--
 		-- -- nix
-		vim.lsp.config("nil_ls", {
+		vim.lsp.config("nixd", {
 			on_attach = on_attach,
 			settings = {
-				["nil"] = {
+				nixd = {
 					formatting = {
 						command = { "nixfmt" },
 					},
 				},
 			},
 		})
-		vim.lsp.enable("nil_ls")
+		vim.lsp.enable("nixd")
 	end,
 })
