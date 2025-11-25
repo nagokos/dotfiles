@@ -11,17 +11,6 @@ let
     };
   };
 
-  # markdown
-  markdown-table-mode-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "markdown-table-mode.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "Kicamon";
-      repo = "markdown-table-mode.nvim";
-      rev = "870d0449c1c78c673faa9637a63036f9537b4caa";
-      hash = "sha256-msg0bZYyDfQKAb+a7TZUWj/HiFCFvHvZDXixzEXEu2o=";
-    };
-  };
-
   # treesitter-uu = pkgs.vimUtils.buildVimPlugin {
   #   name = "treesitter-uu";
   #   src = builtins.path {
@@ -368,18 +357,6 @@ in
 
       ############################
       ## Memo
-      # {
-      #   plugin = obsidian-nvim;
-      #   type = "lua";
-      #   config = builtins.readFile ./plugins/obsidian.lua;
-      #   optional = true;
-      # }
-      {
-        plugin = telekasten-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/telekasten-nvim.lua;
-        optional = true;
-      }
 
       #################################
       ## Language
@@ -394,23 +371,10 @@ in
 
       ## markdown
       {
-        plugin = markview-nvim;
+        plugin = render-markdown-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/markview.lua;
+        config = builtins.readFile ./plugins/render-markdown.lua;
         optional = true;
-      }
-      {
-        plugin = markdown-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/markdown-nvim.lua;
-        optional = true;
-      }
-      {
-        plugin = markdown-table-mode-nvim;
-        type = "lua";
-        config = ''
-          require("markdown-table-mode").setup({})
-        '';
       }
 
       ## json yaml
@@ -430,7 +394,7 @@ in
       vale
 
       # Nix
-      nil
+      nixd
       nixfmt-rfc-style
 
       # Lua
@@ -461,7 +425,6 @@ in
     ];
 
     extraLuaConfig = ''
-
       		${builtins.readFile ./core/base.lua}
       		${builtins.readFile ./core/option.lua}
       		${builtins.readFile ./core/display.lua}
@@ -469,9 +432,5 @@ in
       		${builtins.readFile ./core/command.lua}
       		${builtins.readFile ./core/autocmd.lua}
     '';
-
   };
-
-  # telekasten.nvim
-  xdg.configfile."nvim/zellekasten/template.md".source = ./zellekasten/template.md;
 }
