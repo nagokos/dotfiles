@@ -368,10 +368,16 @@ in
 
       ############################
       ## Memo
+      # {
+      #   plugin = obsidian-nvim;
+      #   type = "lua";
+      #   config = builtins.readFile ./plugins/obsidian.lua;
+      #   optional = true;
+      # }
       {
-        plugin = obsidian-nvim;
+        plugin = telekasten-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/obsidian.lua;
+        config = builtins.readFile ./plugins/telekasten-nvim.lua;
         optional = true;
       }
 
@@ -455,13 +461,17 @@ in
     ];
 
     extraLuaConfig = ''
-      ${builtins.readFile ./core/base.lua}
-      ${builtins.readFile ./core/option.lua}
-      ${builtins.readFile ./core/display.lua}
-      ${builtins.readFile ./core/mappings.lua}
-      ${builtins.readFile ./core/command.lua}
-      ${builtins.readFile ./core/autocmd.lua}
 
+      		${builtins.readFile ./core/base.lua}
+      		${builtins.readFile ./core/option.lua}
+      		${builtins.readFile ./core/display.lua}
+      		${builtins.readFile ./core/mappings.lua}
+      		${builtins.readFile ./core/command.lua}
+      		${builtins.readFile ./core/autocmd.lua}
     '';
+
   };
+
+  # telekasten.nvim
+  xdg.configfile."nvim/zellekasten/template.md".source = ./zellekasten/template.md;
 }
