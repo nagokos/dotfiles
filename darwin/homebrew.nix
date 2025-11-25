@@ -16,10 +16,11 @@
       "1password"
       "1password-cli"
       "deepl"
-      "wezterm@nightly"
       "notion"
       "orbstack"
       "devtoys"
+      "claude"
+      "chatgpt"
     ];
   };
 }
