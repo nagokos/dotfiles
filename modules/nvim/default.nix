@@ -158,11 +158,30 @@ in
       ########################
       ## Statusline
       {
-        plugin = lualine-nvim;
+        # BUG: home-manager switch error
+        plugin = pkgs.vimUtils.buildVimPlugin {
+          name = "lualine.nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "nvim-lualine";
+            repo = "lualine.nvim";
+            rev = "47f91c416daef12db467145e16bed5bbfe00add8";
+            hash = "sha256-OpLZH+sL5cj2rcP5/T+jDOnuxd1QWLHCt2RzloffZOA=";
+          };
+        };
         type = "lua";
         config = builtins.readFile ./plugins/lualine.lua;
-        optional = true;
+        # optional = true;
       }
+
+      # 	  move-nvim = pkgs.vimUtils.buildVimPlugin {
+      #   name = "move.nvim";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "fedepujol";
+      #     repo = "move.nvim";
+      #     rev = "cccbd4ea9049ca5f99f025ffaddb7392359c7d6a";
+      #     sha256 = "1425mbyvax63m6l7vkwbfi1l863mr86ba11gxa3hqxcgvjpvp638";
+      #   };
+      # };
 
       #########################
       ## Bufferline
