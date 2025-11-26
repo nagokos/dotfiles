@@ -23,18 +23,18 @@ in
           ap = "add -p";
           ba = "branch -a";
           sw = "switch";
-          swm = "switch -";
+          swb = "switch -";
           swc = "switch -c";
           cm = "commit -m";
           fixit = "commit --amend --no-edit";
-          s = "status";
+          st = "status";
           rs = "restore --staged";
-          f = "fetch";
+          fe = "fetch";
           re = "rebase";
           lo = "log --oneline";
           po = "push origin HEAD";
-          d = "diff";
-          ds = "diff --staged";
+          df = "diff";
+          dfs = "diff --staged";
         };
 
         # extraConfig
