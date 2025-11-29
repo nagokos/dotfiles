@@ -49,7 +49,7 @@ local config = {
 
 	leader = { key = "Space", mods = "CTRL|SHIFT" },
 	keys = {
-		{ key = "n", mods = "ALT", action = act({ SpawnTab = "CurrentPaneDomain" }) },
+		{ key = "t", mods = "ALT", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 		{ key = "h", mods = "ALT", action = act({ ActivateTabRelative = -1 }) },
 		{ key = "l", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
 		{ key = "h", mods = "ALT|CTRL", action = act({ MoveTabRelative = -1 }) },
