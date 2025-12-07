@@ -10,5 +10,6 @@ alias dc  = docker-compose
 
 alias bup = brew upgrade and brew upgrade --cask --greedy
 
-alias crun = cargo run --quiet
-# TODO: change-git-directory-with-incremental-searchを作る
+alias ct = cargo test 
+alias ctn = cargo test -- --nocapture
+alias cr = cargo run --quiet
