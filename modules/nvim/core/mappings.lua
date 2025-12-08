@@ -96,13 +96,13 @@ vim.keymap.set("x", "[_SubLeader]s", ":s/\\%V", { noremap = true, silent = false
 vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>", { noremap = true, silent = true })
 
 -- Delete buffer
-vim.keymap.set("n", "[_SubLeader]db", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[_SubLeader]bb", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
 -- Delete Close Others
-vim.keymap.set("n", "[_SubLeader]da", "<Cmd>BufferLineCloseOthers<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[_SubLeader]ba", "<Cmd>BufferLineCloseOthers<CR>", { noremap = true, silent = true })
 
 -- Delete all marks
-vim.keymap.set("n", "[_SubLeader]dmb", "<Cmd>delmarks!<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "[_SubLeader]dma", function()
+vim.keymap.set("n", "[_SubLeader]mm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[_SubLeader]ma", function()
 	if vim.fn.confirm("Delete all marks?", "&Yes\n&No", 2) == 1 then
 		vim.cmd("delmarks a-zA-Z0-9")
 		print("All marks deleted")
