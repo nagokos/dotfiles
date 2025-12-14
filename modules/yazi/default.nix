@@ -3,8 +3,8 @@ let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "4f1d0ae0862f464e08f208f1807fcafcd8778e16";
-    sha256 = "1yr1p14xyfx4bj4dz7as1g2f8h1dwv0x1izvnbffr85zgbmc7ppr";
+    rev = "19dc890e33b8922eb1a3a165e685436ec4ac0a59";
+    hash = "sha256-Hml7n07G6tEOPUPOFN9jf01C5LtZRO8pfERVHKHJQRo=";
   };
 in
 {
@@ -14,7 +14,7 @@ in
     shellWrapperName = "y";
 
     settings = {
-      manager = {
+      mgr = {
         show_hidden = true;
       };
       preview = {
