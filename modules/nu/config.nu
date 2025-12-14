@@ -308,15 +308,15 @@ $env.config = {
 						]
 					}
 
-					# yazi
+					# fzf
 					{
-						name: yazi
+						name: fzf
 						modifier: control
-						keycode: char_z
-						mode: [emacs vi_normal vi_insert]
+						keycode: char_f
+						mode: [vi_normal vi_insert]
 						event: [
 							{ edit: Clear }
-							{ edit: InsertChar value: y }
+							{ edit: InsertString value: "fzf" }
 							{ send: Enter }
 						]
 					}
