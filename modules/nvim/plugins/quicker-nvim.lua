@@ -1,6 +1,5 @@
 require("lz.n").load({
 	"quicker.nvim",
-	ft = "qf",
 	after = function()
 		require("quicker").setup({
 			type_icons = {
