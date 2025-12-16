@@ -46,3 +46,11 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 	once = false,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	callback = function()
+		vim.keymap.set("n", "q", "<Cmd>close<CR>", { buffer = true })
+	end,
+	group = vim.api.nvim_create_augroup("Close", { clear = true }),
+})
