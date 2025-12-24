@@ -50,6 +50,8 @@
     #  fenix.targets.wasm32-wasi.stable.rust-std
     #])
     fenix.latest.toolchain
+    # repl
+    evcxr
 
     # etc
     typos
