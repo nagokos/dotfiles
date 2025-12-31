@@ -6,7 +6,7 @@ local config = {
 		{ family = "JetBrainsMono Nerd Font" },
 		{ family = "YuGothic" },
 	}),
-	font_size = 13,
+	font_size = 14,
 	color_scheme = "nightfox",
 
 	automatically_reload_config = true,

@@ -24,6 +24,7 @@
     fzf
     zstd
     imagemagick
+    fish
 
     #################
     ## programming
