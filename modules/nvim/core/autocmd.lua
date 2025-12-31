@@ -19,6 +19,17 @@ vim.api.nvim_create_autocmd({ "CmdwinEnter" }, {
 	once = false,
 })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	group = group_name,
 	pattern = "*",

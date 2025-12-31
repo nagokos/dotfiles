@@ -7,7 +7,12 @@ local config = {
 		{ family = "YuGothic" },
 	}),
 	font_size = 13,
-	color_scheme = "nordfox",
+	color_scheme = "nightfox",
+
+	automatically_reload_config = true,
+
+	window_background_opacity = 0.85,
+	macos_window_background_blur = 20,
 
 	window_decorations = "RESIZE",
 	window_frame = {
@@ -88,6 +93,8 @@ local config = {
 
 		-- Close
 		{ key = "x", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
+
+		{ key = "f", mods = "ALT", action = act.ToggleFullScreen },
 	},
 	key_tables = {
 		copy_mode = {
