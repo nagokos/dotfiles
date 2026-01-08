@@ -82,6 +82,7 @@
             ./modules/wezterm
             ./modules/atuin
             ./modules/firefox
+            ./modules/jujutsu
           ];
         };
       home-macbook = {

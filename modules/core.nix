@@ -56,7 +56,6 @@
 
     # etc
     typos
-    jujutsu
 
     ###########################
     ## Fonts
