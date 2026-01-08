@@ -72,7 +72,6 @@
           home.stateVersion = "24.11";
           imports = [
             ./modules/core.nix
-            ./modules/git
             ./modules/direnv
             ./modules/nu
             ./modules/zsh
@@ -82,7 +81,7 @@
             ./modules/wezterm
             ./modules/atuin
             ./modules/firefox
-            ./modules/jujutsu
+            ./modules/vcs
           ];
         };
       home-macbook = {
