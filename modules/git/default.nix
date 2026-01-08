@@ -15,7 +15,7 @@ in
       enable = true;
       settings = {
         user = {
-          name = "naohiro kosuda";
+          name = "nagokos";
           email = "kosnago0428@gmail.com";
         };
 
