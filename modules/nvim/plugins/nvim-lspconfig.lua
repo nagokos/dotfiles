@@ -105,49 +105,49 @@ require("lz.n").load({
 		})
 		vim.lsp.enable("nushell")
 		--
-		-- -- biome
-		-- lspconfig.biome.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- })
-		--
-		-- -- json
-		-- lspconfig.jsonls.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		json = {
-		-- 			schemas = require("schemastore").json.schemas(),
-		-- 			validate = { enable = true },
-		-- 		},
-		-- 	},
-		-- })
-		--
-		-- -- yaml
-		-- lspconfig.yamlls.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		yaml = {
-		-- 			schemaStore = {
-		-- 				-- You must disable built-in schemaStore support if you want to use
-		-- 				-- this plugin and its advanced options like `ignore`.
-		-- 				enable = false,
-		-- 				-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-		-- 				url = "",
-		-- 			},
-		-- 			schemas = require("schemastore").yaml.schemas(),
-		-- 		},
-		-- 	},
-		-- })
-		--
-		-- -- TOML
-		-- lspconfig.taplo.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- })
-		--
-		-- -- nix
+		-- biome
+		vim.lsp.config("biome", {
+			on_attach = on_attach,
+		})
+		vim.lsp.enable("biome")
+
+		-- json
+		vim.lsp.config("jsonls", {
+			on_attach = on_attach,
+			settings = {
+				json = {
+					schemas = require("schemastore").json.schemas(),
+					validate = { enable = true },
+				},
+			},
+		})
+		vim.lsp.enable("jsonls")
+
+		-- yaml
+		vim.lsp.config("yamlls", {
+			on_attach = on_attach,
+			settings = {
+				yaml = {
+					schemaStore = {
+						-- You must disable built-in schemaStore support if you want to use
+						-- this plugin and its advanced options like `ignore`.
+						enable = false,
+						-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+						url = "",
+					},
+					schemas = require("schemastore").yaml.schemas(),
+				},
+			},
+		})
+		vim.lsp.enable("yamlls")
+
+		-- TOML
+		vim.lsp.config("taplo", {
+			on_attach = on_attach,
+		})
+		vim.lsp.enable("taplo")
+
+		-- nix
 		vim.lsp.config("nixd", {
 			on_attach = on_attach,
 			settings = {
