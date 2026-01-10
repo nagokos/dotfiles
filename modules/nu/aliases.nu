@@ -6,6 +6,8 @@ alias cat = bat
 alias lss = eza --icons
 alias grep = rg
 
+alias mm = mmemo
+
 alias dc  = docker-compose
 
 alias bup = brew upgrade and brew upgrade --cask --greedy

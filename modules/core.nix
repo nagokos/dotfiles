@@ -1,4 +1,24 @@
 { pkgs, ... }:
+let
+  mmemoSrc = pkgs.fetchFromGitHub {
+    owner = "nagokos";
+    repo = "mmemo";
+    rev = "c43bf95b2cad03386d2ec7bfbb0c871b5fbf4489";
+    hash = "sha256-NCuNqYgExynpZ3YnjO73jC9KwvDp+4k6iMGDQPoyFi8=";
+  };
+
+  mmemo = pkgs.rustPlatform.buildRustPackage {
+    pname = "mmemo";
+    version = "0.1.0";
+    src = mmemoSrc;
+
+    cargoLock.lockFile = "${mmemoSrc}/Cargo.lock";
+
+    buildInputs = pkgs.lib.optionals pkgs.stdenv.isDarwin [ pkgs.libiconv ];
+
+    meta.mainProgram = "mmemo";
+  };
+in
 {
   home.packages = with pkgs; [
     #######################
@@ -14,6 +34,7 @@
     curl # http
     xh # http
     nurl # nix
+    mmemo # memo tool
 
     #json
     jc
