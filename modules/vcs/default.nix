@@ -61,8 +61,8 @@ in
         ui = {
           editor = "nvim";
         };
-        core = {
-          fsmonitor = "watchman";
+        fsmonitor = {
+          backend = "watchman";
         };
         aliases = {
           tug = [
@@ -71,6 +71,26 @@ in
             "--from"
             "heads(::@- & bookmarks())"
             "--to"
+            "@-"
+          ];
+          lo = [ "log" ];
+          sp = [ "split" ];
+          sq = [ "squash" ];
+          sh = [ "show" ];
+          ds = [
+            "describe"
+            "-m"
+          ];
+          dsp = [
+            "describe"
+            "-r"
+            "@-"
+            "-m"
+          ];
+          df = [ "diff" ];
+          dfp = [
+            "diff"
+            "-r"
             "@-"
           ];
         };
