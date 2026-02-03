@@ -76,6 +76,11 @@ in
           lo = [ "log" ];
           sp = [ "split" ];
           sq = [ "squash" ];
+          sqp = [
+            "squash"
+            "--from"
+            "@-"
+          ];
           sh = [ "show" ];
           ds = [
             "describe"

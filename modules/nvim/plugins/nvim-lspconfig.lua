@@ -123,6 +123,25 @@ require("lz.n").load({
 		})
 		vim.lsp.enable("jsonls")
 
+		-- c and c++
+		vim.lsp.config("clangd", {
+			on_attach = on_attach,
+			cmd = {
+				"clangd",
+				"--background-index",
+				"--clang-tidy",
+				"--completion-style=detailed",
+				"--header-insertion=iwyu",
+				"--pch-storage=memory",
+			},
+			-- clangd は settings ではなく init_options / cmd で調整することが多い
+			init_options = {
+				clangdFileStatus = true, -- ステータス表示（対応クライアントで効く）
+			},
+		})
+
+		vim.lsp.enable("clangd")
+
 		-- yaml
 		vim.lsp.config("yamlls", {
 			on_attach = on_attach,
