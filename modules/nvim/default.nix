@@ -10,16 +10,6 @@ let
       sha256 = "1425mbyvax63m6l7vkwbfi1l863mr86ba11gxa3hqxcgvjpvp638";
     };
   };
-
-  # treesitter-uu = pkgs.vimUtils.buildVimPlugin {
-  #   name = "treesitter-uu";
-  #   src = builtins.path {
-  #     name = "treesitter-uu";
-  #     path = "/Users/kosudanaohiro/ghq/github.com/nagokos/treesitter-uu";
-  #   };
-  #   checkRequire = false;
-  # };
-
 in
 {
   home.packages = with pkgs; [
@@ -42,14 +32,6 @@ in
       ## Lua Library
       nui-nvim
       plenary-nvim
-
-      # {
-      #   plugin = treesitter-uu;
-      #   type = "lua";
-      #   config = ''
-      #     	require("treesitter-uu").setup()
-      #     	'';
-      # }
 
       ####################
       ## ColorScheme

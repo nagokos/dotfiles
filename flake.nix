@@ -88,7 +88,7 @@
         home.username = "kosudanaohiro";
         home.homeDirectory = "/Users/kosudanaohiro";
         imports = [
-          inputs.mac-app-util.homeManagerModules.default
+          mac-app-util.homeManagerModules.default
         ];
       };
     in
