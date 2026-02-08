@@ -10,6 +10,16 @@ let
       sha256 = "1425mbyvax63m6l7vkwbfi1l863mr86ba11gxa3hqxcgvjpvp638";
     };
   };
+
+  treesitter-unit = pkgs.vimUtils.buildVimPlugin {
+    name = "treesitter-unit";
+    src = pkgs.fetchFromGitHub {
+      owner = "nagokos";
+      repo = "treesitter-unit";
+      rev = "44195116faad390e1fff499936eee519af7cda6d";
+      hash = "sha256-03NnoffBveA0Sd+7D886pR71ZEaRbgp9kir4hYRuVIE=";
+    };
+  };
 in
 {
   home.packages = with pkgs; [
@@ -112,6 +122,7 @@ in
             go
             rust
             c
+            cpp
             yaml
             lua
             vim
@@ -136,6 +147,11 @@ in
       #   config = builtins.readFile ./plugins/nvim-ts-autotag.lua;
       #   optional = true;
       # }
+      {
+        plugin = treesitter-unit;
+        type = "lua";
+        config = builtins.readFile ./plugins/treesitter-unit.lua;
+      }
 
       ########################
       ## Statusline
