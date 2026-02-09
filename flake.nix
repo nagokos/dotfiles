@@ -77,7 +77,7 @@
             ./modules/zsh
             ./modules/nvim
             ./modules/starship
-            ./modules/yazi
+            # ./modules/yazi
             ./modules/wezterm
             ./modules/atuin
             ./modules/firefox
