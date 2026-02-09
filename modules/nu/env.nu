@@ -17,7 +17,7 @@ $env.SHELL = "nu"
 
 # starship
 $env.STARSHIP_SHELL = "nu"
-$env.STARSHIP_CONFIG = ($nu.home-path | path join "modules" "starship" "starship.toml")
+$env.STARSHIP_CONFIG = ($nu.home-dir | path join "modules" "starship" "starship.toml")
 
 def create_left_prompt [] {
     starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
