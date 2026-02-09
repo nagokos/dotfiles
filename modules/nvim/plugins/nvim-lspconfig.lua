@@ -70,6 +70,19 @@ require("lz.n").load({
 		})
 		vim.lsp.enable("rust_analyzer")
 
+		-- Haskell
+		vim.lsp.config("hls", {
+			on_attach = on_attach,
+			settings = {
+				haskell = {
+					plugin = {
+						hlint = { globalOn = true },
+					},
+				},
+			},
+		})
+		vim.lsp.enable("hls")
+
 		-- Lua
 		vim.lsp.config("lua_ls", {
 			on_attach = on_attach,

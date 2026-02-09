@@ -58,6 +58,11 @@ in
     # Go
     go
 
+    # Haskell
+    haskellPackages.ghc
+    haskellPackages.cabal-install
+    haskellPackages.hoogle
+
     # Lua
     lua
 

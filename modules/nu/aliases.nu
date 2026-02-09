@@ -15,3 +15,5 @@ alias bup = brew upgrade and brew upgrade --cask --greedy
 alias ct = cargo test 
 alias ctn = cargo test -- --nocapture
 alias cr = cargo run --quiet
+
+alias hr = runghc

@@ -136,6 +136,7 @@ in
             regex
             nix
             nu
+            haskell
           ]
         );
         type = "lua";
@@ -418,6 +419,9 @@ in
       yaml-language-server
       yamllint
 
+      #Haskell
+      haskell-language-server
+
       # TOML
       taplo
 
@@ -431,7 +435,7 @@ in
       fzf
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       		${builtins.readFile ./core/base.lua}
       		${builtins.readFile ./core/option.lua}
       		${builtins.readFile ./core/display.lua}
