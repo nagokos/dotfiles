@@ -10,6 +10,9 @@ require("lz.n").load({
 				augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
 				augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
 				augend.constant.alias.bool, -- boolean value (true <-> false)
+				augend.constant.alias.alpha,
+				augend.constant.alias.Alpha,
+				augend.semver.alias.semver,
 				augend.case.new({
 					types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
 					cyclic = true,

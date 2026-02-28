@@ -173,6 +173,34 @@ require("lz.n").load({
 		})
 		vim.lsp.enable("yamlls")
 
+		local nvim_lsp = require("lspconfig")
+
+		local is_node_dir = function()
+			return nvim_lsp.util.root_pattern("package.json")(vim.fn.getcwd())
+		end
+
+		-- ts_ls
+		local ts_opts = {}
+		ts_opts.on_attach = function(client)
+			if not is_node_dir() then
+				client.stop(true)
+			end
+		end
+
+		vim.lsp.config("ts_ls", ts_opts)
+		vim.lsp.enable("ts_ls")
+
+		-- denols
+		local deno_opts = {}
+		deno_opts.on_attach = function(client)
+			if is_node_dir() then
+				client.stop(true)
+			end
+		end
+
+		vim.lsp.config("denols", deno_opts)
+		vim.lsp.enable("denols")
+
 		-- TOML
 		vim.lsp.config("taplo", {
 			on_attach = on_attach,

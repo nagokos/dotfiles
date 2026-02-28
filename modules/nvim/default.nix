@@ -142,12 +142,12 @@ in
         type = "lua";
         config = builtins.readFile ./plugins/nvim-treesitter.lua;
       }
-      # {
-      #   plugin = nvim-ts-autotag;
-      #   type = "lua";
-      #   config = builtins.readFile ./plugins/nvim-ts-autotag.lua;
-      #   optional = true;
-      # }
+      {
+        plugin = nvim-ts-autotag;
+        type = "lua";
+        config = builtins.readFile ./plugins/nvim-ts-autotag.lua;
+        optional = true;
+      }
       {
         plugin = treesitter-unit;
         type = "lua";

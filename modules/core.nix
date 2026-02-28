@@ -69,6 +69,7 @@ in
     # JS/TS
     nodejs_20
     pnpm
+    deno
 
     # Rust
     #(fenix.combine [
@@ -85,8 +86,7 @@ in
 
     ###########################
     ## Fonts
-    nerd-fonts.jetbrains-mono
-
-    ###################
+    # nerd-fonts.jetbrains-mono
+    udev-gothic
   ];
 }

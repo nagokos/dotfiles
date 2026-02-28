@@ -1,6 +1,11 @@
 require("blink.cmp").setup({
 	sources = {
 		default = { "lsp", "path", "buffer", "snippets" },
+		providers = {
+			lsp = {
+				timeout_ms = 2000,
+			},
+		},
 	},
 	completion = {
 		list = {
