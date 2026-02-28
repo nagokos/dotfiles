@@ -88,10 +88,5 @@ in
     nerd-fonts.jetbrains-mono
 
     ###################
-    ## gui
-    obsidian
-    slack
-    discord
-    zoom-us
   ];
 }

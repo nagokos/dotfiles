@@ -52,16 +52,6 @@
       home-common =
         { lib, ... }:
         {
-          nixpkgs.config.allowUnfreePredicate =
-            pkg:
-            builtins.elem (lib.getName pkg) [
-              "slack"
-              "obsidian"
-              "discord"
-              "zoom"
-              "onepassword-password-manager"
-            ];
-
           nixpkgs.overlays = [
             neovim-nightly-overlay.overlays.default
             fenix.overlays.default
@@ -78,9 +68,7 @@
             ./modules/nvim
             ./modules/starship
             # ./modules/yazi
-            ./modules/wezterm
             ./modules/atuin
-            ./modules/firefox
             ./modules/vcs
           ];
         };
