@@ -371,6 +371,12 @@ in
 
       ## Rust
       {
+        plugin = rustaceanvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/rustaceanvim.lua;
+        optional = true;
+      }
+      {
         plugin = crates-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/crates.lua;

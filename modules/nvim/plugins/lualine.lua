@@ -71,8 +71,14 @@ require("lz.n").load({
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = {
 					{
-						"filename",
-						path = 1,
+						function()
+							local path = vim.fn.expand("%:p")
+							local parts = vim.split(path, "/")
+							if #parts >= 3 then
+								return table.concat({ parts[#parts - 2], parts[#parts - 1], parts[#parts] }, "/")
+							end
+							return vim.fn.expand("%:.")
+						end,
 					},
 				},
 				lualine_x = {
