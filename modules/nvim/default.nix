@@ -157,7 +157,6 @@ in
       ########################
       ## Statusline
       {
-        # BUG: home-manager switch error
         plugin = pkgs.vimUtils.buildVimPlugin {
           name = "lualine.nvim";
           src = pkgs.fetchFromGitHub {
