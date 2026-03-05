@@ -19,37 +19,37 @@ in
         "*.log"
         ignore_mac
       ];
-      # settings = {
-      # user = {
-      #   name = "nagokos";
-      #   email = "kosnago0428@gmail.com";
-      # };
-      #
-      # alias = {
-      #   ap = "add -p";
-      #   ba = "branch -a";
-      #   sw = "switch";
-      #   swb = "switch -";
-      #   swc = "switch -c";
-      #   cm = "commit -m";
-      #   fixit = "commit --amend --no-edit";
-      #   st = "status";
-      #   rs = "restore --staged";
-      #   fe = "fetch";
-      #   re = "rebase";
-      #   lo = "log --oneline";
-      #   po = "push origin HEAD";
-      #   df = "diff";
-      #   dfs = "diff --staged";
-      # };
-      #
-      # # extraConfig
-      # credential = {
-      #   helper = "!gh auth git-credential";
-      # };
-      # init.defaultBranch = "main";
-      # merge.conflictstyle = "diff3";
-      # };
+      settings = {
+        user = {
+          name = "nagokos";
+          email = "kosnago0428@gmail.com";
+        };
+
+        alias = {
+          ap = "add -p";
+          ba = "branch -a";
+          sw = "switch";
+          swb = "switch -";
+          swc = "switch -c";
+          cm = "commit -m";
+          fixit = "commit --amend --no-edit";
+          st = "status";
+          rs = "restore --staged";
+          fe = "fetch";
+          re = "rebase";
+          lo = "log --oneline";
+          po = "push origin HEAD";
+          df = "diff";
+          dfs = "diff --staged";
+        };
+
+        # extraConfig
+        credential = {
+          helper = "!gh auth git-credential";
+        };
+        init.defaultBranch = "main";
+        merge.conflictstyle = "diff3";
+      };
     };
     jujutsu = {
       enable = true;
