@@ -17,12 +17,6 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ## BUG: https://github.com/hraban/mac-app-util/issues/39
-    mac-app-util = {
-      url = "github:hraban/mac-app-util";
-      # inputs.nixpkgs.follows = "nixpkgs";
-      inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
-    };
 
     # Neovim
     neovim-nightly-overlay = {
@@ -44,7 +38,6 @@
       nix-darwin,
       neovim-nightly-overlay,
       fenix,
-      mac-app-util,
       nur,
       ...
     }@inputs:
@@ -59,7 +52,7 @@
           ];
 
           programs.home-manager.enable = true;
-          home.stateVersion = "24.11";
+          home.stateVersion = "25.11";
           imports = [
             ./modules/core.nix
             ./modules/direnv
@@ -75,9 +68,6 @@
       home-macbook = {
         home.username = "kosudanaohiro";
         home.homeDirectory = "/Users/kosudanaohiro";
-        imports = [
-          mac-app-util.homeManagerModules.default
-        ];
       };
     in
     {
