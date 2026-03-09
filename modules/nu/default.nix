@@ -4,7 +4,6 @@
 
     extraConfig = ''
       ${builtins.readFile ./config.nu}
-      ${builtins.readFile ./aliases.nu}
 
       ${builtins.readFile ./functions.nu}
     '';
