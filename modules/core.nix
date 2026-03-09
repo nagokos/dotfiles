@@ -61,7 +61,7 @@ in
     # Haskell
     haskellPackages.ghc
     haskellPackages.cabal-install
-    haskellPackages.hoogle
+    (pkgs.lib.lowPrio haskellPackages.hoogle)
 
     # Lua
     lua
