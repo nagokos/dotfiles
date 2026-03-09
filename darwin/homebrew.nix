@@ -8,7 +8,6 @@
     };
     global = {
       brewfile = true;
-      lockfiles = false;
     };
     casks = [
       "zoom"
