@@ -13,6 +13,10 @@ in
   programs = {
     git = {
       enable = true;
+      signing = {
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzh7sqoh2Y6x68q0eH3SiXFDZ9aJRmzXimSnL+4fHi4";
+        signByDefault = true;
+      };
       ignores = lib.flatten [
         "*.tmp"
         "*.swp"
@@ -24,7 +28,6 @@ in
           name = "nagokos";
           email = "kosnago0428@gmail.com";
         };
-
         alias = {
           ap = "add -p";
           ba = "branch -a";
@@ -44,9 +47,9 @@ in
         };
 
         # extraConfig
-        credential = {
-          helper = "!gh auth git-credential";
-        };
+        gpg.format = "ssh";
+        gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+        url."git@github.com:".insteadOf = "https://github.com/";
         init.defaultBranch = "main";
         merge.conflictstyle = "diff3";
       };
@@ -57,6 +60,12 @@ in
         user = {
           name = "nagokos";
           email = "kosnago0428@gmail.com";
+        };
+        signing = {
+          behavior = "own";
+          backend = "ssh";
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzh7sqoh2Y6x68q0eH3SiXFDZ9aJRmzXimSnL+4fHi4";
+          backends.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
         };
         ui = {
           editor = "nvim";
@@ -103,7 +112,8 @@ in
     };
     gh = {
       enable = true;
-      settings.git_protocol = "https";
+      settings.git_protocol = "ssh";
+      gitCredentialHelper.enable = false;
     };
     # delta = {
     #   enable = true;
