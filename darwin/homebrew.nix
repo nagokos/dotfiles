@@ -14,7 +14,6 @@
       "raycast"
       "google-chrome"
       "1password"
-      "1password-cli"
       "deepl"
       "slack"
       "obsidian"

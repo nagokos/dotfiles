@@ -51,6 +51,12 @@
             nur.overlays.default
           ];
 
+          nixpkgs.config.allowUnfreePredicate =
+            pkg:
+            builtins.elem (lib.getName pkg) [
+              "1password-cli"
+            ];
+
           programs.home-manager.enable = true;
           home.stateVersion = "25.11";
           imports = [
