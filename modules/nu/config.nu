@@ -19,6 +19,7 @@ let abbreviations = {
   ctn: "cargo test -- --nocapture"
   cr: "cargo run --quiet"
   hr: "runghc"
+  pb: "pbcopy"
   # git
   gap: "git add -p"
   gba: "git branch -a"
@@ -36,12 +37,14 @@ let abbreviations = {
   gdf: "git diff"
   gdfs: "git diff --staged"
   # jj
+  ja: "jj abandon"
+  je: "jj edit"
   jn: "jj new"
   js: "jj st"
   jl: "jj log"
   jp: "jj split"
   jq: "jj squash"
-  jqp: "jj squash --from @-"
+  jqp: "jj squash --from @- --into @--"
   jh: "jj show"
   jd: "jj describe -m"
   jdp: "jj describe -r @- -m"
