@@ -4,9 +4,16 @@ require("lz.n").load({
 	keys = {
 		{ "[_FuzzyFinder]a", "<Cmd>FzfLua buffers<CR>", desc = "buffers" },
 		{ "[_FuzzyFinder]f", "<Cmd>FzfLua files<CR>", desc = "files" },
+		{
+			"[_FuzzyFinder].",
+			function()
+				require("fzf-lua").files({ cwd = vim.fn.expand("%:p:h") })
+			end,
+			desc = "Find files in current file dir",
+		},
 		{ "[_FuzzyFinder]r", "<Cmd>FzfLua resume<CR>", desc = "resume" },
 		{ "[_FuzzyFinder]o", "<Cmd>FzfLua oldfiles<CR>", desc = "old files" },
-		{ "[_FuzzyFinder]s", "<Cmd>FzfLua live_grep_glob<CR>", desc = "live grep glob" },
+		{ "[_FuzzyFinder]s", "<Cmd>FzfLua live_grep<CR>", desc = "live grep glob" },
 		{ "[_FuzzyFinder]c", "<Cmd>FzfLua commands<CR>", desc = "commands" },
 		{ "[_FuzzyFinder]q", "<Cmd>FzfLua quickfix<CR>", desc = "quickfix" },
 		{ "[_FuzzyFinder]l", "<Cmd>FzfLua loclist<CR>", desc = "loclist" },
@@ -195,20 +202,24 @@ require("lz.n").load({
 			},
 			grep = {
 				input_prompt = "> ",
-				multiprocess = true, -- run command in a separate process
-				git_icons = true, -- show git icons?
-				file_icons = true, -- show file icons (true|"devicons"|"mini")?
-				color_icons = true, -- colorize file|git icons
+				multiprocess = true,
+				git_icons = true,
+				file_icons = true,
+				color_icons = true,
 				grep_opts = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
 				rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
-				rg_glob = false, -- default to glob parsing?
-				glob_flag = "--iglob", -- for case sensitive globs use "--glob"
-				glob_separator = "%s%-%-", -- query separator pattern (lua): " --"
+				rg_glob = true,
+				glob_flag = "--iglob",
+				glob_separator = "%s%-%-",
+				rg_glob_fn = function(query, opts)
+					local regex, flags = query:match("^(.-)%s%-%-(.*)$")
+					return (regex or query), flags
+				end,
 				actions = {
 					["ctrl-g"] = { actions.grep_lgrep },
 				},
-				no_header = false, -- hide grep|cwd header?
-				no_header_i = false, -- hide interactive header?
+				no_header = false,
+				no_header_i = false,
 			},
 			oldfiles = {
 				cwd_only = true,

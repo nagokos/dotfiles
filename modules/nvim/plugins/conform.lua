@@ -32,6 +32,14 @@ require("lz.n").load({
 				typescriptreact = web_formatter,
 				javascriptreact = web_formatter,
 				nix = { "nixfmt" },
+				nushell = { "nufmt" },
+			},
+			formatters = {
+				nufmt = {
+					command = "nu",
+					args = { "-c", "fmt" },
+					stdin = true,
+				},
 			},
 		})
 	end,

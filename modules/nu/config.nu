@@ -1,7 +1,15 @@
-let carapace_completer = {|spans: list<string>|
-    carapace $spans.0 nushell ...$spans
-    | from json
-    | if ($in | default [] | any {|| $in.display | str starts-with "ERR"}) { null } else { $in }
+let fish_completer = {|spans|
+    fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
+    | from tsv --flexible --noheaders --no-infer
+    | rename value description
+    | update value {|row|
+      let value = $row.value
+      let need_quote = ['\' ',' '[' ']' '(' ')' ' ' '\t' "'" '"' "`"] | any {$in in $value}
+      if ($need_quote and ($value | path exists)) {
+        let expanded_path = if ($value starts-with ~) {$value | path expand --no-symlink} else {$value}
+        $'"($expanded_path | str replace --all "\"" "\\\"")"'
+      } else {$value}
+    }
 }
 
 let abbreviations = {
@@ -42,6 +50,7 @@ let abbreviations = {
   jn: "jj new"
   js: "jj st"
   jl: "jj log"
+  jln: "jj log -r '::@' -n"
   jp: "jj split"
   jq: "jj squash"
   jqp: "jj squash --from @- --into @--"
@@ -49,9 +58,11 @@ let abbreviations = {
   jd: "jj describe -m"
   jdp: "jj describe -r @- -m"
   jf: "jj diff"
+  jfr: "jj diff -r"
   jfp: "jj diff -r @-"
   jt: "jj tug"
   jgp: "jj git push"
+  jjignore: "jj file untrack"
 }
 
 $env.config = {
@@ -69,7 +80,7 @@ $env.config = {
       algorithm: "prefix"
       external: {
         enable: true
-        completer: $carapace_completer
+        completer: $fish_completer
       }
       use_ls_colors: true
     }
@@ -245,13 +256,6 @@ $env.config = {
         mode: [vi_insert, vi_normal]
         event: { edit: backspaceword }
       }
-      # {
-      #   name: history_hint_accept
-      #   modifier: control
-      #   keycode: char_y
-      #   mode: vi_insert
-      #   event: { send: historyhintcomplete }
-      # }
       {
         name: vi_switch_normal
         modifier: control

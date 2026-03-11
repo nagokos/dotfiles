@@ -15,6 +15,7 @@
       "google-chrome"
       "1password"
       "deepl"
+      "spotify"
       "slack"
       "obsidian"
       "discord"

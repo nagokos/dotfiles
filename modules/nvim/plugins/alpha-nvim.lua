@@ -18,7 +18,7 @@ require("lz.n").load({
 		dashboard.section.buttons.val = {
 			dashboard.button("o", "  Find old file", "<Cmd>FzfLua oldfiles<CR>"),
 			dashboard.button("f", "  Find file", "<Cmd>FzfLua files<CR>"),
-			dashboard.button("s", "  Grep", "<Cmd>FzfLua live_grep_glob<CR>"),
+			dashboard.button("s", "  Grep", "<Cmd>FzfLua live_grep<CR>"),
 			dashboard.button("n", "  New file", "<Cmd>enew<CR>"),
 			dashboard.button("q", "  Exit", "<Cmd>qa<CR>"),
 		}

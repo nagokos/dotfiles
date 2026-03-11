@@ -276,10 +276,16 @@ in
 
       #########################
       ## Filer
+      # {
+      #   plugin = neo-tree-nvim;
+      #   type = "lua";
+      #   config = builtins.readFile ./plugins/neo-tree.lua;
+      #   optional = true;
+      # }
       {
-        plugin = neo-tree-nvim;
+        plugin = oil-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/neo-tree.lua;
+        config = builtins.readFile ./plugins/oil.lua;
         optional = true;
       }
 
