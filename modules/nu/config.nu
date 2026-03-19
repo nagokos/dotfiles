@@ -28,6 +28,7 @@ let abbreviations = {
   cr: "cargo run --quiet"
   hr: "runghc"
   pb: "pbcopy"
+  rm: "trash"
   # git
   gap: "git add -p"
   gba: "git branch -a"

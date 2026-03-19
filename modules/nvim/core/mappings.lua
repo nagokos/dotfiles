@@ -96,9 +96,9 @@ vim.keymap.set("x", "[_SubLeader]s", ":s/\\%V", { noremap = true, silent = false
 vim.keymap.set("i", "<C-w>", "<C-g>u<C-w>", { noremap = true, silent = true })
 
 -- Delete buffer
-vim.keymap.set("n", "[_SubLeader]bb", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[_SubLeader],", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
 -- Delete Close Others
-vim.keymap.set("n", "[_SubLeader]ba", "<Cmd>BufferLineCloseOthers<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[_SubLeader]a", "<Cmd>BufferLineCloseOthers<CR>", { noremap = true, silent = true })
 
 -- Delete all marks
 vim.keymap.set("n", "[_SubLeader]mm", "<Cmd>delmarks!<CR>", { noremap = true, silent = true })

@@ -11,16 +11,24 @@ require("lz.n").load({
 			end,
 			desc = "Find files in current file dir",
 		},
-		{ "[_FuzzyFinder]r", "<Cmd>FzfLua resume<CR>", desc = "resume" },
+		{
+			"[_FuzzyFinder],",
+			function()
+				local parent = vim.fn.fnamemodify(vim.fn.expand("%:p:h"), ":h")
+				require("fzf-lua").files({ cwd = parent })
+			end,
+			desc = "Find files in parent dir",
+		},
 		{ "[_FuzzyFinder]o", "<Cmd>FzfLua oldfiles<CR>", desc = "old files" },
 		{ "[_FuzzyFinder]s", "<Cmd>FzfLua live_grep<CR>", desc = "live grep glob" },
 		{ "[_FuzzyFinder]c", "<Cmd>FzfLua commands<CR>", desc = "commands" },
 		{ "[_FuzzyFinder]q", "<Cmd>FzfLua quickfix<CR>", desc = "quickfix" },
-		{ "[_FuzzyFinder]l", "<Cmd>FzfLua loclist<CR>", desc = "loclist" },
 		{ "[_FuzzyFinder]m", "<Cmd>FzfLua marks<CR>", desc = "marks" },
 		{ "[_FuzzyFinder]y", "<Cmd>FzfLua registers<CR>", desc = "registers" },
 		{ "[_FuzzyFinder]*", "<Cmd>FzfLua grep_cword<CR>", desc = "grep cursor word" },
 		{ "[_FuzzyFinder]d", "<Cmd>FzfLua diagnostics_workspace<CR>", desc = "diagnostics workspace" },
+		{ "[_FuzzyFinder]l", "<Cmd>FzfLua lsp_workspace_symbols<CR>", desc = "Find symbols" },
+
 		{ "[_FuzzyFinder]t", "<Cmd>TodoFzfLua<CR>", desc = "todo" },
 
 		{ "[_FuzzyFinder]gf", "<Cmd>FzfLua git_files<CR>", desc = "git files" },
