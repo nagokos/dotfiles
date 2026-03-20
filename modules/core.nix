@@ -67,7 +67,7 @@ in
     lua
 
     # JS/TS
-    nodejs_20
+    nodejs_25
     pnpm
     deno
 

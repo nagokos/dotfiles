@@ -26,7 +26,11 @@ require("lz.n").load({
 			},
 		})
 
-		-- local lspconfig = require("lspconfig")
+		local capabilities = require("blink.cmp").get_lsp_capabilities({})
+
+		vim.lsp.config("*", {
+			capabilities = capabilities,
+		})
 
 		require("lspconfig.ui.windows").default_options = {
 			border = "rounded",
@@ -51,8 +55,6 @@ require("lz.n").load({
 			vim.keymap.set("n", "[_Lsp]f", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 			vim.keymap.set("n", "?", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 		end
-
-		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Rust
 		vim.lsp.config("rust_analyzer", {
