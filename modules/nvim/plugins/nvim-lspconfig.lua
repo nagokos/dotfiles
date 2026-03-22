@@ -209,6 +209,19 @@ require("lz.n").load({
 		})
 		vim.lsp.enable("taplo")
 
+		-- tailwind
+		vim.lsp.config("tailwindcss", {
+			cmd = { "tailwindcss-language-server", "--stdio" },
+			filetypes = { "typescriptreact", "typescript", "javascriptreact", "javascript" },
+			root_markers = { "tailwind.config.js", "tailwind.config.ts" },
+			settings = {
+				tailwindCSS = {
+					classAttributes = { "class", "className" },
+				},
+			},
+		})
+		vim.lsp.enable("tailwindcss")
+
 		-- nix
 		vim.lsp.config("nixd", {
 			on_attach = on_attach,

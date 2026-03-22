@@ -439,6 +439,7 @@ in
       # etc
       biome
       prettierd
+      tailwindcss-language-server
 
       # fzf-lua
       ripgrep

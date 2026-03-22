@@ -4,6 +4,7 @@ require("lz.n").load({
 	keys = {
 		{ "[_FuzzyFinder]a", "<Cmd>FzfLua buffers<CR>", desc = "buffers" },
 		{ "[_FuzzyFinder]f", "<Cmd>FzfLua files<CR>", desc = "files" },
+		{ "[_FuzzyFinder]r", "<Cmd>FzfLua resume<CR>", desc = "resume" },
 		{
 			"[_FuzzyFinder].",
 			function()
