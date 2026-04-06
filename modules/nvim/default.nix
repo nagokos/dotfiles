@@ -405,7 +405,7 @@ in
 
     extraPackages = with pkgs; [
       # Bash
-      nodePackages.bash-language-server
+      pkgs.bash-language-server
       shellcheck
       shfmt
 
@@ -424,7 +424,7 @@ in
       typescript-language-server
 
       # json
-      nodePackages.vscode-json-languageserver
+      pkgs.vscode-json-languageserver
 
       # yaml
       yaml-language-server

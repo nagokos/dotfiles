@@ -69,7 +69,6 @@ in
     # JS/TS
     nodejs_25
     pnpm
-    deno
 
     # Rust
     #(fenix.combine [
