@@ -111,6 +111,13 @@ in
         optional = true;
       }
 
+      {
+        plugin = typescript-tools-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/typescript-tools-nvim.lua;
+        optional = true;
+      }
+
       ########################
       ## Treesitter
       {
@@ -440,6 +447,7 @@ in
       biome
       prettierd
       tailwindcss-language-server
+      postgres-language-server
 
       # fzf-lua
       ripgrep

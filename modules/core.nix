@@ -83,6 +83,7 @@ in
     # etc
     typos
     _1password-cli
+    awscli2
 
     ###########################
     ## Fonts

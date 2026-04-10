@@ -114,6 +114,12 @@ require("lz.n").load({
 		})
 		vim.lsp.enable("bashls")
 
+		-- postgres
+		vim.lsp.config("postgres_lsp", {
+			on_attach = on_attach,
+		})
+		vim.lsp.enable("postgres_lsp")
+
 		-- nu
 		vim.lsp.config("nushell", {
 			on_attach = on_attach,

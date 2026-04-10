@@ -52,7 +52,7 @@ let abbreviations = {
   jn: "jj new"
   js: "jj st"
   jl: "jj log"
-  jll: "jj log -r '::@' -n 20"
+  jla: "jj log -r 'all()'"
   jln: "jj log -r '::@' -n"
   jp: "jj split"
   jq: "jj squash"
@@ -65,6 +65,7 @@ let abbreviations = {
   jfp: "jj diff -r @-"
   jt: "jj tug"
   jgp: "jj git push"
+  jbc: "jj bookmark create"
   jjignore: "jj file untrack"
 }
 

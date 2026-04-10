@@ -1,5 +1,6 @@
 require("lz.n").load({
-	"typescript-tools",
+	"typescript-tools.nvim",
+	ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 	keys = {
 		{ "[_Lsp]ta", "<Cmd>TSToolsRemoveUnused<CR>", desc = "removes all unused statements" },
 	},
