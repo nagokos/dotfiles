@@ -13,7 +13,11 @@ local config = {
 
 	automatically_reload_config = true,
 
-	window_background_opacity = 0.75,
+	colors = {
+		split = "#444444",
+	},
+
+	window_background_opacity = 0.80,
 	macos_window_background_blur = 20,
 
 	window_decorations = "RESIZE",
@@ -208,42 +212,5 @@ local config = {
 		},
 	},
 }
-
-local function segments_for_right_status()
-	return {
-		wezterm.strftime("%Y/%m/%d %H:%M"),
-	}
-end
-wezterm.on("update-status", function(window, _)
-	local segments = segments_for_right_status()
-
-	local color_scheme = window:effective_config().resolved_palette
-	local fg = color_scheme.foreground
-
-	local elements = {}
-
-	for i, seg in ipairs(segments) do
-		local is_first = i == 1
-
-		if is_first then
-			table.insert(elements, { Background = { Color = "none" } })
-		end
-
-		table.insert(elements, { Foreground = { Color = fg } })
-		table.insert(elements, { Background = { Color = "none" } })
-		table.insert(elements, { Text = "" .. seg .. "   " })
-	end
-
-	window:set_right_status(wezterm.format(elements))
-end)
-
-wezterm.on("update-status", function(window, _)
-	local date = wezterm.strftime("%Y/%m/%d %H:%M")
-	window:set_right_status(wezterm.format({
-		{ Foreground = { Color = window:effective_config().resolved_palette.foreground } },
-		{ Background = { Color = "none" } },
-		{ Text = date .. "   " },
-	}))
-end)
 
 return config

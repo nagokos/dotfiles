@@ -1,4 +1,8 @@
+{ ... }:
 {
+  # imports = [
+  #   ./services/aerospace
+  # ];
   nix = {
     optimise.automatic = true;
     settings = {

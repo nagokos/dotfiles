@@ -89,5 +89,6 @@ in
     ## Fonts
     # nerd-fonts.jetbrains-mono
     udev-gothic-nf
+    hackgen-nf-font
   ];
 }

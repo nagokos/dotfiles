@@ -70,6 +70,7 @@
             ./modules/atuin
             ./modules/vcs
             ./modules/wezterm
+            # ./modules/sketchybar
           ];
         };
       home-macbook = {
