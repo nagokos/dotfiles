@@ -88,6 +88,6 @@ in
     ###########################
     ## Fonts
     # nerd-fonts.jetbrains-mono
-    udev-gothic
+    udev-gothic-nf
   ];
 }

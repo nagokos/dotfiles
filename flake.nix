@@ -69,6 +69,7 @@
             # ./modules/yazi
             ./modules/atuin
             ./modules/vcs
+            ./modules/wezterm
           ];
         };
       home-macbook = {
