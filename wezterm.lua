@@ -17,7 +17,7 @@ local config = {
 		split = "#444444",
 	},
 
-	window_background_opacity = 0.80,
+	window_background_opacity = 0.75,
 	macos_window_background_blur = 20,
 
 	window_decorations = "RESIZE",
