@@ -46,6 +46,11 @@
         { lib, ... }:
         {
           nixpkgs.overlays = [
+            (final: prev: {
+              direnv = prev.direnv.overrideAttrs (_: {
+                doCheck = false;
+              });
+            })
             neovim-nightly-overlay.overlays.default
             fenix.overlays.default
             nur.overlays.default
